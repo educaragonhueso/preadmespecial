@@ -1,0 +1,160 @@
+[17-Feb-2020 19:11:46] : [WARNING] - OBTENIENDO DATOS DEFINITIVOS POST:
+[17-Feb-2020 19:11:46] : [WARNING] - Array
+(
+    [id_centro] => 50018131
+    [rol] => centro
+    [subtipo] => admitidos_def
+    [pdf] => 1
+)
+
+[17-Feb-2020 19:11:46] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CABECERA: campos_cabecera_admitidos_def
+[17-Feb-2020 19:11:46] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CAMPOS DATOS: campos_bbdd_admitidos_def
+[17-Feb-2020 19:11:46] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CENTRO: 50018131
+[17-Feb-2020 19:11:46] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50018131
+[17-Feb-2020 19:11:46] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='ebo' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4971,4974,4972,4975)
+[17-Feb-2020 19:11:46] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='tva' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4982,4977,4976,4981,4978,4983,4973,4984)
+[17-Feb-2020 19:11:46] : [WARNING] - CONSULTA SOLICITUDES PROVISIONALES SUBTIPO: admitidos_def
+[17-Feb-2020 19:11:46] : [WARNING] - SELECT * FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='normal'  and est_desp_sorteo='admitida' and id_centro=50018131
+[17-Feb-2020 19:11:46] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, DATOS: 
+[17-Feb-2020 19:11:46] : [WARNING] - Array
+(
+)
+
+[18-Feb-2020 09:15:43] : [WARNING] - OBTENIENDO DATOS DEFINITIVOS POST:
+[18-Feb-2020 09:15:43] : [WARNING] - Array
+(
+    [id_centro] => 50018131
+    [rol] => centro
+    [subtipo] => admitidos_def
+    [pdf] => 1
+)
+
+[18-Feb-2020 09:15:43] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CABECERA: campos_cabecera_admitidos_def
+[18-Feb-2020 09:15:43] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CAMPOS DATOS: campos_bbdd_admitidos_def
+[18-Feb-2020 09:15:43] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CENTRO: 50018131
+[18-Feb-2020 09:15:43] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50018131
+[18-Feb-2020 09:15:43] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='ebo' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4971,4974,4972,4975)
+[18-Feb-2020 09:15:43] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='tva' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4982,4977,4976,4981,4978,4983,4973,4984)
+[18-Feb-2020 09:15:43] : [WARNING] - OBTENIENDO DEFINITIVOS
+[18-Feb-2020 09:15:43] : [WARNING] - CONSULTA SOLICITUDES DEFINITIVOS SUBTIPO: admitidos_def
+[18-Feb-2020 09:15:43] : [WARNING] - SELECT * FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='normal'  and est_desp_sorteo='admitida' and id_centro=50018131 order by  a.tipoestudios desc,b.puntos_validados desc
+[18-Feb-2020 09:15:43] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, DATOS: 
+[18-Feb-2020 09:15:43] : [WARNING] - Array
+(
+)
+
+[18-Feb-2020 09:17:35] : [WARNING] - OBTENIENDO DATOS DEFINITIVOS POST:
+[18-Feb-2020 09:17:35] : [WARNING] - Array
+(
+    [id_centro] => 50018131
+    [rol] => centro
+    [subtipo] => admitidos_def
+    [pdf] => 1
+)
+
+[18-Feb-2020 09:17:35] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CABECERA: campos_cabecera_admitidos_def
+[18-Feb-2020 09:17:35] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CAMPOS DATOS: campos_bbdd_admitidos_def
+[18-Feb-2020 09:17:35] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CENTRO: 50018131
+[18-Feb-2020 09:17:35] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50018131
+[18-Feb-2020 09:17:35] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='ebo' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4971,4974,4972,4975)
+[18-Feb-2020 09:17:35] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='tva' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4982,4977,4976,4981,4978,4983,4973,4984)
+[18-Feb-2020 09:17:35] : [WARNING] - OBTENIENDO DEFINITIVOS
+[18-Feb-2020 09:17:35] : [WARNING] - CONSULTA SOLICITUDES DEFINITIVOS SUBTIPO: admitidos_def
+[18-Feb-2020 09:17:35] : [WARNING] - SELECT * FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='normal'  and est_desp_sorteo='admitida' and id_centro=50018131 order by  a.tipoestudios desc,b.puntos_validados desc
+[18-Feb-2020 09:17:35] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, DATOS: 
+[18-Feb-2020 09:17:35] : [WARNING] - Array
+(
+)
+
+[18-Feb-2020 09:21:54] : [WARNING] - OBTENIENDO DATOS DEFINITIVOS POST:
+[18-Feb-2020 09:21:54] : [WARNING] - Array
+(
+    [id_centro] => 50018131
+    [rol] => centro
+    [subtipo] => admitidos_def
+    [pdf] => 1
+)
+
+[18-Feb-2020 09:21:54] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CABECERA: campos_cabecera_admitidos_def
+[18-Feb-2020 09:21:54] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CAMPOS DATOS: campos_bbdd_admitidos_def
+[18-Feb-2020 09:21:54] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CENTRO: 50018131
+[18-Feb-2020 09:21:54] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50018131
+[18-Feb-2020 09:21:54] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='ebo' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4971,4974,4972,4975)
+[18-Feb-2020 09:21:54] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='tva' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4982,4977,4976,4981,4978,4983,4973,4984)
+[18-Feb-2020 09:21:54] : [WARNING] - OBTENIENDO DEFINITIVOS
+[18-Feb-2020 09:21:54] : [WARNING] - CONSULTA SOLICITUDES DEFINITIVOS SUBTIPO: admitidos_def
+[18-Feb-2020 09:21:54] : [WARNING] - SELECT * FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='normal'  and est_desp_sorteo='admitida' and id_centro=50018131 order by  a.tipoestudios desc,b.puntos_validados desc
+[18-Feb-2020 09:21:54] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, DATOS: 
+[18-Feb-2020 09:21:54] : [WARNING] - Array
+(
+)
+
+[18-Feb-2020 09:21:57] : [WARNING] - OBTENIENDO DATOS DEFINITIVOS POST:
+[18-Feb-2020 09:21:57] : [WARNING] - Array
+(
+    [id_centro] => 50018131
+    [rol] => centro
+    [subtipo] => noadmitidos_def
+    [pdf] => 1
+)
+
+[18-Feb-2020 09:21:57] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CABECERA: campos_cabecera_noadmitidos_def
+[18-Feb-2020 09:21:57] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CAMPOS DATOS: campos_bbdd_noadmitidos_def
+[18-Feb-2020 09:21:57] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CENTRO: 50018131
+[18-Feb-2020 09:21:57] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50018131
+[18-Feb-2020 09:21:57] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='ebo' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4971,4974,4972,4975)
+[18-Feb-2020 09:21:57] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='tva' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4982,4977,4976,4981,4978,4983,4973,4984)
+[18-Feb-2020 09:21:57] : [WARNING] - OBTENIENDO DEFINITIVOS
+[18-Feb-2020 09:21:57] : [WARNING] - CONSULTA SOLICITUDES DEFINITIVOS SUBTIPO: noadmitidos_def
+[18-Feb-2020 09:21:57] : [WARNING] - SELECT * FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='normal'  and est_desp_sorteo='noadmitida' and id_centro=50018131 order by a.tipoestudios desc, b.puntos_validados desc
+[18-Feb-2020 09:21:57] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, DATOS: 
+[18-Feb-2020 09:21:57] : [WARNING] - Array
+(
+)
+
+[18-Feb-2020 18:44:50] : [WARNING] - OBTENIENDO DATOS DEFINITIVOS POST:
+[18-Feb-2020 18:44:50] : [WARNING] - Array
+(
+    [id_centro] => 50018131
+    [rol] => centro
+    [subtipo] => admitidos_def
+    [pdf] => 1
+)
+
+[18-Feb-2020 18:44:50] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CABECERA: campos_cabecera_admitidos_def
+[18-Feb-2020 18:44:50] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CAMPOS DATOS: campos_bbdd_admitidos_def
+[18-Feb-2020 18:44:50] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CENTRO: 50018131
+[18-Feb-2020 18:44:50] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50018131
+[18-Feb-2020 18:44:50] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='ebo' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4971,4974,4972,4975)
+[18-Feb-2020 18:44:50] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='tva' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4982,4977,4976,4981,4978,4983,4973,4984)
+[18-Feb-2020 18:44:50] : [WARNING] - OBTENIENDO DEFINITIVOS
+[18-Feb-2020 18:44:50] : [WARNING] - CONSULTA SOLICITUDES DEFINITIVOS SUBTIPO: admitidos_def
+[18-Feb-2020 18:44:50] : [WARNING] - SELECT * FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='normal'  and est_desp_sorteo='admitida' and id_centro=50018131 order by  a.tipoestudios desc,b.puntos_validados desc
+[18-Feb-2020 18:44:50] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, DATOS: 
+[18-Feb-2020 18:44:50] : [WARNING] - Array
+(
+)
+
+[18-Feb-2020 18:45:01] : [WARNING] - OBTENIENDO DATOS DEFINITIVOS POST:
+[18-Feb-2020 18:45:01] : [WARNING] - Array
+(
+    [id_centro] => 50018131
+    [rol] => centro
+    [subtipo] => noadmitidos_def
+    [pdf] => 1
+)
+
+[18-Feb-2020 18:45:01] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CABECERA: campos_cabecera_noadmitidos_def
+[18-Feb-2020 18:45:01] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CAMPOS DATOS: campos_bbdd_noadmitidos_def
+[18-Feb-2020 18:45:01] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, CENTRO: 50018131
+[18-Feb-2020 18:45:01] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50018131
+[18-Feb-2020 18:45:01] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='ebo' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4971,4974,4972,4975)
+[18-Feb-2020 18:45:01] : [WARNING] - UPDATE alumnos a set est_desp_sorteo='admitida' where fase_solicitud!='borrador' and tipoestudios='tva' and id_centro_destino=50018131 and estado_solicitud='normal' and a.id_alumno in(4982,4977,4976,4981,4978,4983,4973,4984)
+[18-Feb-2020 18:45:01] : [WARNING] - OBTENIENDO DEFINITIVOS
+[18-Feb-2020 18:45:01] : [WARNING] - CONSULTA SOLICITUDES DEFINITIVOS SUBTIPO: noadmitidos_def
+[18-Feb-2020 18:45:01] : [WARNING] - SELECT * FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='normal'  and est_desp_sorteo='noadmitida' and id_centro=50018131 order by a.tipoestudios desc, b.puntos_validados desc
+[18-Feb-2020 18:45:01] : [WARNING] - OBTENIENDO SOLICITUDES GENERALES, DATOS: 
+[18-Feb-2020 18:45:01] : [WARNING] - Array
+(
+)
+
