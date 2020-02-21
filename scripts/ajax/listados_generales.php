@@ -72,7 +72,6 @@ if($subtipo_listado=='sor_bar') $subtipo='SOLICITUDES BAREMADAS';
 if($subtipo_listado=='sor_bar') $subtipo='SOLICITUDES DETALLE BAREMO';
 
 print("<button type='button' class='btn btn-info' onclick='window.open(\"".DIR_SOR_WEB.$subtipo_listado.".pdf\",\"_blank\");'>Descarga listado</button>");
-print($list->showFiltrosTipo());
 print($filtro_datos);
 print("<div style='text-align:center'><h1>LISTADO ".strtoupper($tipo_listado)." ".strtoupper($subtipo)."</h1></div>");
 print($list->showFiltrosTipo());

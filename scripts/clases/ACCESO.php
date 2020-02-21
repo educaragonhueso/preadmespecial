@@ -22,19 +22,18 @@ class ACCESO
 	{
 		//generar usuarios
 		$clave=rand(1000,9999);
-		$nid=50020024;
-		$nidal=140;
+		$nid=50019900;//ultimo usuario
+		$nidal=1;//ultimo alumno
 		$nsol=0;
-		$ndni=15123000;
+		$ndni=35123000;
 		
 		for($i=1;$i<$ns;$i++)
 		{
 		$nidal++;
 		$ndni++;
-		$nsol=$nsol+1;
 		$nid=$nid+1;
 		$commit=1;
-		$nusuario="usu".$i;
+		$nusuario="nusu9".$i;
 		$sql="INSERT INTO usuarios values($nid,'$nusuario','alumno',md5($clave),$clave)";
 		$resusu = mysqli_query($this->c,$sql);
 		if(!$resusu)
@@ -49,20 +48,20 @@ class ACCESO
 		$idni=array_rand($adnitutor);
 		$dnitutor=$ndni.$adnitutor[$idni];
 
-		$fases = array("borrador","apta","validado");
+		$fases = array("borrador","apta","baremada");
 		$ifase=array_rand($fases);
 		$fase=$fases[$ifase];
 		
-		$estados = array("duplicada","irregular","normal");
+		$estados = array("duplicada","irregular","apta");
 		$iestado=array_rand($estados);
 		$estado=$estados[$iestado];
 		
-		$centros = array("22000251","50018131", "50019287","50011550");
+		$centros = array("50019020","50019081","50019101","50019147","50019251","50019287","50019299","50019317","50019354","50019378","50019408","50019500","50019548","50019551","50019597","50019615","50019676","50019731","50019792","50018131","50017369");
 		$icentro=array_rand($centros);
 		$idcentro=$centros[$icentro];
 		$nasignado=rand(1,20);
 		$nordensorteo=rand(1,20);
-		$transporte=rand(1,4);
+		$transporte=rand(1,3);
 		
 		$sql="INSERT INTO alumnos(id_alumno,id_usuario,nombre,apellido1,apellido2,dni_tutor1,id_centro_destino,nasignado,nordensorteo,transporte,estado_solicitud,fase_solicitud) 
 				values($nidal,$nid,'nombre".$i."','pape".$i."','sape".$i."','$dnitutor',$idcentro,$nasignado,$nordensorteo,$transporte,'$estado','$fase')";
@@ -75,15 +74,13 @@ class ACCESO
 			}
 		//datos baremo
 		$puntos=rand(1,200);
-		$sql="INSERT INTO baremo(id_alumno,puntos_totales) 
-				values($nidal,$puntos)";
+		$sql="INSERT INTO baremo(id_alumno,puntos_totales,puntos_validados) 
+				values($nidal,$puntos,$puntos)";
 		$resusu = mysqli_query($this->c,$sql);
 		if(!$resusu) $commit=0;
-		#print("CONSULTA INSERCION BAREMO");
-		#print($sql);
 		if($commit==0)
 			{	
-		 	$commit=0;
+		 	$commit=1;
 			print($this->c->error);
 			continue;
 			}
@@ -91,8 +88,8 @@ class ACCESO
 		if (!$this->c->commit()) 
 			{
   		echo "Commit transaction failed";
-  		exit();
 			}
+		$nsol++;
 		}
 		return $nsol;
 	}

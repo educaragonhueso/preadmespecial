@@ -1,8 +1,9 @@
 <?php
+require_once $_SERVER['CONTEXT_DOCUMENT_ROOT']."/config/config_global.php";
 require_once DIR_BASE.'/core/ControladorBase.php';
 require_once DIR_BASE.'/core/EntidadBase.php';
 require_once DIR_BASE.'/models/Solicitud.php';
-require_once DIR_BASE.'/SolicitudController.php';
+require_once DIR_BASE.'/controllers/SolicitudController.php';
 require_once DIR_BASE.'/scripts/ajax/form_alumnojs.php';
 
 require_once DIR_CLASES.'LOGGER.php';

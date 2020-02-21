@@ -23,7 +23,7 @@ include('includes/head.php');
 <body>
     <div class="wrapper">
 	    <div id="content">
-			<a href="http://hgir.tk/index.php"><button class="btn btn-outline-info" id="inicio" type="button">INICIO</button></a>
+			<a href="<? echo URL_BASE ?>"><button class="btn btn-outline-info" id="inicio" type="button">INICIO</button></a>
 			<button class="btn btn-primary" id="imprimir">IMPRIMIR CTRLP</button>
 	  	<span type="hidden" id="estado" name="estado"><?php echo $_SESSION['estado']; ?></span>
 	  	<span type="hidden" id="rol" name="rol"><?php echo $_SESSION['rol']; ?></span> 

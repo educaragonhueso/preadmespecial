@@ -53,7 +53,7 @@ return;
 				if(data.indexOf('NO HAY VACANTES')!=-1)
 				{
 					$.alert({
-								title: 'NO HAY VACANTES EN LOS ESTUDIOS SOLICITADOS',
+								title: 'NO HAY VACANTES EN O NO HAY SOLCITUDES APTAS',
 								content: 'CONTINUAR'
 							});
 				return;
@@ -500,22 +500,23 @@ function filtrar_solicitudes(t,n)
 		n=n.toLowerCase();
 		//si pulsamos en el check de todas se muestran todas y ponemo sel estado a false
     if(n.indexOf("todas")!=-1)
-		{
+	{
     	$(".filasol").each(function () 
 			{
 	    	$(this).show();
 				$(".filtrosol").prop('checked', false); 
 	    });
 		if(estado)
-			{
-        $(".filtrosol").each(function () 
-				{
-    			if($(this).attr("id").indexOf('TODAS')==-1) $(this).prop('checked', false);
-				});
-			}	
+		{
+	        $(".filtrosol").each(function () 
+		{
+    		if($(this).attr("id").indexOf('TODAS')==-1) $(this).prop('checked', false);
+		});
+		}	
 		return;
-		}
+	}
 	//detectar los checks marcados
+	var todas=$('#TODAS').prop('checked');
 	var borrador=$('#Borrador').prop('checked');
 	var validada=$('#Validada').prop('checked');
 	var baremada=$('#Baremada').prop('checked');
@@ -533,6 +534,10 @@ function filtrar_solicitudes(t,n)
 	if(ebo) nte='ebo';
 	if(tva) nte='tva';
 	var finder = "";
+	//si ambos, ebo y tva están pulsados mostramos todo
+	var pulsados=0;
+	if(ebo && tva) pulsados=1;
+
 	$(".filasol").each(function () 
 	{
   	var title = $(this).text();
@@ -550,13 +555,14 @@ function filtrar_solicitudes(t,n)
 	$(".filasol").each(function () 
 	{
   	var title = $(this).text();
-		var valor = $(this).children().eq(2).text();
-		console.log("PULSADO: "+valor);
-				if (valor.toLowerCase().indexOf(nte.toLowerCase()) >= 0 || valor.toLowerCase().indexOf(nte.toLowerCase()) >= 0 || valor.toLowerCase().indexOf(nte.toLowerCase()) >= 0) 
+		var valor = $(this).children().eq(3).text();
+		console.log("PULSADO: TIPO: "+nte);
+		console.log("PULSADO: PULSADOS LOS DOS: "+pulsados);
+				if (valor.toLowerCase().indexOf(nte.toLowerCase()) >= 0) 
 				{
 						$(this).show();
 				} 
-				else 
+				else if(pulsados==0 && !todas) 
 				{
 						$(this).hide();
 				}
@@ -783,7 +789,7 @@ $('body').on('click', '.send', function(e){
 			console.log("Alerta guardando solicitud de alumno");
 							$.alert({
 								title: 'SOLICITUD GUARDADA CORRECTAMENTE, PARA MODIFICAR USA EL PIN: '+data,
-								content: 'OK'
+								content: 'DE ACUERDO'
 								});
 			//añadimos boton para imprimir
 			var bimp= $('<a href="imprimirsolicitud.php?id='+vid+'"><input class="btn btn-primary imprimirsolicitud" style="background-color:brown;padding-left:20px" type="button" value="Vista Previa Impresion Documento"/></a>');
@@ -797,6 +803,7 @@ $('body').on('click', '.send', function(e){
 						$('#sol_table').find('tbody').prepend(data);
 							$.alert({
 								title: 'SOLICITUD GUARDADA CORRECTAMENTE',
+								content: 'DE ACUERDO'
 								});
 					}
 		 				$('#fnuevasolicitud').remove();
@@ -1508,7 +1515,7 @@ $('body').on('click', '.exportcsv', function(e)
 	  data: {id_centro:vidcentro,tipolistado:vsubtipo,rol:vrol},
 	  url:'../scripts/ajax/gen_csvs.php',
 	      success: function(data) {
-				console.log("generado csv");	
+				console.log(data);	
 				window.open(data,'_blank');
 		},
 	      error: function() {

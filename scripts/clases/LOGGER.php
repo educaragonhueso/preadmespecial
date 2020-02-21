@@ -2,7 +2,6 @@
 /**
 * st-PHP-Logger - Simple PHP logging class. Log info, warning, error messages to log files.
 */
-//namespace hgir\tools;
 /**
 * @author  Drew D. Lenhart - snowytech
 * @since   May 29, 2016

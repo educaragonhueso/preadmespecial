@@ -14,7 +14,7 @@ class Matricula extends EntidadBase{
 			parent::__construct($adapter,"matricula");
 			require_once DIR_CLASES.'LOGGER.php';
 			require_once DIR_APP.'parametros.php';
-			require_once DIR_BASE.'scripts/informes/pdf/fpdf/classpdf.php');
+			require_once DIR_BASE.'scripts/informes/pdf/fpdf/classpdf.php';
 			$this->log_gencsvs_mat=new logWriter('log_gencsvs_mat',DIR_LOGS);
     }
 	public function getAllMatListados($c=1,$tipo=0) 

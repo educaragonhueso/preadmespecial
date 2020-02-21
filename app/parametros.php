@@ -1,11 +1,11 @@
 <?php
-define("DIA_SORTEO",'2020-02-14');
+//define("DIA_SORTEO",'2020-02-14');
 define("DIR_CSVS",DIR_BASE.'/scripts/datossalida/listadoscsv/');
 define("DIR_PROV",DIR_BASE.'/scripts/datossalida/pdflistados/provisionales/');
 define("DIR_PROV_WEB",DIR_BASE.'/scripts/datossalida/pdflistados/provisionales/');
-define("DIR_CSVS_WEB",DIR_BASE.'/scripts/datossalida/listadoscsv/');
+define("DIR_CSVS_WEB",'/scripts/datossalida/listadoscsv/');
 define("DIR_SOR",DIR_BASE.'/scripts/datossalida/pdflistados/sorteo/');
-define("DIR_SOR_WEB",DIR_BASE.'/scripts/datossalida/pdflistados/sorteo/');
+define("DIR_SOR_WEB",'/scripts/datossalida/pdflistados/sorteo/');
 
 //Arrays de campos cabecera para los listados
 //NUMERO ASIGNADO DE SORTEO

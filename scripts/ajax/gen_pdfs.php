@@ -20,6 +20,8 @@ $id_centro=$_POST['id_centro'];
 $tipo=$_POST['tipolistado'];
 $rol=$_POST['rol'];
 $subtipo_pdf=$_POST['tipolistado'];//dentro de cada tipo, el subtipo de listado
+$subtipo_listado='vacantes';
+
 $cabecera="campos_cabecera_".$subtipo_pdf;
 $camposdatos="campos_bbdd_".$subtipo_pdf;
 

@@ -52,16 +52,20 @@ class ListadosController extends ControladorBase{
 		$this->log_sorteo->warning("ASIGNANDO NUMERO SORTEO");
 		$sql="SET @r := 0";
 		$this->adapter->query($sql);
-		$sql="UPDATE  alumnos SET nasignado = (@r := @r + 1) where id_centro_destino=$id_centro and fase_solicitud!='borrador' ORDER BY  RAND()";
-		$this->log_sorteo->warning($sql);
-		if($this->adapter->query($sql))
+		//ponemos todas a cero para evitar inconsistencias
+		$sql1="UPDATE  alumnos SET nasignado =0 WHERE id_centro_destino=$id_centro";
+		$sql2="UPDATE  alumnos SET nasignado = (@r := @r + 1) where id_centro_destino=$id_centro and fase_solicitud!='borrador' ORDER BY  RAND()";
+		$this->log_sorteo->warning($sql1);
+		$this->log_sorteo->warning($sql2);
+		if($this->adapter->query($sql1) and $this->adapter->query($sql2))
 		{
 			$this->log_sorteo->warning("OK ASIGNANDO NUM SORTEO");
 			return 1;
 		}
 		else{ 
 			$this->log_sorteo->warning("ERROR ASIGNANDO NUM SORTEO: ");
-			$this->log_sorteo->warning($sql);
+			$this->log_sorteo->warning($sql1);
+			$this->log_sorteo->warning($sql2);
 			$this->log_sorteo->warning($this->adapter->error);
 			return 0;
 		}
@@ -94,9 +98,9 @@ class ListadosController extends ControladorBase{
 		$this->log_gencsvs->warning('ENTRANDO EN GETSOLICITUDEs, MODO: '.$modo);
 		$solicitud=new Solicitud($this->adapter);
 		if($modo=='normal')// listados previos al sorteo
-    {	
+    		{	
 		  //Conseguimos todas las solcitudes del centro
-    	$allsolicitudes=$solicitud->getAllSolSorteo($id_centro,$tiposol,$fase_sorteo,$subtipo_listado,$provincia);
+	    	$allsolicitudes=$solicitud->getAllSolSorteo($id_centro,$tiposol,$fase_sorteo,$subtipo_listado,$provincia);
  		}
 		elseif($modo=='csv')
 		{
@@ -280,7 +284,7 @@ class ListadosController extends ControladorBase{
 	$cabadmin=0;
 	$cab=0;
 	if($rol=='centro')
-			$html.="<tr class='filasol' id='filasol".$sol->id_alumno."' style='color:white;background-color: #84839e;'><td colspan='".$ncolumnas."'><b>EBO</b></td></tr>";
+			$html.="<tr class='filasol' style='color:white;background-color: #84839e;'><td colspan='".$ncolumnas."'><b>EBO</b></td></tr>";
 
 	foreach($a as $sol) 
 	{
@@ -464,7 +468,7 @@ class ListadosController extends ControladorBase{
 	 
 	foreach($a as $obj)
 	$tres.="<tr>
-        <td>".$obj->centro."</td>
+        <td style='width: 16.66%'>".$obj->centro."</td>
         <td>".$obj->borrador."</td>
         <td>".$obj->validada."</td>
         <td>".$obj->baremada."</td>

@@ -30,14 +30,14 @@ $tcentro->setNombre();
 $nsolicitudes=$tcentro->getNumSolicitudes($id_centro);
 
 //variable para controlar si se actualiza el sorteo en la tabla de centros
-$fase_sorteo=0;//0: no realizado, 1: se han asignado los numeros aleatorios, 2: se ha realizado sorteo
+if($_POST['rol']=='centro') $fase_sorteo=$tcentro->getFaseSorteo();//0: no realizado, 1: se han asignado los numeros aleatorios, 2: se ha realizado sorteo
+else $fase_sorteo=2;
 $hoy = date("Y-m-d");
-$dia_sorteo=0;
 
 $form_nuevasolicitud='<div class="input-group-append" id="cab_fnuevasolicitud"><button class="btn btn-outline-info" id="nuevasolicitud" type="button">Nueva solicitud</button></div>';
 
 $log_listado_solicitudes->warning("OBTENIENDO SOLICITUDES COMO PROVINCIA".$_POST['rol']);
-//Para el caso de acceso del administrador
+//Para el caso de acceso del administrador o servicios provinciales
 if($_POST['rol']=='admin' or strpos($_POST['rol'],'sp')!==FALSE)
 {
 			$centros=$list->getCentrosIds($provincia);	
@@ -80,6 +80,8 @@ else
 	if(isset($_POST['asignar'])) 
 	{
 		if($list->asignarNumSol($id_centro)!=1){ print("Error asignando numero para el sorteo");exit();}
+		//actualizamos el centro para marcar la fase del sorteo
+		$tcentro->setFaseSorteo(1);
 		$fase_sorteo=1;
 	}
 	//si se ha realizado el sorteo
@@ -120,6 +122,7 @@ else
 	elseif($fase_sorteo==0)
 	{
 			//mostramos las solitudes completas, incluyendo borrador
+			$log_listado_solicitudes->warning("OBTENIENDO SOLICITUDES NUMERO DE SORTEO NO ASIGNADO");
 			$solicitudes=$list->getSolicitudes($id_centro,0,$fase_sorteo); 
 	}
 	else

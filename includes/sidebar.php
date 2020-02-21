@@ -17,11 +17,11 @@
                     <p id="show_solicitudes"><a>Listado Solicitudes</a></p>
                 </li>
                 <li class="active" >
-                    <p id="tabla_rmatricula" ><a href="http://hgir.tk/index.php?controller=Centros">Tabla Resumen Matrícula</a></p>
+                    <p id="tabla_rmatricula" ><a href="<?php echo URL_BASE.'?controller=Centros';?>">Tabla Resumen Matrícula</a></p>
                 </li>
 		<hr>
                 <li>
-                    <p id="nalumno"><a href="http://hgir.tk/index.php?controller=Alumnos&action=formNuevoAlumno">Nueva Solicitud</a></p>
+                    <p id="nalumno"><a href="<?php echo URL_BASE.'?controller=Alumnos&action=formNuevoAlumno';?>">Nueva Solicitud</a></p>
                 </li>
 		<hr>
                 <li>

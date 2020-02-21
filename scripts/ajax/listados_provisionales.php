@@ -18,6 +18,7 @@ $log_listados_provisionales->warning(print_r($_POST,true));
 
 $dir_pdf=DIR_BASE.'/scripts/datossalida/pdflistados/provisionales/';
 $id_centro=$_POST['id_centro'];
+$tipo_listado='provisionales';
 $subtipo_listado=$_POST['subtipo'];//dentro de cada tipo, el subtipo de listado
 $filtro_datos='<input type="text" class="form-control" id="filtrosol"  placeholder="Introduce datos del alumno"><small id="emailHelp" class="form-text text-muted"></small>';
 $list=new ListadosController('alumnos');

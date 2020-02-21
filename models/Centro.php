@@ -168,10 +168,34 @@ select ifnull(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),t3.plazas) as vacantes fro
 			
 			return  $resultSet;
     }
+    public function setFaseSorteo($f) 
+    {
+			$sql="update centros set fase_sorteo='$f' where id_centro='$this->id_centro'";
+			$this->log_sorteo->warning("ACTUALIZANDO FASE SORTEO");
+			$this->log_sorteo->warning($sql);
+			$query=$this->conexion->query($sql);
+			if($query)
+			return  1;
+			else return 0;
+    }
+    public function getFaseSorteo() {
+			$query=$this->conexion->query($sql);
+			$sql="select fase_sorteo rom centros where id_centro=$this->id_centro";
+			$this->log_sorteo->warning("OBTENIENDO FASE SORTEO");
+			$this->log_sorteo->warning($sql);
+			$query=$this->conexion->query($sql);
+			if($query)
+    			{
+			return  $query->fetch_object()->fase_sorteo;
+			}
+			else return 0;
+			
+
+    }
     public function setEstado($e) {
     }
     public function getEstado() {
-				$ec = $this->conexion->query("SELECT num_sorteo FROM centros WHERE id_centro =".$this->id_centro)->fetch_object()->num_sorteo; 
+	$ec = $this->conexion->query("SELECT num_sorteo FROM centros WHERE id_centro =".$this->id_centro)->fetch_object()->num_sorteo; 
         return $ec;
     }
 

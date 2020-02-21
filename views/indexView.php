@@ -23,7 +23,7 @@ include('includes/head.php');
 						else //usuario alumno autenticado
 			 				echo '<button class="btn btn-outline-info calumno" id="versolicitud" type="button">Ver solicitud</button>';
 			 			
-					echo '<a href="http://hgir.tk"><button class="btn btn-outline-info" id="inicio" type="button">INICIO</button></a>';
+					echo '<a href="'.USL_BASE.'"><button class="btn btn-outline-info" id="inicio" type="button">INICIO</button></a>';
 					}
 		?>
 		</div>

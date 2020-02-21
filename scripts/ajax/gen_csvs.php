@@ -49,6 +49,7 @@ if($tipo=='csv_mat_admin' && $rol=='admin')
 if($tipo=='csv_sol')
 {
 	$solicitudes=$list->getSolicitudes($id_centro,$tiposol,$fase_sorteo,$modo,'',$provincia); 
+	$log_gencsvs->warning("SOLICITUDES  CSV ");
 }
 //solicitudes duplicadas
 if($tipo=='csv_dup')
@@ -56,7 +57,7 @@ if($tipo=='csv_dup')
 	$solicitudes=$list->getSolicitudes($id_centro,$tiposol,$fase_sorteo,$modo,'dup'); 
 	
 	$log_gencsvs->warning("SOLICITUDES DUPLICADAS CSV: ");
-	$log_gencsvs->warning(print_r($centros_data,true));
+	$log_gencsvs->warning(print_r($solicitudes,true));
 }
 //si es para matricula de alumnos que promocionan
 if($tipo=='csv_pro')
@@ -64,7 +65,7 @@ if($tipo=='csv_pro')
 	$solicitudes=$list->getMatriculas($id_centro,$tiposol,$fase_sorteo,$modo); 
 	
 	$log_gencsvs->warning("DATOS CENTROS PARA CSV: ");
-	$log_gencsvs->warning(print_r($centros_data,true));
+	$log_gencsvs->warning(print_r($solicitudes,true));
 }
 //si es para datos de matricula
 if($tipo=='csv_mat')
@@ -80,6 +81,9 @@ if($tipo=='csv_mat')
 
 $fcsv=$list->genCsv($solicitudes,$id_centro,$tipo,$$cabecera,$$camposdatos,DIR_CSVS);
 
+$log_gencsvs->warning("SOLICITUDES  CSVi GENERADAS ");
+$log_gencsvs->warning("EN: ".DIR_CSVS);
+$log_gencsvs->warning("EN: ".DIR_CSVS_WEB);
 
 if($fcsv) 
 {
