@@ -2,7 +2,7 @@
 //define("DIA_SORTEO",'2020-02-14');
 define("DIR_CSVS",DIR_BASE.'/scripts/datossalida/listadoscsv/');
 define("DIR_PROV",DIR_BASE.'/scripts/datossalida/pdflistados/provisionales/');
-define("DIR_PROV_WEB",DIR_BASE.'/scripts/datossalida/pdflistados/provisionales/');
+define("DIR_PROV_WEB",'/scripts/datossalida/pdflistados/provisionales/');
 define("DIR_CSVS_WEB",'/scripts/datossalida/listadoscsv/');
 define("DIR_SOR",DIR_BASE.'/scripts/datossalida/pdflistados/sorteo/');
 define("DIR_SOR_WEB",'/scripts/datossalida/pdflistados/sorteo/');
@@ -40,11 +40,11 @@ $campos_cabecera_csv_dup=array('Centro','Primer apellido','Segundo apellido','No
 $campos_bbdd_csv_dup=array('nombre_centro','apellido1','apellido2','nombre','tipoestudios','fnac','dni_tutor1');
 
 //DATOS PARA LISTADOS PROVISIONALES
-$campos_cabecera_admitidos_prov=array('Tipo','Nº Orden','NºAleatorio','Primer Apellido','Segundo apellido','Nombre','Puntos Baremo','Transporte');
-$campos_bbdd_admitidos_prov=array('tipoestudios','nordensorteo','nasignado','apellido1','apellido2','nombre','puntos_validados','transporte');
+$campos_cabecera_admitidos_prov=array('Tipo','Nº Orden','NºAleatorio','Primer Apellido','Segundo apellido','Nombre','Transporte','Puntos Baremo');
+$campos_bbdd_admitidos_prov=array('tipoestudios','nordensorteo','nasignado','apellido1','apellido2','nombre','transporte','puntos_validados');
 
-$campos_cabecera_noadmitidos_prov=array('Nº Orden','NºAleatorio','Primer Apellido','Segundo apellido','Nombre','Puntos Baremo','Tipo','Transporte');
-$campos_bbdd_noadmitidos_prov=array('nordensorteo','nasignado','apellido1','apellido2','nombre','puntos_validados','transporte');
+$campos_cabecera_noadmitidos_prov=array('Nº Orden','NºAleatorio','Primer Apellido','Segundo apellido','Nombre','Tipo','Transporte','Puntos Baremo');
+$campos_bbdd_noadmitidos_prov=array('nordensorteo','nasignado','apellido1','apellido2','nombre','tipoestudios','transporte','puntos_validados');
 
 $campos_cabecera_excluidos_prov=array('NºAleatorio','Primer Apellido','Segundo apellido','Nombre','Puntos Baremo');
 $campos_bbdd_excluidos_prov=array('nasignado','apellido1','apellido2','nombre','puntos_validados');

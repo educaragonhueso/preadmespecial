@@ -1,8 +1,11 @@
 <?php
+require_once $_SERVER['CONTEXT_DOCUMENT_ROOT']."/config/config_global.php";
+require_once DIR_CLASES.'LOGGER.php';
+require_once DIR_APP.'parametros.php';
 require_once DIR_BASE.'core/ControladorBase.php';
 require_once DIR_BASE.'core/EntidadBase.php';
 require_once DIR_BASE.'controllers/ListadosController.php';
-require_once DIR_BASE.'CentrosController.php';
+require_once DIR_BASE.'controllers/CentrosController.php';
 require_once DIR_BASE.'models/Centro.php';
 
 

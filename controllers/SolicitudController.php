@@ -409,7 +409,7 @@ class SolicitudController extends ControladorBase{
 		
 		$sol=(object)$sol;
 		$li="<tr class='filasol' id='filasol".$sol->id_alumno."' style='color:black'>";
-    $li.="<td class='calumno dalumno' data-idal='".$sol->id_alumno."'>".$sol->id_alumno."-".strtoupper($sol->apellido1).",".strtoupper($sol->nombre)."</td>";
+		$li.="<td class='calumno dalumno' data-idal='".$sol->id_alumno."'>".$sol->id_alumno."-".strtoupper($sol->apellido1).",".strtoupper($sol->nombre)."</td>";
 		$li.="<td id='print".$sol->id_alumno."' class='fase printsol'><i class='fa fa-print psol' aria-hidden='true'></i></td>";
 		$li.="<td id='fase".$sol->id_alumno."' class='fase'>".$sol->fase_solicitud."</td>";
 		$li.="<td id='estado".$sol->id_alumno."' class='estado'>".$sol->estado_solicitud."</td>";
@@ -421,35 +421,6 @@ class SolicitudController extends ControladorBase{
 		$li.="</tr>";
 	return $li;
 	}
-    public function showSolicitud_old2($sol)
-		{
-		$li="<tr class='filasol' id='filasol".$sol['id_alumno']."'>";
-		$li.="<span id='estado".$sol['id_alumno']."'>".$sol['estado']."</span>";
-                $li.="<span class='calumno dalumno' data-idal='".$sol['id_alumno']."'>".$sol['id_alumno']."-".strtoupper($sol['apellido1']).",";
-                $li.= strtoupper($sol['apellido1']);
-                $li.='<div class="right" id="'.$sol['estado'].'"><a  class="btn btn-danger estado" id="'.$sol['id_alumno'].'" >BORRADOR</a></div>&nbsp
-                <div class="right" id="'.$sol['estado'].'"><a  class="btn btn-info estado" id="'.$sol['id_alumno'].'" >PROVISIONAL</a></div>&nbsp;
-                <div class="right" id="'.$sol['estado'].'"><a  class="btn btn-success estado" id="'.$sol['id_alumno'].'" >DEFINITIVO</a></div>
-                <hr/></span>';
-        $li.='</tr>';
-
-		return $li;
-		}
-    public function showSolicitud_old($sol)
-		{
-		$li="<div class='filasol' id='filasol".$sol['id_alumno']."'>";
-		$li.="<span id='estado".$sol['id_alumno']."'>".$sol['estado']."</span>";
-                $li.="<span class='calumno dalumno' data-idal='".$sol['id_alumno']."'>".$sol['id_alumno']."-".strtoupper($sol['apellido1']).",";
-                $li.= strtoupper($sol['apellido1']);
-                $li.='<div class="right" id="'.$sol['estado'].'"><a  class="btn btn-danger estado" id="'.$sol['id_alumno'].'" >BORRADOR</a></div>&nbsp
-                <div class="right" id="'.$sol['estado'].'"><a  class="btn btn-info estado" id="'.$sol['id_alumno'].'" >PROVISIONAL</a></div>&nbsp;
-                <div class="right" id="'.$sol['estado'].'"><a  class="btn btn-success estado" id="'.$sol['id_alumno'].'" >DEFINITIVO</a></div>
-                <hr/></span>';
-        $li.='</div>';
-
-		return $li;
-		}
-    
 		public function getConexion()
 		{
 			return $this->adapter;

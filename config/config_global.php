@@ -13,4 +13,7 @@ define("DIR_LOGS",DIR_BASE.'/scripts/datos/logs/');
 define("URL_BASE",'http://preadmespecial.aragon.es/');
 
 define("DIA_SORTEO",'2020-02-21');
+define("DIA_BAREMACION",'2020-02-21');
+define("DIA_PROVSIONALES",'2020-02-22');
+define("DIA_DEFINIVOS",'2020-02-25');
 ?>

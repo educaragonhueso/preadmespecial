@@ -5,6 +5,7 @@ include('includes/head.php');
 <body>
     <div class="wrapper">
         <div id="content">
+	  <span type="hidden" id="estado_convocatoria" name="estado_estado_convocatoria"><?php echo $_SESSION['estado_convocatoria']; ?></span>
 	  <span type="hidden" id="estado" name="estado"><?php echo $_SESSION['estado']; ?></span>
 	  <span type="hidden" id="rol" name="rol"><?php echo $_SESSION['rol']; ?></span> 
 		<?php if($_SESSION['rol']=='centro' or $_SESSION['rol']=='admin' or strpos($_SESSION['rol'],'sp')!==FALSE) include('includes/menusuperior.php');?>

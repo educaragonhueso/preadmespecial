@@ -17,6 +17,7 @@ class ListadosController extends ControladorBase{
 				}
 				$this->log_sorteo=new logWriter('log_sorteo',DIR_LOGS);
 				$this->log_listado_general=new logWriter('log_listados_generales',DIR_LOGS);
+				$this->log_listados_matricula=new logWriter('log_listados_matricula',DIR_LOGS);
 				$this->log_listados_provisionales=new logWriter('log_listados_provisionales',DIR_LOGS);
 				$this->log_listados_definitivos=new logWriter('log_listados_definitivos',DIR_LOGS);
 				$this->log_listados_solicitudes=new logWriter('log_listado_solicitudes',DIR_LOGS);
@@ -93,7 +94,7 @@ class ListadosController extends ControladorBase{
 		}
 	return $allmatriculas;
 	}
-  public function getSolicitudes($id_centro=1,$tiposol=0,$fase_sorteo=0,$modo='normal',$subtipo_listado='',$provincia='todas')
+  public function getSolicitudes($id_centro=1,$tiposol=0,$fase_sorteo=0,$modo='normal',$subtipo_listado='',$provincia='todas',$estado_convocatoria=0)
 	{
 		$this->log_gencsvs->warning('ENTRANDO EN GETSOLICITUDEs, MODO: '.$modo);
 		$solicitud=new Solicitud($this->adapter);
@@ -105,17 +106,17 @@ class ListadosController extends ControladorBase{
 		elseif($modo=='csv')
 		{
 			$this->log_gencsvs->warning('OBTENIENDO SOL PARA CSV');
-    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,$tiposol,$subtipo_listado);
+    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,$tiposol,$subtipo_listado,$estado_convocatoria);
 		}
 		elseif($modo=='provisionales')
 		{
-			$this->log_listados_provisionales->warning('OBTENIENDO PROVISIONALES');
-    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,1,$subtipo_listado,$fase_sorteo);
+			$this->log_listados_provisionales->warning('OBTENIENDO PROVISIONALES GETALLSOLLISTADOS');
+    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,1,$subtipo_listado,$fase_sorteo,$estado_convocatoria);
 		}
 		elseif($modo=='definitivos')
 		{
 			$this->log_listados_definitivos->warning('OBTENIENDO DEFINITIVOS');
-    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,2,$subtipo_listado);
+    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,2,$subtipo_listado,$estado_convocatoria);
 		}
 	return $allsolicitudes;
 	}
@@ -239,10 +240,10 @@ class ListadosController extends ControladorBase{
       </tr>
     </thead>";
 	$html.="<tbody>";
-					foreach($a as $user) 
-					{
-						$html.=$this->showSolicitud($user);	
-					}
+		foreach($a as $user) 
+		{
+			$html.=$this->showSolicitud($user);	
+		}
 	$html.="</tbody>";
 	$html.='</table>';
 
@@ -294,7 +295,6 @@ class ListadosController extends ControladorBase{
 			$centroactual=$sol->id_centro;
 			if($sol->tipoestudios=='tva' and $cabadmin==0)
 			{
-				//$html.="<tr class='filasol' id='filasol".$sol->id_alumno."' style='color:white;background-color: #84839e;'><td colspan='".$ncolumnas."'><b>".$sol->tipoestudios."</b></td></tr>";
 				$cabadmin=1;
 			}
 			if($centroactual!=$centroanterior)
@@ -346,6 +346,8 @@ class ListadosController extends ControladorBase{
 	}
   public function showMatriculado($mat)
 	{
+		$this->log_listados_matricula->warning("MOSTRANDO MATRICULA");
+		$this->log_listados_matricula->warning(print_r($mat,true));
 			$class='continua';
 			$i= $mat->id_alumno;
 			if($mat->estado=='continua') $estado='NO CONTINUA'; 
@@ -358,20 +360,22 @@ class ListadosController extends ControladorBase{
       $li.= '<td id="estado'.$i.'">'.strtoupper($mat->estado).'</td>';
      
 			if($mat->tipo_alumno_actual=='tva')
-					{ 
-      		$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A EBO</button></td>';
-      		$li.= '<td><button type="button" class="btn btn-info continua" id="continua'.$i.'">'.$estado.'</button></td>';
-					}
+			{ 
+      			$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A EBO</button></td>';
+      			$li.= '<td><button type="button" class="btn btn-info continua" id="continua'.$i.'">'.$estado.'</button></td>';
+			}
 			if($mat->tipo_alumno_actual=='ebo')
-					{ 
-      		$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A TVA</button></td>';
-      		$li.= '<td><button type="button" class="btn btn-info continua" id="continua'.$i.'">'.$estado.'</button></td>';
-					}
+			{ 
+      			$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A TVA</button></td>';
+	      		$li.= '<td><button type="button" class="btn btn-info continua" id="continua'.$i.'">'.$estado.'</button></td>';
+			}
 			$li.='</tr>';
 		return $li;
 	}
   public function showMatriculados($a)
 	{
+		$this->log_listados_matricula->warning("MOSTRANDO MATRICULADOS");
+		$this->log_listados_matricula->warning(print_r($a,true));
 	//codigo para mostrar alumnos según tipo de inscripcion
 		$tmat='<table class="table usuario table-striped">
     <thead class="theadmat">

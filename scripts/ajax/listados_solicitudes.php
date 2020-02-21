@@ -17,6 +17,7 @@ $log_listado_solicitudes=new logWriter('log_listado_solicitudes',DIR_LOGS);
 //VARIABLES
 $modo='presorteo';
 $id_centro=$_POST['id_centro'];
+$estado_convocatoria=$_POST['estado_convocatoria'];
 $filtro_solicitudes='<input type="text" class="form-control" id="filtrosol"  placeholder="Introduce datos del alumno o centro"><small id="emailHelp" class="form-text text-muted"></small>';
 $list=new ListadosController('alumnos');
 $conexion=$list->getConexion();
@@ -99,12 +100,14 @@ else
 			if($list->actualizaSolicitudesSorteo($id_centro,$nsorteo,$nsolicitudes,$vacantes_ebo,$vacantes_tva)==0) print("NO HAY VACANTES");
 			else
 			{
-			//cambiamos el estado del centro para q refleje q el sorteo se ha realizado
-			//generamos la tabla de soliciutdes para los listados provisionales
+			//Si hemos llegado al dia d elas provisionales o posterior, generamos la tabla de soliciutdes para los listados provisionales
+				if($estado_convocatoria==2)
+				{
 				$tsolicitud->copiaTablaProvisionales($id_centro);	
-			########################################################################################
-			$log_listado_solicitudes->warning("CREADA TABLA PROV. ESTADO: ".$tcentro->getEstado());
-			########################################################################################
+				########################################################################################
+				$log_listado_solicitudes->warning("CREADA TABLA PROV. ESTADO: ".$tcentro->getEstado());
+				########################################################################################
+				}
 			}	
 			########################################################################################
 			$log_listado_solicitudes->warning("ACTUALIZANDO DATOS ALUMNOS SORTEO vacantes: ".$nsolicitudes);

@@ -10,10 +10,11 @@ $( ":input" ).select(function() {
 
 $('body').on('click', '#boton_asignar_numero', function(e){
 var vrol=$('#rol').text();
+var vestado_convocatoria=$('#estado_convocatoria').text();
 var vidcentro=$('#id_centro').text();
 	$.ajax({
 	  method: "POST",
-	  data: {asignar:'1',id_centro:vidcentro,rol:vrol},
+	  data: {asignar:'1',id_centro:vidcentro,rol:vrol,estado_convocatoria:vestado_convocatoria},
 	  url:'../scripts/ajax/listados_solicitudes.php',
 	      success: function(data) {
 				$("#sol_table").remove();
@@ -35,8 +36,6 @@ var vsolicitudes=$(this).attr("data-solicitudes");
 var vnum_sorteo=$('#num_sorteo').val();
 var vnum_solicitudes=$('#num_solicitudes').val();
 var isnum = /^\d+$/.test(vnum_sorteo);
-console.log("num sol: "+vnum_solicitudes);
-console.log("num sorteo: "+vnum_sorteo);
 if (!isnum) {
     alert('No es un numero');
 return;
@@ -89,7 +88,6 @@ var vid=$(this).attr("id");
 vid=vid.replace('hermanos_datos_admision','');
 var vid =vid.substring(1, vid.length);
 var nher=calcular_hermanos(vid);
-console.log("mod num hermanos admin"+vid+" num hermanos: "+nher);
 $("#hermanosadmision"+vid).attr("value",calcular_hermanos(vid));
 });
 
@@ -117,17 +115,14 @@ var vid=vid.replace('baremo_proximidad_domicilio','');
 var bar_def=recalcular_baremo(vid);
 if($(this).attr("data-dom")=='laboral')
 {
-console.log('toggle laboral');
 $("#calle_dlaboral").toggle('slow');
 $('#calle_dllimitrofe').hide('slow');
 }else if($(this).attr("data-dom")=='limitrofe')
 {
 $("#calle_dllimitrofe").toggle('slow');
 $('#calle_dlaboral').hide('slow');
-console.log('ocultando');
 }
 else{
-console.log('ocultando');
 $('#calle_dlaboral').hide('slow');
 $('#calle_dllimitrofe').hide('slow');
 }
@@ -199,8 +194,6 @@ var total_baremo_validado=0;
 var baremo1=$('input[name=baremo_proximidad_domicilio'+id+']:checked').attr("data-baremo");
 var baremo1_validado=$('#baremo_validar_proximidad_domicilio'+id).val();
 
-console.log("id: #baremo_validar_proximidad_domicilio"+id);
-console.log("baremovalidado 1:"+ baremo1_validado);
 
 var baremo2=$('input[id=baremo_tutores_centro'+id+']:checked').attr("data-baremo");
 var baremo2_validado=$('#baremo_validar_tutores_centro'+id).val();
@@ -266,8 +259,6 @@ else
 	total_hbaremo=0;
 	}
 totalbaremo=totalbaremo+total_hbaremo;
-console.log("total baremo final: "+totalbaremo);
-console.log("total baremo validado final: "+total_baremo_validado);
 
 $("#id_puntos_baremo_totales"+id).text(totalbaremo);
 $("#id_puntos_baremo_validados"+id).text(total_baremo_validado);
@@ -287,7 +278,6 @@ var vid=$(this).attr("name");
 vid=vid.replace('boton_baremo_validar_proximidad_domicilio','');
 var texto=$(this).text();
 
-console.log('validando'+vid);
 if(texto=='Validar domicilio')
 {
 var val_def=recalcular_validacion(vid);
@@ -323,7 +313,6 @@ var val_def=recalcular_validacion(vid);
 
 if(val_def!=0)
 	{
-	console.log('validacion ok'+'.labelbaremo'+vid);
 	$('#labelbaremo'+vid).removeClass('crojo');
 	$('#labelbaremo'+vid).addClass('cverde');
 	}
@@ -351,7 +340,6 @@ var val_def=recalcular_validacion(vid);
 
 if(val_def!=0)
 	{
-	console.log('validacion ok'+'labelbaremo'+vid);
 	$('#labelbaremo'+vid).removeClass('crojo');
 	$('#labelbaremo'+vid).addClass('cverde');
 	}
@@ -403,7 +391,6 @@ var vid=$(this).attr("name");
 vid=vid.replace('boton_baremo_validar_discapacidad','');
 var texto=$(this).text();
 
-console.log('validando'+vid);
 if(texto=='Validar discapacidad')
 {
 var val_def=recalcular_validacion(vid);
@@ -556,8 +543,6 @@ function filtrar_solicitudes(t,n)
 	{
   	var title = $(this).text();
 		var valor = $(this).children().eq(3).text();
-		console.log("PULSADO: TIPO: "+nte);
-		console.log("PULSADO: PULSADOS LOS DOS: "+pulsados);
 				if (valor.toLowerCase().indexOf(nte.toLowerCase()) >= 0) 
 				{
 						$(this).show();
@@ -617,7 +602,6 @@ $('body').on('click', '.bform', function(e){
 //Hermanos para el baremo
 $('body').on('change', 'input[id*=num_hbaremo]', function(e){
 
-console.log("hermanos baremo");
 var vid=$(this).attr("id");
 vid=vid.replace('num_hbaremo','');
 
@@ -640,7 +624,6 @@ var val=$(this).attr("value");
 var id=$(this).attr("id");
 var vid=id.replace('nuevaesc','');
 var tabla=".fila"+id;
-console.log(tabla);
 if(val=='0')
 {	
 	$(this).attr('value','1');
@@ -649,7 +632,6 @@ if(val=='0')
 else
 {
 		var centro=$("#id_centro_estudios_origen"+vid).val();
-		console.log("centro elegido: "+centro);
 		if(centro.indexOf("*")!=-1) $(".freserva"+vid).show('slow');
 		else $(".freserva"+vid).hide('slow');
 		$(this).attr('value','0');
@@ -661,7 +643,6 @@ $('body').on('change', '.check_hadmision', function(e){
 var val=$(this).attr("value");
 var id=$(this).attr("id");
 var tabla="#t"+id;
-console.log(tabla);
 if(val=='0')
 {	
 	
@@ -697,13 +678,11 @@ else
 function block(c,id,n){
 if(c.indexOf('oponenautorizar')!=-1)
 {
-console.log("bloqueando"+id);
 if(n=='0') $("#cumplen"+id).attr('disabled', false);
 else $("#cumplen"+id).attr('disabled', true);
 }
 else
 {
-console.log("bloqueando"+id);
 if(n=='0') $("#oponenautorizar"+id).prop('disabled', false);
 else $("#oponenautorizar"+id).prop('disabled', true);
 }
@@ -712,7 +691,6 @@ else $("#oponenautorizar"+id).prop('disabled', true);
 /////////////////////////////////////////////////////////////////////////////////
 //ACTUALIZAR - CREAR NUEVA SOLICITUD
 $('body').on('click', '.send', function(e){
-	console.log("guardando solicitud");
   var tipo=$(this).text();
 	var vrol=$('#rol').text();
 
@@ -783,10 +761,8 @@ $('body').on('click', '.send', function(e){
 		else{
 			if(tipo=='GRABAR SOLICITUD')
 			{
-			console.log("guardando solicitud de alumno");
 			if(vrol.indexOf('alumno')!=-1)
 			{ 
-			console.log("Alerta guardando solicitud de alumno");
 							$.alert({
 								title: 'SOLICITUD GUARDADA CORRECTAMENTE, PARA MODIFICAR USA EL PIN: '+data,
 								content: 'DE ACUERDO'
@@ -799,7 +775,6 @@ $('body').on('click', '.send', function(e){
 			}
 			if(data.indexOf('ERROR')!=-1){ alert(data);return ;}
   		else {
-						console.log("añadiendo solicitud");
 						$('#sol_table').find('tbody').prepend(data);
 							$.alert({
 								title: 'SOLICITUD GUARDADA CORRECTAMENTE',
@@ -824,7 +799,6 @@ $('body').on('click', '.send', function(e){
 					});
 		 		$('#fsolicitud'+vid).hide();
 		 		$('.show_solicitudes').click();
-				console.log("Actualizada solicitud");
 			}
 			}
 		},
@@ -846,7 +820,6 @@ function campo_dnisol(str) {
 
 function validarFormulario(fd)
 {
-//console.log(fd);
 var valido='1';
 var res = fd.split("&");
 
@@ -906,7 +879,7 @@ if(d[0].indexOf('tel_dfamiliar1')==0)
 //comp datos sección expone
 if(d[0]=='id_centro_destino')
 	{
-	if(d[1]=='') {console.log("cdes-"+d+"-destino");return 'Debes indicar un centro de destino';}
+	if(d[1]=='') {return 'Debes indicar un centro de destino';}
 	}
 //si se marca la renta inferior debe indicarse datos de tributantes
 if(d[0]=='baremo_renta_inferior')
@@ -1003,7 +976,6 @@ $('body').on('click', '#nuevasolicitud', function(e)
 $(".show_solicitudes").click(function () {  
   var vid_centro=$('#id_centro').text();
   var vrol=$('#rol').text();
-console.log(vrol);
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/listados_solicitudes.php",
@@ -1047,7 +1019,6 @@ $.ajax({
 				}
 				else
 				{
-				console.log("admin respuesta");
 				$("#l_matricula").html(data);
 				$(".container").hide();
 				}
@@ -1064,10 +1035,11 @@ $(".lprovisionales").click(function () {
   var vrol=$('#rol').text();
   var vtipo=$(this).attr("data-tipo");
   var vsubtipo=$(this).attr("data-subtipo");
+  var vestado_convocatoria=$('#estado_convocatoria').text();
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/listados_provisionales.php",
-  data: {id_centro:vid_centro,rol:vrol,tipo:vtipo,subtipo:vsubtipo,pdf:vpdf},
+  data: {id_centro:vid_centro,rol:vrol,tipo:vtipo,subtipo:vsubtipo,pdf:vpdf,estado_convocatoria:vestado_convocatoria},
       success: function(data) {
 
 				if(vrol=='centro')
@@ -1077,7 +1049,6 @@ $.ajax({
 				}
 				else
 				{
-				console.log("admin respuesta");
 				$("#l_matricula").html(data);
 				$(".container").hide();
 				}
@@ -1107,7 +1078,6 @@ $.ajax({
 				}
 				else
 				{
-				console.log("admin respuesta");
 				$("#l_matricula").html(data);
 				$(".container").hide();
 				}
@@ -1120,7 +1090,6 @@ $.ajax({
 
 //LISTADO MATRICULA
 $('body').on('click', '.show_matricula', function(e){
-//$(".show_matricula").click(function () {  
   var vid_centro=$('#id_centro').text();
   var vrol=$('#rol').text();
 $.ajax({
@@ -1131,13 +1100,11 @@ $.ajax({
 			{
 				if(vrol=='admin') 
 				{
-					console.log('admin');
 						$("#l_matricula").html(data);
 				}
 				else
 				{
 						$(".tresumenmat").hide();
-						console.log("#table"+vid_centro);
 						$("#tresumen"+vid_centro).show();
 						$("#l_matricula").html(data);
 				}
@@ -1161,9 +1128,6 @@ $.ajax({
 			{
 				if(vrol.indexOf('admin')!=-1)
 				{
-				console.log('#cabcen'+vid_centro);
-				//$("table[class='table usuario table-striped']").remove();
-				//$('#cabcen'+vid_centro).closest('.tresumenmat').find('table').after(data);
 				$('#table'+vid_centro).after(data);
 	
 				}
@@ -1183,7 +1147,6 @@ $('body').on('click', '.cabcensol', function(e){
   var vid_centro=$(this).attr('id');
   vid_centro=vid_centro.replace('cabcensol','');
   var vrol=$('#rol').text();
-	console.log("cabcensol");
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/mostrar_solicitudes.php",
@@ -1192,7 +1155,6 @@ $.ajax({
 			{
 				if(vrol.indexOf('admin')!=-1)
 				{
-				console.log("cabcensol");
 				if($('#sol_table').length) $('#sol_table').hide();
 				$('#table'+vid_centro).after(data);
 	
@@ -1245,11 +1207,9 @@ $.ajax({
   method: "POST",
   data: { id_alumno:vid,estado_pulsado:vestado_pulsado,estado_actual:vestado_actual,id_centro:vidcentro,continua:vcontinua},
   url:'../scripts/ajax/cambio_estado_solicitud.php',
-      success: function(data) {
-			console.log(data);
+      success: function(data) 
+      {
 			if(vcontinua.indexOf('NO')!=-1){ alert("El alumno no continua, no afecta plazas vacantes");return;}
-			//if(data.indexOf('novacantes')!=-1){ alert("No hay plazas vacantes");return;}
-			//if(data.indexOf('novacantes')!=-1 || data.indexOf('error')!=-1){ alert("No hay plazas vacantes");return;}
 	 		cambiar_tipo(ots,vestado_pulsado,vid);
 			var vacantes_ebo =data.split(":")[0];
 			var vacantes_tva =data.split(":")[1];
@@ -1257,16 +1217,13 @@ $.ajax({
    	  $('#vacantesmat_tva_desk').html(vacantes_tva);
    	  var  npo_ebo=$('#vacantesmat_ebo_desk').prev().text();
    	  var  npo_tva=$('#vacantesmat_tva_desk').prev().text();
-			console.log(vtipoalumno);
 			if(vestado_pulsado.indexOf('EBO')!=-1)
 			{
-				console.log("pulsado cambia a ebo");
 	   	  $('#vacantesmat_ebo_desk').prev().html(+npo_ebo+1);
 	   	  $('#vacantesmat_tva_desk').prev().html(+npo_tva-1);
 			}
 			if(vestado_pulsado.indexOf('TVA')!=-1)
 			{
-				console.log("pulsado cambia a tva");
 	   	  $('#vacantesmat_ebo_desk').prev().html(+npo_ebo-1);
 	   	  $('#vacantesmat_tva_desk').prev().html(+npo_tva+1);
 			}
@@ -1300,7 +1257,6 @@ $.ajax({
   url:'../scripts/ajax/cambio_estado_continua.php',
       success: function(data) 
 			{
-			console.log(data);
 			if(data.indexOf('error')!=-1){ alert("No hay plazas vacantes");return;}
 			var vacantes_ebo =data.split(":")[0];
 			var vacantes_tva =data.split(":")[1];
@@ -1515,7 +1471,6 @@ $('body').on('click', '.exportcsv', function(e)
 	  data: {id_centro:vidcentro,tipolistado:vsubtipo,rol:vrol},
 	  url:'../scripts/ajax/gen_csvs.php',
 	      success: function(data) {
-				console.log(data);	
 				window.open(data,'_blank');
 		},
 	      error: function() {
@@ -1537,7 +1492,6 @@ $('body').on('click', '.exportpdf', function(e)
 	  data: {id_centro:vidcentro,tipolistado:vsubtipo,rol:vrol},
 	  url:'../scripts/ajax/gen_pdfs.php',
 	      success: function(data) {
-				console.log("generado csv");	
 				window.open(data,'_blank');
 		},
 	      error: function() {
@@ -1558,7 +1512,6 @@ vid=vid.replace("print",'');
 	  data: {id_alumno:vid},
 	  url:'../scripts/ajax/print_solicitud.php',
 	      success: function(data) {
-				console.log("imprimiendo solicitud");	
 				window.open('scripts/datos/'+data,'_blank');
 		},
 	      error: function() {

@@ -6,7 +6,7 @@
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
                             <li class="nav-item  msuperior">
-            			<a style='color:white!important;float:left!important' target='_blank' href='<?php echo $_SESSION['url_base'];?>'>INICIO</a>
+            			<a style='color:white!important;float:left!important'  href='<?php echo $_SESSION['url_base'];?>'>INICIO</a>
                             </li>
         </ul>
     </div>
@@ -32,6 +32,7 @@
                             <li class="nav-item active msuperior">
                                 <a class="show_solicitudes nav-link" href="#">Solicitudes</a>
                             </li>
+		<?php if($_SESSION['estado_convocatoria']>=1){?>
                             <li class="nav-item active msuperior dropdown">
 				<?php if($_SESSION['sorteo']==1){?>
                                 <a class="show_provisionales nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" href="#">Sorteo</a>
@@ -42,22 +43,27 @@
 				 </div>
 				<?php }?>
                             </li>
+			<?php if($_SESSION['estado_convocatoria']>=1){?>
                             <li class="nav-item active msuperior dropdown">
-                                <a class="show_provisionales nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" href="#">Provisional</a>
-																		 <div class="dropdown-menu">
-																				<a class="lprovisionales dropdown-item" href="#" data-subtipo="admitidos_prov">Admitidos provisional</a>
-																				<a class="lprovisionales dropdown-item" href="#" data-subtipo="noadmitidos_prov">No admitidos provisional</a>
-																				<a class="lprovisionales dropdown-item" href="#" data-subtipo="excluidos_prov">Excluidos provisional</a>
+                                 <a class="show_provisionales nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" href="#">Provisional</a>
+				 <div class="dropdown-menu">
+				 <a class="lprovisionales dropdown-item" href="#" data-subtipo="admitidos_prov">Admitidos provisional</a>
+				 <a class="lprovisionales dropdown-item" href="#" data-subtipo="noadmitidos_prov">No admitidos provisional</a>
+				 <a class="lprovisionales dropdown-item" href="#" data-subtipo="excluidos_prov">Excluidos provisional</a>
 																		 </div>
                             </li>
+			<?php }?>
+			<?php if($_SESSION['estado_convocatoria']==4){?>
                             <li class="nav-item active msuperior dropdown">
-                                <a class="show_provisionales nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" href="#">Definitivos</a>
-																		 <div class="dropdown-menu">
-																				<a class="ldefinitivos dropdown-item" href="#" data-subtipo="admitidos_def">Admitidos definitivo</a>
-																				<a class="ldefinitivos dropdown-item" href="#" data-subtipo="noadmitidos_def">No admitidos definitivo</a>
-																				<a class="ldefinitivos dropdown-item" href="#" data-subtipo="excluidos_def">Excluidos definitivo</a>
-																		 </div>
+                                 <a class="show_provisionales nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" href="#">Definitivos</a>
+		                 <div class="dropdown-menu">
+				 <a class="ldefinitivos dropdown-item" href="#" data-subtipo="admitidos_def">Admitidos definitivo</a>
+				 <a class="ldefinitivos dropdown-item" href="#" data-subtipo="noadmitidos_def">No admitidos definitivo</a>
+				 <a class="ldefinitivos dropdown-item" href="#" data-subtipo="excluidos_def">Excluidos definitivo</a>
+				 </div>
                             </li>
+			<?php }?>
+		<?php }?>
         </ul>
     </div>
 </nav>
