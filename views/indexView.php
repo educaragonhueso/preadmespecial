@@ -15,6 +15,8 @@ include('includes/head.php');
 		<?php /*usamos metodo del controlador de centros activo*/if($_SESSION['rol']=='centro') echo $this->showTabla('centro',$_SESSION['id_centro'],'matricula');?>
 		<?php if($_SESSION['rol']=='admin') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','todas');?>
 		<?php if($_SESSION['rol']=='sphuesca') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','Huesca');?>
+		<?php if($_SESSION['rol']=='spteruel') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','Teruel');?>
+		<?php if($_SESSION['rol']=='spzaragoza') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','Zaragoza');?>
 		<?php 
 					if($_SESSION['rol']=='alumno')
 					{

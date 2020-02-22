@@ -5532,3 +5532,7 @@
 [21-Feb-2020 18:03:52] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,237)
 [21-Feb-2020 18:03:52] : [WARNING] - 
 [21-Feb-2020 18:03:52] : [WARNING] - ACT EST EBO
+[22-Feb-2020 08:11:36] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[22-Feb-2020 08:11:36] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=-2
+[22-Feb-2020 08:12:43] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[22-Feb-2020 08:12:43] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=-1

@@ -222,8 +222,8 @@ select ifnull(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),t3.plazas) as vacantes fro
     }
 
     public function setNombre() {
-				//si el centros es -1 es un servicio provincial asi iq no tiene nombre
-				if($this->id_centro==-1) $this->nombre_centro='sp';
+				//si el centros es -1,-2 o -3 es un servicio provincial asi iq no tiene nombre
+				if($this->id_centro<0) $this->nombre_centro='sp';
 				else
 				{
 				$nombre_centro = $this->conexion->query("SELECT nombre_centro FROM centros WHERE id_centro =".$this->id_centro)->fetch_object()->nombre_centro; 
