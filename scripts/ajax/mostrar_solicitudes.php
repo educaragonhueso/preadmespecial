@@ -9,10 +9,9 @@ require_once DIR_BASE.'/controllers/CentrosController.php';
 require_once DIR_BASE.'/models/Centro.php';
 
 $log_mostrar_solicitudes=new logWriter('log_mostrar_solicitudes',DIR_LOGS);
-
-if($_POST['rol']=='admin') 
+if($_POST['rol']=='admin' || $_POST['provincia']!='aragon') 
 {
-	$id_centro=$_POST['codigo_centro'];
+	$id_centro=$_POST['id_centro'];
 	$list=new ListadosController('alumnos');
 	$log_mostrar_solicitudes->warning('IDCENTRO: '.$id_centro);
 	$solicitudes=$list->getSolicitudes($id_centro,0,$fase_sorteo=0); 

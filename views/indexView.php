@@ -5,18 +5,17 @@ include('includes/head.php');
 <body>
     <div class="wrapper">
         <div id="content">
-	  <span type="hidden" id="estado_convocatoria" name="estado_estado_convocatoria"><?php echo $_SESSION['estado_convocatoria']; ?></span>
-	  <span type="hidden" id="estado" name="estado"><?php echo $_SESSION['estado']; ?></span>
-	  <span type="hidden" id="rol" name="rol"><?php echo $_SESSION['rol']; ?></span> 
-		<?php if($_SESSION['rol']=='centro' or $_SESSION['rol']=='admin' or strpos($_SESSION['rol'],'sp')!==FALSE) include('includes/menusuperior.php');?>
+	  <input type="hidden" id="estado_convocatoria" name="estado_estado_convocatoria" value="<?php echo $_SESSION['estado_convocatoria']; ?>"></input>
+	  <span type="hidden" id="provincia" name="provincia" value="<?php echo $_SESSION['provincia'];?>"></span>
+	  <span type="hidden" id="estado" name="estado" value="<?php echo $_SESSION['estado']; ?>"></span>
+	  <span type="hidden" id="rol" name="rol" value="<?php echo $_SESSION['rol']; ?>"><b>ROL: </b><?php echo $_SESSION['rol']; ?></b></span> 
+		<?php if($_SESSION['rol']=='centro' or $_SESSION['rol']=='admin' or $_SESSION['provincia']!='aragon') include('includes/menusuperior.php');?>
 		<?php /*usamos metodo del controlador de centros activo echo $this->showTimeline('centro',$_SESSION['id_centro'],'matricula');*/?>
 		<div class="row ">
 		<div id="t_matricula" style="width:100%"></div>
 		<?php /*usamos metodo del controlador de centros activo*/if($_SESSION['rol']=='centro') echo $this->showTabla('centro',$_SESSION['id_centro'],'matricula');?>
 		<?php if($_SESSION['rol']=='admin') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','todas');?>
-		<?php if($_SESSION['rol']=='sphuesca') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','Huesca');?>
-		<?php if($_SESSION['rol']=='spteruel') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','Teruel');?>
-		<?php if($_SESSION['rol']=='spzaragoza') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','Zaragoza');?>
+		<?php if($_SESSION['provincia']!='aragon') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula',$_SESSION['provincia']);?>
 		<?php 
 					if($_SESSION['rol']=='alumno')
 					{

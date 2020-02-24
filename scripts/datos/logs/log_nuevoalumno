@@ -535,3 +535,11 @@
     [rol] => centro
 )
 
+[24-Feb-2020 08:24:46] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 08:24:46] : [WARNING] - Array
+(
+    [id_alumno] => 162
+    [modo] => normal
+    [rol] => ROL: centro
+)
+

@@ -8,6 +8,6 @@ define ( 'DB_HOST', 'localhost' );
 define ( 'DB_USER', 'root' );
 define ( 'DB_PASSWORD', 'Suricato1.fp' );
 define ( 'DB_DB', 'HGIR_PRUEBAS' );
-define ( 'DATA_DIR', '../datos/pruebas/' );
+define ( 'DATA_SCRIPTS_DIR', '../datos/datos_entrada/' );
  
 ?>

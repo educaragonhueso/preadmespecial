@@ -21,20 +21,21 @@ class EntidadBase{
         return $this->db;
     }
     
-    public function getAll($c=1){
+    public function getAll($c=1)
+	{
         $resultSet=array();
-				if($this->table=='alumnos') $centro='id_centro_destino';
-				else $centro='id_centro';
-				if($c==1)
-        {
-						$query=$this->db->query("SELECT * FROM $this->table");
-				}
+	if($this->table=='alumnos') $centro='id_centro_destino';
+	else $centro='id_centro';
+	if($c==1)
+	{
+		$query=$this->db->query("SELECT * FROM $this->table");
+	}
         else
-				{ 
-						$sql="SELECT * FROM $this->table where $centro=".$c;
-						$query=$this->db->query($sql);
-						$this->log_nueva_entidad->warning($sql);
-				}
+	{ 
+		$sql="SELECT * FROM $this->table where $centro=".$c;
+		$query=$this->db->query($sql);
+		$this->log_nueva_entidad->warning($sql);
+	}
         if($query)
 	while ($row = $query->fetch_object()) {
            $resultSet[]=$row;

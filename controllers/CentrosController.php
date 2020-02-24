@@ -40,7 +40,7 @@ class CentrosController extends ControladorBase{
 			return $tline;
 		}
 
-		public function getAllCentros($provincia='todas')
+		public function getAllCentros($provincia='aragon')
 		{
 			if($provincia=='todas')	$sql="SELECT id_centro FROM centros where id_centro>1 and id_centro in(select id_centro from matricula)";
 			else	$sql="SELECT id_centro FROM centros where id_centro>1 and id_centro in(select id_centro from matricula) and provincia='$provincia'";
@@ -53,13 +53,13 @@ class CentrosController extends ControladorBase{
 
 		public function getCentrosData($datos='matricula')
 		{
-      $centro=new Centro($this->adapter,'','no');
+     		 $centro=new Centro($this->adapter,'','no');
 			$lcentros=array();
 			$cabecera='si';
 			if($rol=='admin') 
 			{
 				$cabecera='no';
-				$centros=$this->getAllCentros('todas');
+				$centros=$this->getAllCentros('aragon');
 			}
 			$this->log_listadoscentros->warning("OBTENIENDO CENTROS");
 			$this->log_listadoscentros->warning(print_r($centros,true));
@@ -73,11 +73,11 @@ class CentrosController extends ControladorBase{
 			$this->log_listadoscentros->warning(print_r($lcentros,true));
 		return $lcentros;
     }
-		public function showTablas($rol='centro',$id_centro='',$datos='matricula',$provincia='todas')
+		public function showTablas($rol='centro',$id_centro='',$datos='matricula',$provincia='aragon')
 		{
 			$lcentros='';
 			$cabecera='si';
-			if($rol=='admin' || $rol=='sphuesca' || $rol='spzaragoza' || $rol='spteruel') 
+			if($rol=='admin' || $provincia!='aragon') 
 			{
 				$cabecera='no';
 				$centros=$this->getAllCentros($provincia);

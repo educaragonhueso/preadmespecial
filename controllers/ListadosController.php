@@ -30,13 +30,10 @@ class ListadosController extends ControladorBase{
 		}
   	public function getAlumnosCentro($centro)
 		{
-			//Creamos el objeto alumno
-						$alumno=new Alumno($this->adapter,$this->tabla);
-						 
-						//Conseguimos todos los alumnos
-						$allalumnos=$alumno->getAll($centro);
-		 
-						//Cargamos la vista index y le pasamos valores
+		//Creamos el objeto alumno
+			$alumno=new Alumno($this->adapter,$this->tabla);
+			//Conseguimos todos los alumnos
+			$allalumnos=$alumno->getAll($centro);
 		return $allalumnos;
 		}
   public function getDefinitivos($id_centro)
@@ -486,40 +483,7 @@ class ListadosController extends ControladorBase{
 	$display='';
 	//if($cabecera=='no') $display='none';
 	$this->log_listado_general->warning('DISPLAY/CABECERA: '.$display.'--'.$cabecera);
-	$tres='<div id="tresumen'.$id_centro.'" class="container tresumenmat"><h2>'.strtoupper($datos).'<span  class="cabcenmat" id="cabcen'.$id_centro.'">'.strtoupper($nombre_centro).'</span></h2>';
-	/*
-	$movil=array();
-	foreach($a as $key => $row) 
-	{ 
-	foreach($row as $field => $value) 
-	{ 
-	$movil[$field][] = $value; 
-	} 
-	}
- 	$tres.='<table class="table table-dark table-striped mov">
-    <thead style="display:'.$display.'">
-      <tr>
-        <th></th>
-        <th>EBO</th>
-        <th>TVA</th>
-      </tr>
-    </thead>
-    <tbody>';
-	$i=0;
-	$campos=array('grupos','puestos','plazas ocupadas','vacantes');
-	foreach($movil as $me)
-	{
-	if($i==0) {$i++; continue;}
-	$tres.="<tr>";
-        $tres.="<td>".$campos[$i-1]."</td>";
-        $tres.="<td>".$me[0]."</td>";
-        if($i==3) $tres.="<td id='vacantesmat_mov'>".$me[1]."</td>";
-        else $tres.="<td>".$me[1]."</td>";
-	$tres.="</tr>";
-	$i++;
-	}
-    	$tres.="</tbody> </table>";
-	*/
+	$tres='<div id="tresumen'.$id_centro.'" class="container tresumenmat"><h2>'.strtoupper($datos).'-- <span  class="cabcenmat" id="cabcen'.$id_centro.'">'.strtoupper($nombre_centro).'</span></h2>';
  	$tres.='<table class="table table-dark table-striped desk" id="table'.$id_centro.'">';
   if($cabecera=='si')
 	 $tres.='<thead>

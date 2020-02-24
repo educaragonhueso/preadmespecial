@@ -33,7 +33,7 @@ $nsolicitudes=$tcentro->getNumSolicitudes($id_centro);
 //variable para controlar si se actualiza el sorteo en la tabla de centros
 if($_POST['rol']=='centro') $fase_sorteo=$tcentro->getFaseSorteo();//0: no realizado, 1: se han asignado los numeros aleatorios, 2: se ha realizado sorteo
 else $fase_sorteo=2;
-$hoy = date("Y-m-d");
+$hoy = date("Y/m/d");
 
 $form_nuevasolicitud='<div class="input-group-append" id="cab_fnuevasolicitud"><button class="btn btn-outline-info" id="nuevasolicitud" type="button">Nueva solicitud</button></div>';
 

@@ -976,10 +976,12 @@ $('body').on('click', '#nuevasolicitud', function(e)
 $(".show_solicitudes").click(function () {  
   var vid_centro=$('#id_centro').text();
   var vrol=$('#rol').text();
+  var vrol=$('#rol').attr("value");
+var vestado_convocatoria=$('#estado_convocatoria').attr("value");
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/listados_solicitudes.php",
-  data: {id_centro:vid_centro,rol:vrol},
+  data: {id_centro:vid_centro,rol:vrol,estado_convocatoria:vestado_convocatoria},
       success: function(data) {
 				if(vrol=='admin' || vrol.indexOf('sp')!=-1)
 				{
@@ -1091,11 +1093,12 @@ $.ajax({
 //LISTADO MATRICULA
 $('body').on('click', '.show_matricula', function(e){
   var vid_centro=$('#id_centro').text();
-  var vrol=$('#rol').text();
+  var vrol=$('#rol').attr("value");
+  var vprovincia=$('#provincia').attr("value");
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/listados_matriculas.php",
-  data: {codigo_centro:vid_centro,rol:vrol},
+  data: {id_centro:vid_centro,rol:vrol,provincia:vprovincia},
       success: function(data) 
 			{
 				if(vrol=='admin') 
@@ -1119,7 +1122,7 @@ $.ajax({
 $('body').on('click', '.cabcenmat', function(e){
   var vid_centro=$(this).attr('id');
   vid_centro=vid_centro.replace('cabcen','');
-  var vrol=$('#rol').text();
+  var vrol=$('#rol').attr("value");
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/mostrar_matriculados.php",
@@ -1128,6 +1131,7 @@ $.ajax({
 			{
 				if(vrol.indexOf('admin')!=-1)
 				{
+				if($('#mat_table').length) $('#mat_table').hide();
 				$('#table'+vid_centro).after(data);
 	
 				}
@@ -1146,16 +1150,18 @@ $.ajax({
 $('body').on('click', '.cabcensol', function(e){
   var vid_centro=$(this).attr('id');
   vid_centro=vid_centro.replace('cabcensol','');
-  var vrol=$('#rol').text();
+  var vrol=$('#rol').attr("value");
+  var vprovincia=$('#provincia').attr("value");
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/mostrar_solicitudes.php",
-  data: {codigo_centro:vid_centro,rol:vrol},
+  data: {id_centro:vid_centro,rol:vrol,provincia:vprovincia},
       success: function(data) 
 			{
-				if(vrol.indexOf('admin')!=-1)
+				if(vrol.indexOf('admin')!=-1 || vrol.indexOf('sp')!=-1)
 				{
 				if($('#sol_table').length) $('#sol_table').hide();
+				$('#sol_table').remove();
 				$('#table'+vid_centro).after(data);
 	
 				}

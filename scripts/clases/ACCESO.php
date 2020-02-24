@@ -194,6 +194,7 @@ class ACCESO
 	$edadtva=21;
 	$edadebo=18;
 	$total_filas=0;
+	$nedad=0;
 	$total_filas_insertadas=0;
 	$total_filas_fallidas=0;
 	if (($gestor = fopen($this->csv_file, "r")) !== FALSE) 
@@ -204,28 +205,40 @@ class ACCESO
 		//preparando datos
 		if($matricula[0]=='CE') continue;
 		$total_filas++;		
-		$m_curso=$matricula[0];	
+		$m_curso=utf8_encode($matricula[0]);	
 		$m_provincia=$matricula[1];	
 		$m_ensenanza=mysqli_real_escape_string($this->c,$matricula[2]);	
-		//if(strpos('T.V.A.',$m_ensenanza)===FALSE) $m_tipo_alumno_actual='ebo';	
-		//else $m_tipo_alumno_actual='tva';
 		$m_nombre=$matricula[3];	
 		$m_apellidos=$matricula[4];	
 		$m_fnac=$this->make_fecha($matricula[5]);	
 		$m_tipo_centro=$matricula[6];	
 		$m_nombre_centro=$matricula[7];	
-		$m_codigo_centro=$matricula[9];	
+		$m_codigo_centro=$matricula[9];
+
+		//pasamos los de san antonio a atades50007674
+		if($m_codigo_centro==50005616)
+			{
+			$m_codigo_centro=50007674;
+			$m_nombre_centro="ATADES CENTRO DE EDUCACIÓN ESPECIAL SAN MARTÍN DE PORRES";
+			}
 		$m_tipo_alumno_futuro=$this->calcula_alumno($matricula[5]);	
 		$m_estado="continua";
 		
 		$edad=date_diff(date_create($m_fnac), date_create('2020-12-31'))->y;
 		//igual o mas de 21 no pueden entrar
-		if($edad>=$edadtva) continue;
+		if($edad>=$edadtva) 
+		{
+			print($m_fnac);
+			print_r($matricula);
+			$nedad++;
+			continue;
+		}
 		if($edad<$edadebo) $m_tipo_alumno_actual='ebo';
 		else $m_tipo_alumno_actual='tva';
 		$sql="insert into matricula values(0,'$m_curso','$m_provincia','$m_ensenanza','$m_nombre','$m_apellidos','$m_fnac','$m_tipo_centro','$m_nombre_centro','$m_tipo_alumno_futuro','$m_tipo_alumno_actual','$m_estado','$m_codigo_centro')";
 		if(!$result = mysqli_query($this->c, $sql)) 
 		{
+			print($sql);
 			die(PHP_EOL."Error insertando: ".mysqli_error($this->c));
 			$total_filas_fallidas++;
 		}
@@ -241,7 +254,8 @@ class ACCESO
 		}
 	}
  	fclose($gestor);
-	return $total_filas_insertadas;
+	$res=array($total_filas_insertadas,$nedad,$total_filas);
+	return $res;
 	} 
   public function calcula_alumno($s) 
 	{
@@ -254,7 +268,9 @@ class ACCESO
 	}
   public function make_fecha($s) 
 	{
-	$timestamp = strtotime(str_replace('/','-',$s));
+	$afecha=explode("/",$s);
+	$sfecha=$afecha[1]."-".$afecha[0]."-".$afecha[2];
+	$timestamp = strtotime($sfecha);
 	$fecha=date("Y-m-d", $timestamp);
 	return $fecha ;
 	} 
