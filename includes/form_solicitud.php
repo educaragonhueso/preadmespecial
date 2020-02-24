@@ -14,30 +14,30 @@ $formsol.=
                 <div class="row">
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-														<p>Fase solicitud</p>
-														<div class="radio">
-														<label><input type="radio" name="fase_solicitud" value="borrador">BORRADOR</label>
-														</div>
-														<div class="radio">
-														<label><input type="radio" name="fase_solicitud" value="validada">VALIDADA</label>
-														</div>
-														<div class="radio">
-														<label><input type="radio" name="fase_solicitud" value="baremada">BAREMADA</label>
-														</div>
+				<p>Fase solicitud</p>
+				<div class="radio">
+				<label><input type="radio" name="fase_solicitud" value="borrador">BORRADOR</label>
+				</div>
+				<div class="radio">
+				<label><input type="radio" name="fase_solicitud" value="validada">VALIDADA</label>
+				</div>
+				<div class="radio">
+				<label><input type="radio" name="fase_solicitud" value="baremada">BAREMADA</label>
+				</div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-														<p>Estado solicitud</p>
-														<div class="radio">
-														<label><input type="radio" name="estado_solicitud" value="duplicada">DUPLICADA</label>
-														</div>
-														<div class="radio">
-														<label><input type="radio" name="estado_solicitud" value="irregular">IRREGULAR</label>
-														</div>
-														<div class="radio">
-														<label><input type="radio" name="estado_solicitud" value="apta">APTA</label>
-														</div>
+				<p>Estado solicitud</p>
+				<div class="radio">
+				<label><input type="radio" name="estado_solicitud" value="duplicada">DUPLICADA</label>
+				</div>
+				<div class="radio">
+				<label><input type="radio" name="estado_solicitud" value="irregular">IRREGULAR</label>
+				</div>
+				<div class="radio">
+				<label><input type="radio" name="estado_solicitud" value="apta">APTA</label>
+				</div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ $formsol.=
                     <div class="col-md-4">
 			Nacionalidad
                         <div class="md-form mb-0" data-tip="This is the text of the tooltip2">
-                            <input type="text" id="nacionalidad" value="" name="nacionalidad" placeholder="Nacionalidad" class="form-control" title="Cuidado que está en portugues!!!" data-toggle="tooltip">
+                            <input type="text" id="nacionalidad" value="" name="nacionalidad" placeholder="Nacionalidad" class="form-control" title="paises" data-toggle="tooltip">
                         </div>
                     </div>
 
@@ -137,25 +137,25 @@ $formsol.=
                     <div class="col-md-5">
                         <div class="md-form mb-0">
 			    Calle/Plaza/Avenida domicilio familiar*
-                            <input type="text" id="calle_dfamiliar" value="" name="calle_dfamiliar" placeholder="Calle/Plaza/Avenida" class="form-control is-valid" required>
+                            <input type="text" id="calle_dfamiliar" value="" name="calle_dfamiliar" placeholder="Calle/Plaza/Avenida" class="form-control is-valid">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="md-form mb-0">
 			Número*
-			<input type="text" id="num_dfamiliar" value="" name="num_dfamiliar"  placeholder="Nº" pattern="[0-9]{1,3}"  class="form-control  required" required>
+			<input type="text" id="num_dfamiliar" value="" name="num_dfamiliar"  placeholder="Nº" pattern="[0-9]{1,3}"  class="form-control">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="md-form mb-0">
 			Piso/Casa*
-			<input type="text" id="piso_dfamiliar" value="" name="piso_dfamiliar"  placeholder="Piso/Casa" class="form-control  required" required>
+			<input type="text" id="piso_dfamiliar" value="" name="piso_dfamiliar"  placeholder="Piso/Casa" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="md-form mb-0">
 			Codigo Postal*
-			<input type="text" id="cp_dfamiliar" value="" name="cp_dfamiliar" placeholder="CP" pattern="[0-9]{5}"  class="form-control" required>
+			<input type="text" id="cp_dfamiliar" value="" name="cp_dfamiliar" placeholder="CP" pattern="[0-9]{5}"  class="form-control">
                         </div>
                     </div>
 
@@ -167,13 +167,13 @@ $formsol.=
                     <div class="col-md-2">
                         <div class="md-form mb-0">
 			Localidad*
-			<input type="text" id="loc_dfamiliar" value="" name="loc_dfamiliar" placeholder="Localidad"   class="form-control  required" required>
+			<input type="text" id="loc_dfamiliar" value="" name="loc_dfamiliar" placeholder="Localidad"   class="form-control">
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="md-form mb-0">
 			Telefono habitual*
-                        <input type="tel" id="tel_dfamiliar1" value="" name="tel_dfamiliar1" placeholder="Telefono 1" pattern="[0-9]{9}" class="form-control is-valid" required>
+                        <input type="tel" id="tel_dfamiliar1" value="" name="tel_dfamiliar1" placeholder="Telefono 1" pattern="[0-9]{9}" class="form-control is-valid">
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -667,7 +667,7 @@ $formsol.='
 						<div class="md-form mb-0">
 							<div class="radio">
 
-								<label><b>TRANSPORTE</b></label>
+								<label><b>CRITERIOS DE PRIORIDAD</b></label>
 							</div>
 						</div>
 							<div class="radio">

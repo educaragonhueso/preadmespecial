@@ -692,10 +692,10 @@ else $("#oponenautorizar"+id).prop('disabled', true);
 //ACTUALIZAR - CREAR NUEVA SOLICITUD
 $('body').on('click', '.send', function(e){
   var tipo=$(this).text();
-	var vrol=$('#rol').text();
-
+  var vrol=$('#rol').attr("value");
   var vid_centro='';
-	if(vrol=='alumno') 	vid_centro=$("input[name='id_centro_destino']").val();	
+  if(vrol=='alumno') 	
+	vid_centro=$("input[name='id_centro_destino']").val();	
   else vid_centro=$('#id_centro').text();
 
   if(typeof tipo === 'undefined' || tipo === null) tipo="ACTUALIZAR SOLICITUD";
@@ -705,7 +705,7 @@ $('body').on('click', '.send', function(e){
   var fsolicitud=$('#fsolicitud'+vid).serialize();
 	//Validacion formulario, de momento se omite
 	var valid='1';
-	//var valid=validarFormulario(fsolicitud);
+	var valid=validarFormulario(fsolicitud);
 	var mensaje="Debes incluir un ";
 	if(valid!='1')
 	{
@@ -714,7 +714,7 @@ $('body').on('click', '.send', function(e){
 		{
 			if(campo_dnisol(fsolicitud)==0)
 			{
-				mensaje="Debes incluir un DNI correcto por ser mayor de 14 años";
+				mensaje="Debes incluir un DNI del alumno por ser mayor de 14 años";
 				$('input[name=dni_alumno]').focus();	
 			}
 		}
@@ -832,12 +832,13 @@ for (let i = 0; i < res.length; i++)
 	if(d[1]=='') {return 'Fecha nacimiento-fnac';};
 	//comprobar edad alumno
 	if(calcEdad(d[1])>=14) return 'fnac';
+	if(calcEdad(d[1])<=10) return 'Edad mayor';
 	}
 //comp datos identificadores
 if(d[0].indexOf('apellido1')==0)
 	{
 	//comprobar q el primer apellido existe
-	if(d[1]=='') {return 'Primer Apellido-apellido1';};
+	if(d[1].length<=2) {return 'Primer Apellido-apellido1';};
 	}
 if(d[0].indexOf('nombre')==0)
 	{
@@ -852,6 +853,7 @@ if(d[0].indexOf('datos_tutor1')==0)
 	{
 	if(d[1]=='') {return 'Datos de tutor/a-datos_tutor1';};
 	}
+/*
 if(d[0].indexOf('calle_dfamiliar')==0)
 	{
 	if(d[1]=='') {return 'Datos del domicilio familiar-calle_dfamiliar';};
@@ -876,7 +878,9 @@ if(d[0].indexOf('tel_dfamiliar1')==0)
 	{
 	if(d[1]==''|| d[1].length!=9) {return 'Debes indicar un teléfono habitual correcto-tel_dfamiliar1';};
 	}
+*/
 //comp datos sección expone
+
 if(d[0]=='id_centro_destino')
 	{
 	if(d[1]=='') {return 'Debes indicar un centro de destino';}
@@ -909,12 +913,12 @@ function disableForm(formID){
 }
 $('body').on('click', '.calumno', function(e){
   var ots = $(this);
-	var vmodo='normal';
+  var vmodo='normal';
   var vid=$(this).attr("data-idal");
   var idappend="filasol"+vid;
-  var estado=$('#estado').text();
-	var vpin=$('#pin').val();
-	var vrol=$('#rol').text();
+  var vestado=$('#id_estado_convocatoria').text();
+  var vpin=$('#pin').attr("value");
+  var vrol=$('#rol').attr("value");
   if($('#fsolicitud'+vid).length) 
   	{
 	$('#fsolicitud'+vid).toggle();
@@ -924,14 +928,19 @@ $.ajax({
   method: "POST",
   data: {id_alumno:vid,modo:vmodo,pin:vpin,rol:vrol},
   url:'../scripts/ajax/editar_solicitud.php',
-      success: function(data) 
-			{
-      $("#"+idappend).after(data);
-			if(estado!='inicioinscripcion'){disableForm($('#fsolicitud'+vid)) ;}
-      },
-      error: function() {
-        alert('Problemas EDITAR solicitud!');
-      }
+   	success: function(data) 
+	{
+				if(vrol.indexOf("alumno")!=-1)
+					{
+					$("#l_matricula").after(data);
+					}
+	console.log(data);
+      	$("#"+idappend).after(data);
+	if(vestado=='1') {disableForm($('#fsolicitud'+vid)) ;}
+      	},
+      	error: function() {
+        alert('PROBLEMAS EDITANDO SOLICITUD!');
+      	}
 });
 });
 //FIN AÑADIR FORMULARIO DE MODIFICACION DE SOLICITUD
@@ -942,14 +951,14 @@ $.ajax({
 
 $('body').on('click', '#nuevasolicitud', function(e)
 {
-	var vcentro=$('#id_centro').text();
-  var vrol=$('#rol').text();
-	var vmodo='nueva';
-  	if($('#fnuevasolicitud').length) 
-  	{
+var vcentro=$('#id_centro').text();
+var vrol=$('#rol').attr("value");
+var vmodo='nueva';
+if($('#fnuevasolicitud').length) 
+{
 	$('#fnuevasolicitud').toggle();
 	return;
-	}
+}
 	$.ajax({
 	  method: "POST",
 	  url: "../scripts/ajax/editar_solicitud.php",
@@ -1540,7 +1549,9 @@ function comprobar_nif(dni){
        var let;
        var letra;
        var expresion_regular_dni;
-       
+      	//de momento marcamos q tenga 9 caracteres por incluir el nie
+      	if(dni.length==9) return 1;
+	else return 0; 
        expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
        
        if(expresion_regular_dni.test (dni) == true){

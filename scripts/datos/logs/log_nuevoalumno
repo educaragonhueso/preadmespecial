@@ -543,3 +543,537 @@
     [rol] => ROL: centro
 )
 
+[24-Feb-2020 09:30:25] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 09:30:25] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 09:30:27] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 09:30:27] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 09:30:35] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 09:30:35] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 09:30:53] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 09:30:53] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 09:40:08] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 09:40:08] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 10:02:11] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 10:02:12] : [WARNING] - Array
+(
+    [id_alumno] => 277
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 10:06:52] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 10:06:52] : [WARNING] - Array
+(
+    [id_alumno] => 162
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 10:11:12] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 10:11:12] : [WARNING] - Array
+(
+    [id_alumno] => 162
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:32:25] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:32:25] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 11:44:31] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:44:31] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 11:49:01] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:49:01] : [WARNING] - Array
+(
+    [codigo_centro] => 
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 11:49:52] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:49:52] : [WARNING] - Array
+(
+    [codigo_centro] => 
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 11:53:00] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:53:00] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:55:12] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:55:12] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:55:30] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:55:30] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:55:44] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:55:44] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:56:00] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:56:00] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:56:45] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:56:45] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:57:04] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:57:04] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 11:57:47] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 11:57:47] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:03:50] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:03:50] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:05:24] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:05:24] : [WARNING] - Array
+(
+    [id_alumno] => 8901
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:05:51] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:05:51] : [WARNING] - Array
+(
+    [id_alumno] => 237
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:09:32] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:09:32] : [WARNING] - Array
+(
+    [id_alumno] => 8901
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:09:43] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:09:43] : [WARNING] - Array
+(
+    [id_alumno] => 162
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:10:09] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:10:09] : [WARNING] - Array
+(
+    [id_alumno] => 8901
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:10:55] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:10:55] : [WARNING] - Array
+(
+    [id_alumno] => 8901
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:11:38] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:11:38] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:12:46] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:12:46] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:13:02] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:13:02] : [WARNING] - Array
+(
+    [id_alumno] => 8903
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:13:33] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:13:33] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:14:23] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:14:23] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:17:04] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:17:04] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:18:42] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:18:42] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:26:29] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:26:29] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:27:11] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:27:11] : [WARNING] - Array
+(
+    [id_alumno] => 8904
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:32:36] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:32:36] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:35:23] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:35:23] : [WARNING] - Array
+(
+    [id_alumno] => 8905
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:35:31] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:35:31] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:42:26] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:42:26] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:43:30] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:43:30] : [WARNING] - Array
+(
+    [id_alumno] => 8906
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 12:43:33] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 12:43:33] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 13:07:47] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:07:47] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 13:09:41] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:09:41] : [WARNING] - Array
+(
+    [codigo_centro] => 50017369
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 13:10:14] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:10:14] : [WARNING] - Array
+(
+    [id_alumno] => 8908
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 13:10:39] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:10:39] : [WARNING] - Array
+(
+    [codigo_centro] => 
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 13:17:05] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:17:05] : [WARNING] - Array
+(
+    [codigo_centro] => 
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:17:05] : [WARNING] - PIN ALUMNO RECIBIDO:
+[24-Feb-2020 13:17:05] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=
+[24-Feb-2020 13:17:05] : [WARNING] - PIN ALUMNO RECIBIDO:0
+[24-Feb-2020 13:24:56] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:24:56] : [WARNING] - Array
+(
+    [codigo_centro] => 
+    [id_alumno] => 0
+    [modo] => nueva
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:24:56] : [WARNING] - PIN ALUMNO RECIBIDO:
+[24-Feb-2020 13:24:56] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=
+[24-Feb-2020 13:24:56] : [WARNING] - PIN ALUMNO RECIBIDO:0
+[24-Feb-2020 13:25:37] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:25:37] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => ROL: alumno
+)
+
+[24-Feb-2020 13:26:07] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:26:07] : [WARNING] - Array
+(
+    [id_alumno] => 8903
+    [modo] => normal
+    [rol] => ROL: centro
+)
+
+[24-Feb-2020 13:26:40] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:26:40] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:26:40] : [WARNING] - PIN ALUMNO RECIBIDO:
+[24-Feb-2020 13:26:40] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=
+[24-Feb-2020 13:26:40] : [WARNING] - PIN ALUMNO RECIBIDO:0
+[24-Feb-2020 13:26:40] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:26:40] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:26:40] : [WARNING] - PIN ALUMNO RECIBIDO:
+[24-Feb-2020 13:26:40] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=
+[24-Feb-2020 13:26:40] : [WARNING] - PIN ALUMNO RECIBIDO:0
+[24-Feb-2020 13:26:42] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:26:42] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:26:42] : [WARNING] - PIN ALUMNO RECIBIDO:
+[24-Feb-2020 13:26:42] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=
+[24-Feb-2020 13:26:42] : [WARNING] - PIN ALUMNO RECIBIDO:0
+[24-Feb-2020 13:29:08] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:29:08] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 9784
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:29:08] : [WARNING] - PIN ALUMNO RECIBIDO:9784
+[24-Feb-2020 13:29:08] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=9784
+[24-Feb-2020 13:29:08] : [WARNING] - PIN ALUMNO RECIBIDO:8909
+[24-Feb-2020 13:29:59] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:29:59] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 9784
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:29:59] : [WARNING] - PIN ALUMNO RECIBIDO:9784
+[24-Feb-2020 13:29:59] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=9784
+[24-Feb-2020 13:29:59] : [WARNING] - PIN ALUMNO RECIBIDO:8909
+[24-Feb-2020 13:30:29] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:30:29] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 9784
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:30:29] : [WARNING] - PIN ALUMNO RECIBIDO:9784
+[24-Feb-2020 13:30:29] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=9784
+[24-Feb-2020 13:30:29] : [WARNING] - PIN ALUMNO RECIBIDO:8909
+[24-Feb-2020 13:30:29] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:30:29] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 9784
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:30:29] : [WARNING] - PIN ALUMNO RECIBIDO:9784
+[24-Feb-2020 13:30:29] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=9784
+[24-Feb-2020 13:30:29] : [WARNING] - PIN ALUMNO RECIBIDO:8909
+[24-Feb-2020 13:31:00] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:31:00] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 9784
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:31:00] : [WARNING] - PIN ALUMNO RECIBIDO:9784
+[24-Feb-2020 13:31:00] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=9784
+[24-Feb-2020 13:31:00] : [WARNING] - PIN ALUMNO RECIBIDO:8909
+[24-Feb-2020 13:31:39] : [WARNING] - DATOS ALUMNO RECIBID
+[24-Feb-2020 13:31:39] : [WARNING] - Array
+(
+    [modo] => normal
+    [pin] => 9784
+    [rol] => alumno
+)
+
+[24-Feb-2020 13:31:39] : [WARNING] - PIN ALUMNO RECIBIDO:9784
+[24-Feb-2020 13:31:39] : [WARNING] - consulta nuevo alumno: select a.id_alumno from usuarios u, alumnos a where a.id_usuario=u.id_usuario and u.clave_original=9784
+[24-Feb-2020 13:31:39] : [WARNING] - PIN ALUMNO RECIBIDO:8909

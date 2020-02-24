@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION=array();
 require_once $_SERVER['CONTEXT_DOCUMENT_ROOT']."/config/config_global.php";
 require_once DIR_CORE.'/Conectar.php';
 $_SESSION['estado']='inicioinscrion';
@@ -7,6 +8,7 @@ $_SESSION['rol'] = 'alumno';
 $_SESSION['provincia']='aragon';
 
 $_SESSION['nombre_centro'] = '9999';      
+$_SESSION['nombre_usuario'] ="nousuario";    
 $_SESSION['fecha_actual'] = date("Y/m/d");      
 $_SESSION['estado_convocatoria'] =0;//0. inicio inscripciones, 1. dia de sorteo, 2. baremacion, 3. Provisionales, 4. Definitivos      
 
@@ -34,7 +36,9 @@ elseif($_SESSION['fecha_actual']==DIA_DEFINITIVOS) //jueves 16 abril
 $_SESSION['fecha_inscripcion'] = date("2020/11/01");      
 $_SESSION['fecha_iniccioprovisionales'] = date("2019/11/01");      
 $_SESSION['fecha_inicciodefinitivas'] = date("2019/11/01");      
-$_SESSION['url_base'] =URL_BASE;      
+$_SESSION['url_base'] =URL_BASE;    
+      
+
 $conectar=new Conectar();
 $conexion=$conectar->conexion();
 header('Content-Type: text/html; charset=UTF-8');  
@@ -86,6 +90,7 @@ header('Content-Type: text/html; charset=UTF-8');
                            if(md5(strtoupper($clave))== $hashed_clave || md5($clave)== $hashed_clave)
 			   {
 					$_SESSION['nombre_usuario'] = $nombre_usuario;      
+					$_SESSION['clave'] = $clave;      
 					$_SESSION['rol'] = $rol;      
 					$_SESSION['nombre_centro'] = $nombre_centro;      
 					$_SESSION['id_centro'] = $id_centro;      

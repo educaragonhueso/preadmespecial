@@ -31,3 +31,10 @@
 [24-Feb-2020 08:32:55] : [WARNING] - SELECT * FROM matricula where id_centro=22002338
 [24-Feb-2020 08:32:59] : [WARNING] - SELECT * FROM matricula where id_centro=22002338
 [24-Feb-2020 08:35:23] : [WARNING] - SELECT * FROM matricula where id_centro=50000850
+[24-Feb-2020 09:20:31] : [WARNING] - SELECT * FROM matricula where id_centro=50017369
+[24-Feb-2020 10:13:05] : [WARNING] - SELECT * FROM matricula where id_centro=50017369
+[24-Feb-2020 12:48:39] : [WARNING] - SELECT * FROM matricula where id_centro=50017369
+[24-Feb-2020 12:49:30] : [WARNING] - SELECT * FROM matricula where id_centro=50006049
+[24-Feb-2020 12:50:17] : [WARNING] - SELECT * FROM matricula where id_centro=50017369
+[24-Feb-2020 12:50:36] : [WARNING] - SELECT * FROM matricula where id_centro=50006049
+[24-Feb-2020 12:51:13] : [WARNING] - SELECT * FROM matricula where id_centro=50006049

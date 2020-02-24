@@ -17,16 +17,15 @@ include('includes/head.php');
 		<?php if($_SESSION['rol']=='admin') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','todas');?>
 		<?php if($_SESSION['provincia']!='aragon') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula',$_SESSION['provincia']);?>
 		<?php 
-					if($_SESSION['rol']=='alumno')
-					{
-	  				echo '<input type="hidden" id="pin" name="pin" value="'.$_SESSION['clave'].'" ></input> ';
-						if($_SESSION['nombre_usuario']=='nousuario')
-			 				echo '<button class="btn btn-outline-info" id="nuevasolicitud" type="button">Nueva solicitud</button>';
-						else //usuario alumno autenticado
-			 				echo '<button class="btn btn-outline-info calumno" id="versolicitud" type="button">Ver solicitud</button>';
-			 			
-					echo '<a href="'.USL_BASE.'"><button class="btn btn-outline-info" id="inicio" type="button">INICIO</button></a>';
-					}
+		if($_SESSION['rol']=='alumno')
+		{
+	  		echo '<input type="hidden" id="pin" name="pin" value="'.$_SESSION['clave'].'" ></input> ';
+			if($_SESSION['nombre_usuario']=='nousuario')
+				echo '<button class="btn btn-outline-info" id="nuevasolicitud" type="button">Nueva solicitud</button>';
+			else //usuario alumno autenticado
+				echo '<button class="btn btn-outline-info calumno" id="versolicitud" type="button">Ver solicitud</button>';
+			echo '<a href="'.URL_BASE.'"><button class="btn btn-outline-info" id="inicio" type="button">INICIO</button></a>';
+		}
 		?>
 		</div>
 		<div class="row ">

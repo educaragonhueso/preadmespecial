@@ -7656,3 +7656,801 @@
 [24-Feb-2020 08:40:14] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,237,277,310)
 [24-Feb-2020 08:40:14] : [WARNING] - 
 [24-Feb-2020 08:40:14] : [WARNING] - ACT EST EBO
+[24-Feb-2020 09:30:51] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 09:30:51] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 09:30:51] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 09:30:51] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 09:40:05] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 09:40:05] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 09:40:05] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 09:40:05] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 10:02:52] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:02:52] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:02:52] : [WARNING] - ASIGNANDO NUMERO SORTEO
+[24-Feb-2020 10:02:52] : [WARNING] - UPDATE  alumnos SET nasignado =0 WHERE id_centro_destino=50017369
+[24-Feb-2020 10:02:52] : [WARNING] - UPDATE  alumnos SET nasignado = (@r := @r + 1) where id_centro_destino=50017369 and fase_solicitud!='borrador' ORDER BY  RAND()
+[24-Feb-2020 10:02:52] : [WARNING] - OK ASIGNANDO NUM SORTEO
+[24-Feb-2020 10:02:52] : [WARNING] - ACTUALIZANDO FASE SORTEO
+[24-Feb-2020 10:02:52] : [WARNING] - update centros set fase_sorteo='1' where id_centro='50017369'
+[24-Feb-2020 10:03:37] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:03:37] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:03:37] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 10:03:37] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 10:03:44] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:03:44] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:03:44] : [WARNING] - ASIGNANDO NUMERO SORTEO
+[24-Feb-2020 10:03:44] : [WARNING] - UPDATE  alumnos SET nasignado =0 WHERE id_centro_destino=50017369
+[24-Feb-2020 10:03:44] : [WARNING] - UPDATE  alumnos SET nasignado = (@r := @r + 1) where id_centro_destino=50017369 and fase_solicitud!='borrador' ORDER BY  RAND()
+[24-Feb-2020 10:03:44] : [WARNING] - OK ASIGNANDO NUM SORTEO
+[24-Feb-2020 10:03:44] : [WARNING] - ACTUALIZANDO FASE SORTEO
+[24-Feb-2020 10:03:44] : [WARNING] - update centros set fase_sorteo='1' where id_centro='50017369'
+[24-Feb-2020 10:04:30] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:04:30] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:04:30] : [WARNING] - ACTUALIZANDO VALORES CENTROS
+[24-Feb-2020 10:04:30] : [WARNING] - update centros set num_sorteo=4 where id_centro=50017369
+[24-Feb-2020 10:04:30] : [WARNING] - OBTENIENDO IDS SOLICITUDES
+[24-Feb-2020 10:04:30] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='ebo' and  fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 8
+[24-Feb-2020 10:04:30] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='tva' and fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 0
+[24-Feb-2020 10:04:30] : [WARNING] - SOLICITUDES ADMITIDAS
+[24-Feb-2020 10:04:30] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:04:30] : [WARNING] - RESPUESTA IDS:
+[24-Feb-2020 10:04:30] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:04:30] : [WARNING] - ACTUALIZANDO SORTEO
+[24-Feb-2020 10:04:30] : [WARNING] - UPDATE alumnos a set nordensorteo=35+nasignado-4+1 where nasignado<4 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:04:30] : [WARNING] - UPDATE alumnos a set nordensorteo=nasignado-4+1 where nasignado>=4 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:04:30] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50017369
+[24-Feb-2020 10:04:30] : [WARNING] - ACTUALIZANDO SORTEO EBO
+[24-Feb-2020 10:04:30] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,237,277,374,310)
+[24-Feb-2020 10:04:30] : [WARNING] - 
+[24-Feb-2020 10:04:30] : [WARNING] - ACT EST EBO
+[24-Feb-2020 10:11:34] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:11:34] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:11:34] : [WARNING] - OBTENIENDO IDS SOLICITUDES
+[24-Feb-2020 10:11:34] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='ebo' and  fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 8
+[24-Feb-2020 10:11:34] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='tva' and fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 0
+[24-Feb-2020 10:11:34] : [WARNING] - SOLICITUDES ADMITIDAS
+[24-Feb-2020 10:11:34] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:11:34] : [WARNING] - RESPUESTA IDS:
+[24-Feb-2020 10:11:34] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:11:34] : [WARNING] - ACTUALIZANDO SORTEO
+[24-Feb-2020 10:11:34] : [WARNING] - UPDATE alumnos a set nordensorteo=35+nasignado-0+1 where nasignado<0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:11:34] : [WARNING] - UPDATE alumnos a set nordensorteo=nasignado-0+1 where nasignado>=0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:11:34] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50017369
+[24-Feb-2020 10:11:34] : [WARNING] - ACTUALIZANDO SORTEO EBO
+[24-Feb-2020 10:11:34] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,277,237,374,310)
+[24-Feb-2020 10:11:34] : [WARNING] - 
+[24-Feb-2020 10:11:34] : [WARNING] - ACT EST EBO
+[24-Feb-2020 10:11:48] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:11:48] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:11:48] : [WARNING] - OBTENIENDO IDS SOLICITUDES
+[24-Feb-2020 10:11:48] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='ebo' and  fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 8
+[24-Feb-2020 10:11:48] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='tva' and fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 0
+[24-Feb-2020 10:11:48] : [WARNING] - SOLICITUDES ADMITIDAS
+[24-Feb-2020 10:11:48] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:11:48] : [WARNING] - RESPUESTA IDS:
+[24-Feb-2020 10:11:48] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:11:48] : [WARNING] - ACTUALIZANDO SORTEO
+[24-Feb-2020 10:11:48] : [WARNING] - UPDATE alumnos a set nordensorteo=35+nasignado-0+1 where nasignado<0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:11:48] : [WARNING] - UPDATE alumnos a set nordensorteo=nasignado-0+1 where nasignado>=0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:11:48] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50017369
+[24-Feb-2020 10:11:48] : [WARNING] - ACTUALIZANDO SORTEO EBO
+[24-Feb-2020 10:11:48] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,277,237,374,310)
+[24-Feb-2020 10:11:48] : [WARNING] - 
+[24-Feb-2020 10:11:48] : [WARNING] - ACT EST EBO
+[24-Feb-2020 10:12:09] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:12:09] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:12:09] : [WARNING] - OBTENIENDO IDS SOLICITUDES
+[24-Feb-2020 10:12:09] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='ebo' and  fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 8
+[24-Feb-2020 10:12:09] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='tva' and fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 0
+[24-Feb-2020 10:12:09] : [WARNING] - SOLICITUDES ADMITIDAS
+[24-Feb-2020 10:12:09] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:12:09] : [WARNING] - RESPUESTA IDS:
+[24-Feb-2020 10:12:09] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:12:09] : [WARNING] - ACTUALIZANDO SORTEO
+[24-Feb-2020 10:12:09] : [WARNING] - UPDATE alumnos a set nordensorteo=35+nasignado-0+1 where nasignado<0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:12:09] : [WARNING] - UPDATE alumnos a set nordensorteo=nasignado-0+1 where nasignado>=0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:12:09] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50017369
+[24-Feb-2020 10:12:09] : [WARNING] - ACTUALIZANDO SORTEO EBO
+[24-Feb-2020 10:12:09] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,277,237,374,310)
+[24-Feb-2020 10:12:09] : [WARNING] - 
+[24-Feb-2020 10:12:09] : [WARNING] - ACT EST EBO
+[24-Feb-2020 10:12:25] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:12:25] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:12:25] : [WARNING] - OBTENIENDO IDS SOLICITUDES
+[24-Feb-2020 10:12:25] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='ebo' and  fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 8
+[24-Feb-2020 10:12:25] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='tva' and fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 0
+[24-Feb-2020 10:12:25] : [WARNING] - SOLICITUDES ADMITIDAS
+[24-Feb-2020 10:12:25] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:12:25] : [WARNING] - RESPUESTA IDS:
+[24-Feb-2020 10:12:25] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:12:25] : [WARNING] - ACTUALIZANDO SORTEO
+[24-Feb-2020 10:12:25] : [WARNING] - UPDATE alumnos a set nordensorteo=35+nasignado-0+1 where nasignado<0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:12:25] : [WARNING] - UPDATE alumnos a set nordensorteo=nasignado-0+1 where nasignado>=0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:12:25] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50017369
+[24-Feb-2020 10:12:25] : [WARNING] - ACTUALIZANDO SORTEO EBO
+[24-Feb-2020 10:12:25] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,277,237,374,310)
+[24-Feb-2020 10:12:25] : [WARNING] - 
+[24-Feb-2020 10:12:25] : [WARNING] - ACT EST EBO
+[24-Feb-2020 10:12:39] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:12:39] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:12:39] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 10:12:39] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 10:14:23] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:14:23] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:14:23] : [WARNING] - OBTENIENDO IDS SOLICITUDES
+[24-Feb-2020 10:14:23] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='ebo' and  fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 8
+[24-Feb-2020 10:14:23] : [WARNING] - SELECT a.id_alumno FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on c.id_centro=a.id_centro_destino where a.tipoestudios='tva' and fase_solicitud!='borrador' and estado_solicitud not in('irregular','duplicada') and a.id_centro_destino=50017369 order by c.id_centro, a.transporte desc,b.puntos_validados desc,a.nordensorteo asc,a.nasignado desc LIMIT 0
+[24-Feb-2020 10:14:23] : [WARNING] - SOLICITUDES ADMITIDAS
+[24-Feb-2020 10:14:23] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:14:23] : [WARNING] - RESPUESTA IDS:
+[24-Feb-2020 10:14:23] : [WARNING] - Array
+(
+    [ebo] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id_alumno] => 195
+                )
+
+            [1] => stdClass Object
+                (
+                    [id_alumno] => 498
+                )
+
+            [2] => stdClass Object
+                (
+                    [id_alumno] => 162
+                )
+
+            [3] => stdClass Object
+                (
+                    [id_alumno] => 356
+                )
+
+            [4] => stdClass Object
+                (
+                    [id_alumno] => 277
+                )
+
+            [5] => stdClass Object
+                (
+                    [id_alumno] => 237
+                )
+
+            [6] => stdClass Object
+                (
+                    [id_alumno] => 374
+                )
+
+            [7] => stdClass Object
+                (
+                    [id_alumno] => 310
+                )
+
+        )
+
+)
+
+[24-Feb-2020 10:14:23] : [WARNING] - ACTUALIZANDO SORTEO
+[24-Feb-2020 10:14:23] : [WARNING] - UPDATE alumnos a set nordensorteo=35+nasignado-0+1 where nasignado<0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:14:23] : [WARNING] - UPDATE alumnos a set nordensorteo=nasignado-0+1 where nasignado>=0 and id_centro_destino='50017369' and fase_solicitud!='borrador' 
+[24-Feb-2020 10:14:23] : [WARNING] - update alumnos set est_desp_sorteo='noadmitida' where id_centro_destino=50017369
+[24-Feb-2020 10:14:23] : [WARNING] - ACTUALIZANDO SORTEO EBO
+[24-Feb-2020 10:14:23] : [WARNING] - update alumnos set est_desp_sorteo='admitida' where tipoestudios='ebo' and id_centro_destino=50017369 and fase_solicitud!='borrador' and id_alumno in(195,498,162,356,277,237,374,310)
+[24-Feb-2020 10:14:23] : [WARNING] - 
+[24-Feb-2020 10:14:23] : [WARNING] - ACT EST EBO
+[24-Feb-2020 10:19:07] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 10:19:07] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 10:19:07] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 10:19:07] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:52:57] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:52:57] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:52:57] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:52:57] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:55:10] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:55:10] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:55:10] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:55:10] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:55:29] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:55:29] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:55:29] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:55:29] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:55:42] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:55:42] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:55:42] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:55:42] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:55:59] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:55:59] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:55:59] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:55:59] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:56:44] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:56:44] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:56:44] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:56:44] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:57:03] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:57:03] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:57:03] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:57:03] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 11:57:46] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 11:57:46] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 11:57:46] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 11:57:46] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:03:48] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:03:48] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:03:48] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:03:48] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:09:30] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:09:30] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:09:30] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:09:30] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:09:42] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:09:42] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:09:42] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:09:42] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:10:06] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:10:06] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:10:06] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:10:06] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:10:54] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:10:54] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:10:54] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:10:54] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:13:32] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:13:32] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:13:32] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:13:32] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:14:22] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:14:22] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:14:22] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:14:22] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:17:03] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:17:03] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:17:03] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:17:03] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:18:41] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:18:41] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:18:41] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:18:41] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:26:27] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:26:27] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:26:27] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:26:27] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:32:35] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:32:35] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:32:35] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:32:35] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:42:25] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:42:25] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 12:42:25] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 12:42:25] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 12:51:37] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 12:51:37] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=-1
+[24-Feb-2020 13:07:46] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 13:07:46] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 13:07:46] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 13:07:46] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 13:09:40] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 13:09:40] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 13:09:40] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 13:09:40] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369
+[24-Feb-2020 13:26:05] : [WARNING] - OBTENIENDO NUMERO DE SOLICITUDES
+[24-Feb-2020 13:26:05] : [WARNING] - SELECT count(*) as nsolicitudes FROM alumnos where fase_solicitud!='borrador' and id_centro_destino=50017369
+[24-Feb-2020 13:26:05] : [WARNING] - OBTENIENDO FASE SORTEO
+[24-Feb-2020 13:26:05] : [WARNING] - select fase_sorteo rom centros where id_centro=50017369

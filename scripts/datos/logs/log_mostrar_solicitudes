@@ -8452,3 +8452,743 @@
 
 )
 
+[24-Feb-2020 12:51:39] : [WARNING] - IDCENTRO: 50006049
+[24-Feb-2020 12:51:39] : [WARNING] - MOSTRAR SOLICITUDES
+[24-Feb-2020 12:51:39] : [WARNING] - Array
+(
+)
+
+[24-Feb-2020 12:51:44] : [WARNING] - IDCENTRO: 50017369
+[24-Feb-2020 12:51:44] : [WARNING] - MOSTRAR SOLICITUDES
+[24-Feb-2020 12:51:44] : [WARNING] - Array
+(
+    [0] => stdClass Object
+        (
+            [id_alumno] => 8901
+            [nombre] => nriv1
+            [apellido1] => apriv1
+            [fase_solicitud] => baremada
+            [estado_solicitud] => duplicada
+            [transporte] => 3
+            [nordensorteo] => 0
+            [tipoestudios] => ebo
+            [nasignado] => 36
+            [puntos_validados] => 0
+        )
+
+    [1] => stdClass Object
+        (
+            [id_alumno] => 8903
+            [nombre] => nodata
+            [apellido1] => nodata
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 3
+            [nordensorteo] => 0
+            [tipoestudios] => ebo
+            [nasignado] => 38
+            [puntos_validados] => 0
+        )
+
+    [2] => stdClass Object
+        (
+            [id_alumno] => 8902
+            [nombre] => nodata
+            [apellido1] => nodata
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 3
+            [nordensorteo] => 0
+            [tipoestudios] => ebo
+            [nasignado] => 37
+            [puntos_validados] => 0
+        )
+
+    [3] => stdClass Object
+        (
+            [id_alumno] => 8906
+            [nombre] => n1
+            [apellido1] => pa1
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 3
+            [nordensorteo] => 0
+            [tipoestudios] => ebo
+            [nasignado] => 41
+            [puntos_validados] => 0
+        )
+
+    [4] => stdClass Object
+        (
+            [id_alumno] => 8905
+            [nombre] => n1
+            [apellido1] => pa1
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 3
+            [nordensorteo] => 0
+            [tipoestudios] => ebo
+            [nasignado] => 40
+            [puntos_validados] => 0
+        )
+
+    [5] => stdClass Object
+        (
+            [id_alumno] => 8904
+            [nombre] => n111
+            [apellido1] => pa1
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 3
+            [nordensorteo] => 0
+            [tipoestudios] => ebo
+            [nasignado] => 39
+            [puntos_validados] => 0
+        )
+
+    [6] => stdClass Object
+        (
+            [id_alumno] => 162
+            [nombre] => nombre161
+            [apellido1] => pape161
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 12
+            [tipoestudios] => ebo
+            [nasignado] => 11
+            [puntos_validados] => 11
+        )
+
+    [7] => stdClass Object
+        (
+            [id_alumno] => 195
+            [nombre] => nombre194
+            [apellido1] => pape194
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 3
+            [nordensorteo] => 15
+            [tipoestudios] => ebo
+            [nasignado] => 14
+            [puntos_validados] => 6
+        )
+
+    [8] => stdClass Object
+        (
+            [id_alumno] => 211
+            [nombre] => nombre210
+            [apellido1] => pape210
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 1
+            [nordensorteo] => 27
+            [tipoestudios] => ebo
+            [nasignado] => 26
+            [puntos_validados] => 6
+        )
+
+    [9] => stdClass Object
+        (
+            [id_alumno] => 237
+            [nombre] => nombre236
+            [apellido1] => pape236
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 20
+            [tipoestudios] => ebo
+            [nasignado] => 19
+            [puntos_validados] => 6
+        )
+
+    [10] => stdClass Object
+        (
+            [id_alumno] => 277
+            [nombre] => nombre276
+            [apellido1] => pape276
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 19
+            [tipoestudios] => ebo
+            [nasignado] => 18
+            [puntos_validados] => 6
+        )
+
+    [11] => stdClass Object
+        (
+            [id_alumno] => 302
+            [nombre] => nombre301
+            [apellido1] => pape301
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 1
+            [nordensorteo] => 6
+            [tipoestudios] => ebo
+            [nasignado] => 5
+            [puntos_validados] => 4
+        )
+
+    [12] => stdClass Object
+        (
+            [id_alumno] => 310
+            [nombre] => nombre309
+            [apellido1] => pape309
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 35
+            [tipoestudios] => ebo
+            [nasignado] => 34
+            [puntos_validados] => 4
+        )
+
+    [13] => stdClass Object
+        (
+            [id_alumno] => 311
+            [nombre] => nombre310
+            [apellido1] => pape310
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 11
+            [tipoestudios] => ebo
+            [nasignado] => 10
+            [puntos_validados] => 3.75
+        )
+
+    [14] => stdClass Object
+        (
+            [id_alumno] => 320
+            [nombre] => nombre319
+            [apellido1] => pape319
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 28
+            [tipoestudios] => ebo
+            [nasignado] => 27
+            [puntos_validados] => 3.75
+        )
+
+    [15] => stdClass Object
+        (
+            [id_alumno] => 351
+            [nombre] => nombre350
+            [apellido1] => pape350
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 1
+            [nordensorteo] => 4
+            [tipoestudios] => ebo
+            [nasignado] => 3
+            [puntos_validados] => 6
+        )
+
+    [16] => stdClass Object
+        (
+            [id_alumno] => 356
+            [nombre] => nombre355
+            [apellido1] => pape355
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 3
+            [tipoestudios] => ebo
+            [nasignado] => 2
+            [puntos_validados] => 7
+        )
+
+    [17] => stdClass Object
+        (
+            [id_alumno] => 374
+            [nombre] => nombre373
+            [apellido1] => pape373
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 34
+            [tipoestudios] => ebo
+            [nasignado] => 33
+            [puntos_validados] => 4
+        )
+
+    [18] => stdClass Object
+        (
+            [id_alumno] => 387
+            [nombre] => nombre386
+            [apellido1] => pape386
+            [fase_solicitud] => validada
+            [estado_solicitud] => duplicada
+            [transporte] => 1
+            [nordensorteo] => 33
+            [tipoestudios] => ebo
+            [nasignado] => 32
+            [puntos_validados] => 13
+        )
+
+    [19] => stdClass Object
+        (
+            [id_alumno] => 397
+            [nombre] => nombre396
+            [apellido1] => pape396
+            [fase_solicitud] => validada
+            [estado_solicitud] => duplicada
+            [transporte] => 2
+            [nordensorteo] => 2
+            [tipoestudios] => ebo
+            [nasignado] => 1
+            [puntos_validados] => 139
+        )
+
+    [20] => stdClass Object
+        (
+            [id_alumno] => 412
+            [nombre] => nombre411
+            [apellido1] => pape411
+            [fase_solicitud] => baremada
+            [estado_solicitud] => duplicada
+            [transporte] => 3
+            [nordensorteo] => 13
+            [tipoestudios] => ebo
+            [nasignado] => 12
+            [puntos_validados] => 152
+        )
+
+    [21] => stdClass Object
+        (
+            [id_alumno] => 498
+            [nombre] => nombre497
+            [apellido1] => pape497
+            [fase_solicitud] => baremada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 31
+            [tipoestudios] => ebo
+            [nasignado] => 30
+            [puntos_validados] => 99
+        )
+
+    [22] => stdClass Object
+        (
+            [id_alumno] => 508
+            [nombre] => nombre507
+            [apellido1] => pape507
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 1
+            [nordensorteo] => 2
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 72
+        )
+
+    [23] => stdClass Object
+        (
+            [id_alumno] => 510
+            [nombre] => nombre509
+            [apellido1] => pape509
+            [fase_solicitud] => borrador
+            [estado_solicitud] => duplicada
+            [transporte] => 3
+            [nordensorteo] => 1
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 138
+        )
+
+    [24] => stdClass Object
+        (
+            [id_alumno] => 541
+            [nombre] => nombre540
+            [apellido1] => pape540
+            [fase_solicitud] => validada
+            [estado_solicitud] => duplicada
+            [transporte] => 1
+            [nordensorteo] => 5
+            [tipoestudios] => ebo
+            [nasignado] => 4
+            [puntos_validados] => 194
+        )
+
+    [25] => stdClass Object
+        (
+            [id_alumno] => 555
+            [nombre] => nombre554
+            [apellido1] => pape554
+            [fase_solicitud] => validada
+            [estado_solicitud] => irregular
+            [transporte] => 1
+            [nordensorteo] => 36
+            [tipoestudios] => ebo
+            [nasignado] => 35
+            [puntos_validados] => 131
+        )
+
+    [26] => stdClass Object
+        (
+            [id_alumno] => 601
+            [nombre] => nombre600
+            [apellido1] => pape600
+            [fase_solicitud] => baremada
+            [estado_solicitud] => duplicada
+            [transporte] => 1
+            [nordensorteo] => 16
+            [tipoestudios] => ebo
+            [nasignado] => 15
+            [puntos_validados] => 117
+        )
+
+    [27] => stdClass Object
+        (
+            [id_alumno] => 622
+            [nombre] => nombre621
+            [apellido1] => pape621
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 17
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 121
+        )
+
+    [28] => stdClass Object
+        (
+            [id_alumno] => 638
+            [nombre] => nombre637
+            [apellido1] => pape637
+            [fase_solicitud] => validada
+            [estado_solicitud] => duplicada
+            [transporte] => 2
+            [nordensorteo] => 24
+            [tipoestudios] => ebo
+            [nasignado] => 23
+            [puntos_validados] => 120
+        )
+
+    [29] => stdClass Object
+        (
+            [id_alumno] => 707
+            [nombre] => nombre706
+            [apellido1] => pape706
+            [fase_solicitud] => borrador
+            [estado_solicitud] => duplicada
+            [transporte] => 3
+            [nordensorteo] => 7
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 119
+        )
+
+    [30] => stdClass Object
+        (
+            [id_alumno] => 730
+            [nombre] => nombre729
+            [apellido1] => pape729
+            [fase_solicitud] => validada
+            [estado_solicitud] => duplicada
+            [transporte] => 2
+            [nordensorteo] => 7
+            [tipoestudios] => ebo
+            [nasignado] => 6
+            [puntos_validados] => 174
+        )
+
+    [31] => stdClass Object
+        (
+            [id_alumno] => 763
+            [nombre] => nombre762
+            [apellido1] => pape762
+            [fase_solicitud] => baremada
+            [estado_solicitud] => irregular
+            [transporte] => 1
+            [nordensorteo] => 21
+            [tipoestudios] => ebo
+            [nasignado] => 20
+            [puntos_validados] => 183
+        )
+
+    [32] => stdClass Object
+        (
+            [id_alumno] => 777
+            [nombre] => nombre776
+            [apellido1] => pape776
+            [fase_solicitud] => borrador
+            [estado_solicitud] => duplicada
+            [transporte] => 2
+            [nordensorteo] => 9
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 91
+        )
+
+    [33] => stdClass Object
+        (
+            [id_alumno] => 833
+            [nombre] => nombre832
+            [apellido1] => pape832
+            [fase_solicitud] => baremada
+            [estado_solicitud] => irregular
+            [transporte] => 2
+            [nordensorteo] => 22
+            [tipoestudios] => ebo
+            [nasignado] => 21
+            [puntos_validados] => 16
+        )
+
+    [34] => stdClass Object
+        (
+            [id_alumno] => 839
+            [nombre] => nombre838
+            [apellido1] => pape838
+            [fase_solicitud] => borrador
+            [estado_solicitud] => irregular
+            [transporte] => 3
+            [nordensorteo] => 2
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 68
+        )
+
+    [35] => stdClass Object
+        (
+            [id_alumno] => 842
+            [nombre] => nombre841
+            [apellido1] => pape841
+            [fase_solicitud] => validada
+            [estado_solicitud] => irregular
+            [transporte] => 1
+            [nordensorteo] => 10
+            [tipoestudios] => ebo
+            [nasignado] => 9
+            [puntos_validados] => 158
+        )
+
+    [36] => stdClass Object
+        (
+            [id_alumno] => 851
+            [nombre] => nombre850
+            [apellido1] => pape850
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 12
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 41
+        )
+
+    [37] => stdClass Object
+        (
+            [id_alumno] => 874
+            [nombre] => nombre873
+            [apellido1] => pape873
+            [fase_solicitud] => validada
+            [estado_solicitud] => duplicada
+            [transporte] => 3
+            [nordensorteo] => 18
+            [tipoestudios] => ebo
+            [nasignado] => 17
+            [puntos_validados] => 33
+        )
+
+    [38] => stdClass Object
+        (
+            [id_alumno] => 884
+            [nombre] => nombre883
+            [apellido1] => pape883
+            [fase_solicitud] => validada
+            [estado_solicitud] => duplicada
+            [transporte] => 1
+            [nordensorteo] => 32
+            [tipoestudios] => ebo
+            [nasignado] => 31
+            [puntos_validados] => 55
+        )
+
+    [39] => stdClass Object
+        (
+            [id_alumno] => 893
+            [nombre] => nombre892
+            [apellido1] => pape892
+            [fase_solicitud] => borrador
+            [estado_solicitud] => duplicada
+            [transporte] => 1
+            [nordensorteo] => 12
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 118
+        )
+
+    [40] => stdClass Object
+        (
+            [id_alumno] => 894
+            [nombre] => nombre893
+            [apellido1] => pape893
+            [fase_solicitud] => validada
+            [estado_solicitud] => irregular
+            [transporte] => 2
+            [nordensorteo] => 25
+            [tipoestudios] => ebo
+            [nasignado] => 24
+            [puntos_validados] => 124
+        )
+
+    [41] => stdClass Object
+        (
+            [id_alumno] => 940
+            [nombre] => nombre939
+            [apellido1] => pape939
+            [fase_solicitud] => borrador
+            [estado_solicitud] => apta
+            [transporte] => 1
+            [nordensorteo] => 18
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 189
+        )
+
+    [42] => stdClass Object
+        (
+            [id_alumno] => 95
+            [nombre] => nombre94
+            [apellido1] => pape94
+            [fase_solicitud] => validada
+            [estado_solicitud] => irregular
+            [transporte] => 2
+            [nordensorteo] => 23
+            [tipoestudios] => ebo
+            [nasignado] => 22
+            [puntos_validados] => 179
+        )
+
+    [43] => stdClass Object
+        (
+            [id_alumno] => 951
+            [nombre] => nombre950
+            [apellido1] => pape950
+            [fase_solicitud] => borrador
+            [estado_solicitud] => duplicada
+            [transporte] => 3
+            [nordensorteo] => 9
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 193
+        )
+
+    [44] => stdClass Object
+        (
+            [id_alumno] => 959
+            [nombre] => nombre958
+            [apellido1] => pape958
+            [fase_solicitud] => baremada
+            [estado_solicitud] => apta
+            [transporte] => 1
+            [nordensorteo] => 9
+            [tipoestudios] => ebo
+            [nasignado] => 8
+            [puntos_validados] => 123
+        )
+
+    [45] => stdClass Object
+        (
+            [id_alumno] => 994
+            [nombre] => nombre993
+            [apellido1] => pape993
+            [fase_solicitud] => borrador
+            [estado_solicitud] => irregular
+            [transporte] => 2
+            [nordensorteo] => 17
+            [tipoestudios] => ebo
+            [nasignado] => 0
+            [puntos_validados] => 97
+        )
+
+    [46] => stdClass Object
+        (
+            [id_alumno] => 11
+            [nombre] => nombre10
+            [apellido1] => pape10
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 1
+            [nordensorteo] => 29
+            [tipoestudios] => tva
+            [nasignado] => 28
+            [puntos_validados] => 6
+        )
+
+    [47] => stdClass Object
+        (
+            [id_alumno] => 120
+            [nombre] => nombre119
+            [apellido1] => pape119
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 8
+            [tipoestudios] => tva
+            [nasignado] => 7
+            [puntos_validados] => 7
+        )
+
+    [48] => stdClass Object
+        (
+            [id_alumno] => 140
+            [nombre] => nombre139
+            [apellido1] => pape139
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 3
+            [nordensorteo] => 26
+            [tipoestudios] => tva
+            [nasignado] => 25
+            [puntos_validados] => 4
+        )
+
+    [49] => stdClass Object
+        (
+            [id_alumno] => 16
+            [nombre] => nombre15
+            [apellido1] => pape15
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 30
+            [tipoestudios] => tva
+            [nasignado] => 29
+            [puntos_validados] => 7
+        )
+
+    [50] => stdClass Object
+        (
+            [id_alumno] => 208
+            [nombre] => nombre207
+            [apellido1] => pape207
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 14
+            [tipoestudios] => tva
+            [nasignado] => 13
+            [puntos_validados] => 6
+        )
+
+    [51] => stdClass Object
+        (
+            [id_alumno] => 384
+            [nombre] => nombre383
+            [apellido1] => pape383
+            [fase_solicitud] => validada
+            [estado_solicitud] => apta
+            [transporte] => 2
+            [nordensorteo] => 17
+            [tipoestudios] => tva
+            [nasignado] => 16
+            [puntos_validados] => 3.75
+        )
+
+)
+

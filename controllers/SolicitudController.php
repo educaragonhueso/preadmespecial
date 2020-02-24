@@ -9,11 +9,11 @@ class SolicitudController extends ControladorBase{
 		{
         parent::__construct();
         require_once DIR_BASE.'/includes/form_solicitud.php';
-				require_once DIR_CLASES.'LOGGER.php';
-				require_once DIR_APP.'parametros.php';
-				$this->log_editar=new logWriter('log_editar_solicitud',DIR_LOGS);
-				$this->log_nueva=new logWriter('log_nueva_solicitud',DIR_LOGS);
-				$this->log_nuevoalumno=new logWriter('log_nuevoalumno',DIR_LOGS);
+	require_once DIR_CLASES.'LOGGER.php';
+	require_once DIR_APP.'parametros.php';
+	$this->log_editar=new logWriter('log_editar_solicitud',DIR_LOGS);
+	$this->log_nueva=new logWriter('log_nueva_solicitud',DIR_LOGS);
+	$this->log_nuevoalumno=new logWriter('log_nuevoalumno',DIR_LOGS);
         $this->conectar=new Conectar();
         $this->adapter=$this->conectar->conexion();
         $this->formulario=$formsol;

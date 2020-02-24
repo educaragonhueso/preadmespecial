@@ -517,6 +517,14 @@ We can now print a cell with Cell(). A cell is a rectangular area, possibly fram
 	return $nv;
 	}
 	
+	public function existeCuenta($clave=0,$usuario='')
+	{
+	$squery="SELECT nombre_usuario,clave_original FROM usuarios where nombre_usuario=".$usuario." and clave_original=".$clave;
+   	$this->log_nueva_solicitud->warning("DATOS CUENTA ".$squery); 
+	$query=$this->db->query($squery);
+	if($query->num_rows>0) return 0;
+	else return 1;
+	}
 	public function save($sol,$id,$rol='centro')
 	{
 	$nsol=$sol;
@@ -542,6 +550,9 @@ We can now print a cell with Cell(). A cell is a rectangular area, possibly fram
 	$this->log_nueva_solicitud->warning(json_encode($sol));
 
 	$clave=rand(1000,9999);
+	while($this->existeCuenta($clave,$sol['dni_tutor1'])==0)	
+		$clave=rand(1000,9999);
+
 	if(strlen($sol['dni_tutor1']==0)) return 0; 
 	
 	$this->log_nueva_solicitud->warning("CONSULTA INSERCION USUARIO:");
@@ -588,12 +599,7 @@ We can now print a cell with Cell(). A cell is a rectangular area, possibly fram
 			$this->log_nueva_solicitud->warning($query);
 			$this->log_nueva_solicitud->warning("ID INSERCION ALUMNO:");
 			$this->log_nueva_solicitud->warning($id_alumno);
-			/*	
-			if($hadmision=='si')
-			$savehermanos_admision=$this->save_hermanos($solhermanos_admision,'admision');
-			if($hbaremo=='si')
-			$savehermanos_baremo=$this->save_hermanos($solhermanos_baremo,'baremo');
-			*/	
+			
 			if($id_alumno)
 			{
 				//filtramos los datos del baremo
@@ -640,19 +646,21 @@ We can now print a cell with Cell(). A cell is a rectangular area, possibly fram
 					$this->log_nueva_solicitud->warning("ERROR GUARDANDO BAREMO, ERROR MSG: ".$this->db()->error);
 					return 0;
 				}
-			}
+		}
 		else
 		{ 
 				$this->log_nueva_solicitud->warning("ERROR GUARDANDO ALUMNO, CODIGO: ".$this->db()->errno);
 				$this->log_nueva_solicitud->warning("ERROR GUARDANDO ALUMNO, ERROR MSG: ".$this->db()->error);
-				return 0;
+				if($this->db()->errno==1062) return -2;
+				else return 0;
 		}
 		}//FIN SAVEUSUARIO
 		else
 		{	
 				$this->log_nueva_solicitud->warning("ERROR GUARDANDO USUARIO, CODIGO: ".$this->db()->errno);
 				$this->log_nueva_solicitud->warning("ERROR GUARDANDO USUARIO, ERROR MSG: ".$this->db()->error);
-				return 0;
+				if($this->db()->errno==1062) return -1;
+				else return 0;
 		}
 	return 0;
   }

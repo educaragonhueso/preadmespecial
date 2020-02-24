@@ -99,15 +99,20 @@ else
 if(gettype($res)=='string') 
 		print($res);
 else
+{
+	if($res<=0) 
 	{
-		if($res==0) print('ERROR GUARDANDO DATOS: Falta el NIF del tutor');
+	if($res==-1)	print('ERROR GUARDANDO DATOS: YA EXISTE UN USUARIO CON ESE NOMBRE DE USUARIO');
+	if($res==-2)	print('ERROR GUARDANDO DATOS: YA EXISTE UN ALUMNO CON ESOS DATOS');
+	if($res==0)	print('ERROR GUARDANDO DATOS: CONTACTA CON EL AMDINISTRADOR, lhueso@aragon.es');
+	}
+	else
+	{ 
+		//si es nueva y anonima se devuelve la clave para acceder despues
+		if($modo=="GRABAR SOLICITUD" and $rol=='alumno')
+			print($res);
 		else
-		{ 
-			//si es nueva y anonima se devuelve la clave para acceder despues
-			if($modo=="GRABAR SOLICITUD" and $rol=='alumno')
-				print($res);
-			else
-				print_r($sc->showSolicitud($res));
-		}
+			print_r($sc->showSolicitud($res));
+	}
 	}
 ?>

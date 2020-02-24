@@ -139,7 +139,7 @@ class ListadosController extends ControladorBase{
 		$cabecera="<div class='filasol' id='cab_solicitudes'>";
 		if($rol=='admin') $cabecera.="<span><b>CENTRO</b></span>";
                 $cabecera.="<span class='cab_class dalumnofirst' data-idal=''><b>ALUMNO</b></span>";
-                $cabecera.="<span class='cab_class dalumno' data-idal=''><b>TRANSPORTE</b></span>";
+                $cabecera.="<span class='cab_class dalumno' data-idal=''><b>CRITERIOS DE PRIORIDAD</b></span>";
                 $cabecera.="<span class='cab_class dalumno' data-idal=''><b>NORDEN</b></span>";
                 $cabecera.="<span class='cab_class dalumno' data-idal=''><b>BAREMO</b></span>";
                 $cabecera.='<div class="right" id=""><span><b>CAMBIO ESTADO</b></span></div>&nbsp';
@@ -230,7 +230,7 @@ class ListadosController extends ControladorBase{
         <th>FASE</th>
         <th>ESTADO</th>
         <th>TIPO</th>
-        <th>TRANSPORTE</th>
+        <th>CRITERIOS DE PRIORIDAD</th>
         <th>BAREMO</th>
         <th>NORDEN</th>
         <th>NALEATORIO</th>
