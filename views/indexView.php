@@ -15,10 +15,13 @@ include('includes/head.php');
 		<div id="t_matricula" style="width:100%"></div>
 		<?php /*usamos metodo del controlador de centros activo*/if($_SESSION['rol']=='centro') echo $this->showTabla('centro',$_SESSION['id_centro'],'matricula');?>
 		<?php if($_SESSION['rol']=='admin') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula','todas');?>
-		<?php if($_SESSION['provincia']!='aragon') echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula',$_SESSION['provincia']);?>
+		<?php if($_SESSION['provincia']!='aragon'){echo "sprovincial"; echo $this->showTablas($_SESSION['rol'],$_SESSION['id_centro'],'matricula',$_SESSION['provincia']);}?>
 		<?php 
 		if($_SESSION['rol']=='alumno')
 		{
+			if($_SESSION['fin_sol_alumno']=='1')
+				echo '<button class="btn btn-outline-info" id="inicio" type="button"><h2>ULTIMO DIA PARA INSCRIBIRSE!!!</h2></button><br>';
+			echo '<br>';
 	  		echo '<input type="hidden" id="pin" name="pin" value="'.$_SESSION['clave'].'" ></input> ';
 			if($_SESSION['nombre_usuario']=='nousuario')
 				echo '<button class="btn btn-outline-info" id="nuevasolicitud" type="button">Nueva solicitud</button>';

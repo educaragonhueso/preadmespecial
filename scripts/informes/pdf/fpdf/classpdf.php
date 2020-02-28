@@ -6,7 +6,8 @@ class PDF extends FPDF
 function Header($title='')
 {
     // Logo
-    $this->Image('logo_solicitud.jpg',10,6,60);
+   // $this->Image('logo_solicitud.jpg',10,6,60);
+    $this->Image('logo_gobaragon.jpg',10,6,40);
     // Arial bold 15
     $this->SetFont('Arial','B',8);
 		$this->setY(10);
@@ -25,7 +26,8 @@ function Header($title='')
 function HeaderListados($titulo)
 {
     // Logo
-    $this->Image('logo_solicitud.jpg',10,6,60);
+    //$this->Image('logo_solicitud.jpg',10,6,60);
+    $this->Image('logo_gobaragon.jpg',10,6,40);
     // Arial bold 15
     $this->SetFont('Arial','B',8);
     // Move to the right
@@ -49,7 +51,7 @@ function Footer()
     // Arial italic 8
     $this->SetFont('Arial','I',8);
     // Page number
-    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+    $this->Cell(0,10,'Page '.$this->PageNo(),0,0,'C');
 }
 
 
@@ -65,38 +67,40 @@ function LoadData($file)
 }
 
 // Simple table
-function BasicTable($header, $data)
+function BasicTable($header, $data,$comp=0,$tam=30)
 {
 	$cc=0;
     // Header
-    foreach($header as $col)
+	foreach($header as $col)
+    	{
+		if($cc==0)
 		{
-			if($cc==0)
-			{
+		if($comp==0) $this->Cell(60);
     		$this->Cell(45,7,utf8_decode($col),1);
-				$cc++;
-				continue;
-			}
-			$cc++;
-    	$this->Cell(30,7,utf8_decode($col),1);
+		$cc++;
+		continue;
 		}
+		$cc++;
+    		$this->Cell($tam,7,utf8_decode($col),1);
+	}
     $this->Ln();
     // Data
     foreach($data as $row)
     {
 		$cc=0;
+	if($comp==0) $this->Cell(60);
         foreach($row as $col)
-				{
-					if($cc==0)
-					{
-						if(strlen($col)>30)
-							$col = substr(utf8_decode($col),0,25);
-    				$this->Cell(45,7,utf8_decode($col),1);
-						$cc++;
-						continue;
-					}
-					$cc++;
-          $this->Cell(30,7,utf8_decode($col),1,0,'C');
+	{
+		if($cc==0)
+		{
+			if(strlen($col)>30)
+				$col = substr(utf8_decode($col),0,25);
+			$this->Cell(45,7,utf8_decode($col),1);
+			$cc++;
+			continue;
+		}
+		$cc++;
+          	$this->Cell($tam,7,utf8_decode($col),1,0,'C');
         }
 				$this->Ln();
     }

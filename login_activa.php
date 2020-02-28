@@ -7,6 +7,12 @@ $_SESSION['estado']='inicioinscrion';
 $_SESSION['rol'] = 'alumno';      
 $_SESSION['provincia']='aragon';
 
+//dia ultimo inscripcion alumno
+$hoy=date("Y/m/d");      
+if(DIA_MAX_SOL_ALUMNO==$hoy)
+	$_SESSION['fin_sol_alumno']='1';
+else $_SESSION['fin_sol_alumno']='0';
+
 $_SESSION['nombre_centro'] = '9999';      
 $_SESSION['nombre_usuario'] ="nousuario";    
 $_SESSION['fecha_actual'] = date("Y/m/d");      
@@ -68,7 +74,7 @@ header('Content-Type: text/html; charset=UTF-8');
         }
         if(empty($nombre_usuario_err) && empty($clave_err))
 	{
-            $sql = "SELECT nombre_usuario, clave,rol,nombre_centro,id_centro FROM usuarios u left join centros c  ON u.id_usuario=c.id_usuario WHERE  u.nombre_usuario = ?";
+            $sql = "SELECT nombre_usuario, clave,rol,nombre_centro,id_centro,primera_conexion FROM usuarios u left join centros c  ON u.id_usuario=c.id_usuario WHERE  u.nombre_usuario = ?";
 	    if($stmt = $conexion->prepare($sql))
 		{
                 // Bind variables to the prepared statement as parameters
@@ -84,7 +90,7 @@ header('Content-Type: text/html; charset=UTF-8');
                     if($stmt->num_rows == 1)
 		    						{                    
                         // Bind result variables
-                        $stmt->bind_result($nombre_usuario, $hashed_clave,$rol,$nombre_centro,$id_centro);
+                        $stmt->bind_result($nombre_usuario, $hashed_clave,$rol,$nombre_centro,$id_centro,$primera_conexion);
                         if($stmt->fetch())
 			{
                            if(md5(strtoupper($clave))== $hashed_clave || md5($clave)== $hashed_clave)
@@ -93,12 +99,19 @@ header('Content-Type: text/html; charset=UTF-8');
 					$_SESSION['clave'] = $clave;      
 					$_SESSION['rol'] = $rol;      
 					$_SESSION['nombre_centro'] = $nombre_centro;      
-					$_SESSION['id_centro'] = $id_centro;      
+					$_SESSION['id_centro'] = $id_centro;
+					if($rol=='centro' and  $primera_conexion=='si')
+						header("location: login_pconexion.php");
+     					else
+					{ 
 					if($_SESSION['fecha_actual']>=$_SESSION['fecha_inscripcion']) $_SESSION['estado']='inicioinscripcion';
 					else $_SESSION['estado']='inicioinscripcion';
 					if(strpos($_SESSION['rol'],'sp')!==FALSE) 
 						$_SESSION['provincia']=substr($_SESSION['rol'],2);
+					
+					//print_r($_SESSION);
 					header("location: index.php");
+					}
 			   } 
 			   else
 			   {
@@ -167,7 +180,7 @@ input[type=text], input[type=password] {
             <h2>Acceso inscripciones estudios de Educación Especial</h2>
 	<button type="button" class="btn btn-primary" id="csolicitud">Crear solicitud</button>
 
-
+	<?php if(IPREMOTA==$_SERVER['REMOTE_ADDR'] || $hoy>=DIA_INICIO) { ?>
             <p>Introduce tu nombre de  usuario y contraseña</p>
             <form action="" method="post">
                 <div class="form-group <?php echo (!empty($nombre_usuario_err)) ? 'has-error' : ''; ?>">
@@ -184,6 +197,11 @@ input[type=text], input[type=password] {
                     <input type="submit" class="btn btn-primary" value="Acceder con credenciales">
                 </div>
             </form>
+		<?php } else
+			echo "<h1>PAGINA EN MANTENIMIENTO O CONVOCATORIA NO INICIADA</h1>";
+			//echo $_SERVER[REMOTE_ADDR];
+			//echo ":".IPREMOTA;
+			?>
         </div>    
 
 <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
@@ -202,6 +220,7 @@ input[type=text], input[type=password] {
     <div class="footer-copyright py-3 text-center">
         Registro e incidencias:
         <a href="mailto:lhueso@aragon.es">lhueso@aragon.es </a>
+        <a href="tel:976715444">976715444</a>
     </div>
             </li>
         </ul>

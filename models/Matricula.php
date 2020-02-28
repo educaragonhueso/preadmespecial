@@ -19,20 +19,20 @@ class Matricula extends EntidadBase{
     }
 	public function getAllMatListados($c=1,$tipo=0) 
 	{
-        $resultSet=array();
-				if($c==1)
-					$sql="SELECT * FROM matricula order by id_centro desc";
-				else
-					$sql="SELECT * FROM matricula where id_centro=$c";
-				
-				$this->log_gencsvs_mat->warning("CONSULTA MATRICULAS CSV");
-				$this->log_gencsvs_mat->warning($sql);
-				$query=$this->db->query($sql);
-        if($query)
-				while ($row = $query->fetch_object()) 
-				{
-           $resultSet[]=$row;
-        }
+	        $resultSet=array();
+		if($c<=1)
+			$sql="SELECT * FROM matricula order by id_centro desc";
+		else
+			$sql="SELECT * FROM matricula where id_centro=$c";
+		
+		$this->log_gencsvs_mat->warning("CONSULTA MATRICULAS CSV");
+		$this->log_gencsvs_mat->warning($sql);
+		$query=$this->db->query($sql);
+        	if($query)
+			while ($row = $query->fetch_object()) 
+			{
+		           $resultSet[]=$row;
+        		}
         return $resultSet;
 	}
 	public function getSol($id) {

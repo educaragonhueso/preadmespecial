@@ -214,7 +214,8 @@ class ACCESO
 		$m_tipo_centro=$matricula[6];	
 		$m_nombre_centro=$matricula[7];	
 		$m_codigo_centro=$matricula[9];
-
+		//if($m_codigo_centro!=50005616 || $m_codigo_centro!=50007674)
+		//	continue;
 		//pasamos los de san antonio a atades50007674
 		if($m_codigo_centro==50005616)
 			{

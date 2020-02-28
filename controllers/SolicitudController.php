@@ -200,6 +200,7 @@ class SolicitudController extends ControladorBase{
 				if($skey=='baremo_calle_dlaboral' or $skey=='baremo_calle_dllimitrofe')
 					{
 					$this->formulario=str_replace('name="'.$skey.'"','name="'.$skey.$id.'" value="'.$sval.'"',$this->formulario);
+					$this->formulario=str_replace('id="'.$skey.'"','id="'.$skey.$id.'"',$this->formulario);
 					continue;
 					}
 				//controles de validacion de baremo tipo radio
@@ -331,6 +332,9 @@ class SolicitudController extends ControladorBase{
 			$this->formulario=str_replace('id="labelbaremo"','id="labelbaremo'.$nuevoid.'"',$this->formulario);
 			$this->formulario=str_replace('id="baremo_validar_proximidad_domicilio"','id="baremo_validar_proximidad_domicilio'.$nuevoid.'"',$this->formulario);
 			
+			$this->formulario=str_replace('id="baremo_calle_dlaboral"','id="baremo_calle_dlaboral'.$nuevoid.'" value="'.$sval.'"',$this->formulario);
+			$this->formulario=str_replace('id="baremo_calle_dllimitrofe"','id="baremo_calle_dllimitrofe'.$nuevoid.'" value="'.$sval.'"',$this->formulario);
+			
 			$this->formulario=str_replace('name="boton_baremo_validar_tutores_centro"','name="boton_baremo_validar_tutores_centro'.$nuevoid.'"',$this->formulario);
 			$this->formulario=str_replace('id="baremo_validar_tutores_centro"','id="baremo_validar_tutores_centro'.$nuevoid.'"',$this->formulario);
 			
@@ -373,7 +377,7 @@ class SolicitudController extends ControladorBase{
 			{
 				
 				if($skey=='id_centro_destino' and $rol!='alumno')
-				$this->formulario=str_replace('id="'.$skey.'" value=""','id="'.$skey.$nuevoid.'" value="'.$dsolicitud['nombre_centro_destino'].'" disabled',$this->formulario);
+					$this->formulario=str_replace('id="'.$skey.'" value=""','id="'.$skey.$nuevoid.'" value="'.$dsolicitud['nombre_centro_destino'].'" disabled',$this->formulario);
 				else $this->formulario=str_replace('id="'.$skey.'"','id="'.$skey.$nuevoid.'"',$this->formulario);
 			}
 		return 1;

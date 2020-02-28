@@ -211,9 +211,10 @@ $formsol.=
                     <div class="col-md-4">
                         <div class="md-form mb-0">
 			Localidad
-														<input type="text" id="loc_centro_origen" value="" name="loc_centro_origen" placeholder="Localidad centro"  class="form-control" required>
+			     <input type="text" id="loc_centro_origen" value="" name="loc_centro_origen" placeholder="Localidad centro"  class="form-control" required>
                         </div>
                     </div>
+			<i><b>* Centro de educación especial o con aulas de educación especial</b></i>
                 </div>
 <!--FIN FILA DATOS-->
 <!--INICIO FILA DATOS-->

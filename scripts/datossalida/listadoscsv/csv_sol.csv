@@ -1,47 +1,53 @@
-Centro;"Primer apellido";"Segundo apellido";Nombre;Ense√±anza;"Centro de procedencia";Transporte;"Localidad domicilio familiar"
-"ANGEL RIVI»RE";pape540;sape540;nombre540;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape950;sape950;nombre950;ebo;NONAME;3;
-"ANGEL RIVI»RE";pape939;sape939;nombre939;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape762;sape762;nombre762;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape94;sape94;nombre94;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape729;sape729;nombre729;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape841;sape841;nombre841;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape411;sape411;nombre411;ebo;NONAME;3;
-"ANGEL RIVI»RE";pape396;sape396;nombre396;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape509;sape509;nombre509;ebo;NONAME;3;
-"ANGEL RIVI»RE";pape554;sape554;nombre554;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape893;sape893;nombre893;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape958;sape958;nombre958;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape621;sape621;nombre621;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape637;sape637;nombre637;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape706;sape706;nombre706;ebo;NONAME;3;
-"ANGEL RIVI»RE";pape892;sape892;nombre892;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape600;sape600;nombre600;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape497;sape497;nombre497;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape993;sape993;nombre993;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape776;sape776;nombre776;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape507;sape507;nombre507;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape838;sape838;nombre838;ebo;NONAME;3;
-"ANGEL RIVI»RE";pape883;sape883;nombre883;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape850;sape850;nombre850;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape873;sape873;nombre873;ebo;NONAME;3;
-"ANGEL RIVI»RE";pape832;sape832;nombre832;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape386;sape386;nombre386;ebo;NONAME;1;
-"ANGEL RIVI»RE";pape161;sape161;nombre161;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape355;sape355;nombre355;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape194;sape194;nombre194;ebo;CEDES;3;
-"ANGEL RIVI»RE";pape276;sape276;nombre276;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape350;sape350;nombre350;ebo;"LA PURÕSIMA PARA NI—OS SORDOS";1;
-"ANGEL RIVI»RE";pape236;sape236;nombre236;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape210;sape210;nombre210;ebo;"RINC”N DE GOYA";1;
-"ANGEL RIVI»RE";pape309;sape309;nombre309;ebo;"SAN GABRIEL";2;
-"ANGEL RIVI»RE";pape373;sape373;nombre373;ebo;"PARQUE GOYA";2;
-"ANGEL RIVI»RE";pape301;sape301;nombre301;ebo;"ATADES, CENTRO DE EDUCACI”N ESPECIAL SAN MARTÕN DE PORRES";1;
-"ANGEL RIVI»RE";pape319;sape319;nombre319;ebo;NONAME;2;
-"ANGEL RIVI»RE";pape310;sape310;nombre310;ebo;"FERRER Y RACAJ";2;
-"ANGEL RIVI»RE";pape15;sape15;nombre15;tva;NONAME;2;
-"ANGEL RIVI»RE";pape119;sape119;nombre119;tva;NONAME;2;
-"ANGEL RIVI»RE";pape10;sape10;nombre10;tva;ALBORADA;1;
-"ANGEL RIVI»RE";pape207;sape207;nombre207;tva;NONAME;2;
-"ANGEL RIVI»RE";pape139;sape139;nombre139;tva;NONAME;3;
-"ANGEL RIVI»RE";pape383;sape383;nombre383;tva;"JEAN PIAGET";2;
+Centro;"Primer apellido";"Segundo apellido";Nombre;Ense√±anza;"Centro de procedencia";"Criterios prioritarios";"Localidad domicilio familiar";Fase;Estado
+"JEAN PIAGET";pape908;sape908;nombre908;ebo;NONAME;3;;baremada;duplicada
+"JEAN PIAGET";pape878;sape878;nombre878;ebo;NONAME;2;;baremada;apta
+"JEAN PIAGET";pape975;sape975;nombre975;ebo;NONAME;1;;borrador;duplicada
+"JEAN PIAGET";pape515;sape515;nombre515;ebo;NONAME;2;;borrador;apta
+"JEAN PIAGET";pape985;sape985;nombre985;ebo;NONAME;3;;borrador;irregular
+"JEAN PIAGET";pape692;sape692;nombre692;ebo;NONAME;1;;baremada;irregular
+"JEAN PIAGET";pape758;sape758;nombre758;ebo;NONAME;1;;baremada;irregular
+"JEAN PIAGET";pape900;sape900;nombre900;ebo;NONAME;1;;borrador;apta
+"JEAN PIAGET";pape715;sape715;nombre715;ebo;NONAME;3;;borrador;irregular
+"JEAN PIAGET";pape865;sape865;nombre865;ebo;NONAME;1;;validada;irregular
+"JEAN PIAGET";pape799;sape799;nombre799;ebo;NONAME;2;;baremada;duplicada
+"JEAN PIAGET";pape585;sape585;nombre585;ebo;NONAME;1;;baremada;apta
+"JEAN PIAGET";pape793;sape793;nombre793;ebo;NONAME;2;;baremada;irregular
+"JEAN PIAGET";pape549;sape549;nombre549;ebo;NONAME;1;;borrador;apta
+"JEAN PIAGET";pape789;sape789;nombre789;ebo;NONAME;1;;borrador;duplicada
+"JEAN PIAGET";pape710;sape710;nombre710;ebo;NONAME;2;;baremada;duplicada
+"JEAN PIAGET";pape830;sape830;nombre830;ebo;NONAME;1;;validada;irregular
+"JEAN PIAGET";pape547;sape547;nombre547;ebo;NONAME;3;;validada;irregular
+"JEAN PIAGET";pape650;sape650;nombre650;ebo;NONAME;1;;baremada;duplicada
+"JEAN PIAGET";pape707;sape707;nombre707;ebo;NONAME;3;;baremada;irregular
+"JEAN PIAGET";pape775;sape775;nombre775;ebo;NONAME;3;;baremada;irregular
+"JEAN PIAGET";pape870;sape870;nombre870;ebo;NONAME;3;;baremada;irregular
+"JEAN PIAGET";pape857;sape857;nombre857;ebo;NONAME;1;;borrador;duplicada
+"JEAN PIAGET";pape91;sape91;nombre91;ebo;NONAME;3;;validada;apta
+"JEAN PIAGET";pape964;sape964;nombre964;ebo;NONAME;2;;baremada;duplicada
+"JEAN PIAGET";pape783;sape783;nombre783;ebo;NONAME;1;;borrador;duplicada
+"JEAN PIAGET";pape938;sape938;nombre938;ebo;NONAME;3;;validada;apta
+"JEAN PIAGET";pape854;sape854;nombre854;ebo;NONAME;3;;validada;irregular
+"JEAN PIAGET";pape116;sape116;nombre116;ebo;"LA PURÕSIMA PARA NI—OS SORDOS";1;;validada;apta
+"JEAN PIAGET";pape377;sape377;nombre377;ebo;"ANGEL RIVI»RE";1;;validada;apta
+"JEAN PIAGET";pape593;sape593;nombre593;ebo;NONAME;1;;baremada;irregular
+"JEAN PIAGET";pape487;sape487;nombre487;ebo;NONAME;2;;validada;apta
+"JEAN PIAGET";pape124;sape124;nombre124;ebo;"PARQUE VENECIA";2;;validada;apta
+"JEAN PIAGET";pape123;sape123;nombre123;ebo;NONAME;2;;validada;apta
+"JEAN PIAGET";pape264;sape264;nombre264;ebo;"SANTA ANA";2;;validada;apta
+"JEAN PIAGET";pape379;sape379;nombre379;ebo;NONAME;2;;validada;apta
+"JEAN PIAGET";pape187;sape187;nombre187;ebo;NONAME;2;;validada;apta
+"JEAN PIAGET";pape19;sape19;nombre19;ebo;CEDES;3;;validada;apta
+"JEAN PIAGET";pape462;sape462;nombre462;ebo;"SAN GERM¡N";1;;validada;apta
+"JEAN PIAGET";pape450;sape450;nombre450;ebo;NONAME;2;;validada;apta
+"JEAN PIAGET";pape480;sape480;nombre480;ebo;NONAME;3;;borrador;irregular
+"JEAN PIAGET";pape372;sape372;nombre372;ebo;NONAME;2;;validada;apta
+"JEAN PIAGET";pape399;sape399;nombre399;ebo;NONAME;2;;validada;apta
+"JEAN PIAGET";pape216;sape216;nombre216;tva;NONAME;2;;validada;apta
+"JEAN PIAGET";pape380;sape380;nombre380;tva;NONAME;2;;validada;apta
+"JEAN PIAGET";pape505;sape505;nombre505;tva;"JEAN PIAGET";1;;validada;apta
+"JEAN PIAGET";pape300;sape300;nombre300;tva;NONAME;2;;validada;apta
+"JEAN PIAGET";pape27;sape27;nombre27;tva;NONAME;3;;validada;apta
+"JEAN PIAGET";pape296;sape296;nombre296;tva;VERO-ALCANADRE;3;;validada;apta
+"JEAN PIAGET";pape303;sape303;nombre303;tva;NONAME;2;;validada;apta
+"JEAN PIAGET";pape33;sape33;nombre33;tva;"LOS PUEYOS";1;;validada;apta
+"JEAN PIAGET";pape45;sape45;nombre45;tva;"RINC”N DE GOYA";1;;validada;apta

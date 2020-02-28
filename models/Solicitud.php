@@ -360,7 +360,7 @@ We can now print a cell with Cell(). A cell is a rectangular area, possibly fram
 		$this->log_nueva_solicitud->warning("DATOS TRIBUTANTES");
 		$this->log_nueva_solicitud->warning(print_r($darray,true));
 		}
-		else
+		else //tabla de baremo
 		{
 				$darray['id_alumno']=$id;
 				foreach($datos as $key=>$elto)
@@ -977,40 +977,40 @@ We can now print a cell with Cell(). A cell is a rectangular area, possibly fram
 	}
 	public function getAllSolListados($c=1,$tipo=0,$subtipo_listado='',$fase_sorteo=0,$estado_convocatoria=0) 
 	{
-		if($estado_convocatoria<2) $tabla_alumnos='alumnos';
+		if($estado_convocatoria<3) $tabla_alumnos='alumnos';// 3 . Inicio peridoo provisionales-definitivos
 		else $tabla_alumnos='alumnos_provisional';
 		$this->log_listados_provisionales->warning("CONSULTA SOLICITUDES PROVISIONALES TABLA:".$tabla_alumnos);
-
+		
         	$resultSet=array();
 		if($tipo==0) //todas las solicitudes, incluyendo las q están en borrador
 		{
-			if($c==1)
+			if($c<=1)
 			{
 				if($subtipo_listado=='dup') //solicitudes duplicadas
 					$sql="select a.apellido1,a.apellido2,a.tipoestudios,a.fnac,a.dni_tutor1,a.nombre,a.id_alumno,c.nombre_centro from alumnos a join (select apellido1,nombre from alumnos group by apellido1,nombre having count(*)>1) dup on a.apellido1=dup.apellido1 and dup.nombre=a.nombre join centros c on c.id_centro=a.id_centro_destino join baremo b on b.id_alumno=a.id_alumno order by c.id_centro,a.tipoestudios b.puntos_validados desc";
-				else
-					$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado,b.*,c.nombre_centro,c.provincia,c2.nombre_centro as nombre_centro_origen FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro left join centros c2 on c2.id_centro=a.id_centro_estudios_origen order by c.id_centro desc,a.tipoestudios asc, b.puntos_validados desc";
+				else  //solicitudes normales
+					$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.loc_dfamiliar,a.nordensorteo,a.nasignado as nasignado,b.*,c.nombre_centro,c.provincia,c2.nombre_centro as nombre_centro_origen FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro left join centros c2 on c2.id_centro=a.id_centro_estudios_origen  order by c.id_centro desc,a.tipoestudios asc, b.puntos_validados desc";
 			}
 			else
-					$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado,b.*,c.nombre_centro,c.provincia,c2.nombre_centro as nombre_centro_origen FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro left join centros c2 on c2.id_centro=a.id_centro_estudios_origen  where c.id_centro=$c order by c.id_centro,a.tipoestudios asc, b.puntos_validados desc";
+				$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado,b.*,c.nombre_centro,c.provincia,c2.nombre_centro as nombre_centro_origen FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro left join centros c2 on c2.id_centro=a.id_centro_estudios_origen  where c.id_centro=$c order by c.id_centro,a.tipoestudios asc, b.puntos_validados desc";
 				
 				$this->log_gencsvs->warning("CONSULTA SOLICITUDES CSV");
 				$this->log_gencsvs->warning($sql);
-				}
+		}
 				elseif($tipo==1) //provisionales
 				{
 					if($subtipo_listado=='admitidos_prov')
-						if($c==1)
+						if($c<=1)
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado,c.nombre_centro,b.puntos_validados FROM $tabla_alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta' and est_desp_sorteo='admitida' order by c.id_centro desc,a.tipoestudios desc,a.transporte desc,b.puntos_validados desc";
 						else
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado,c.nombre_centro,b.puntos_validados FROM $tabla_alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta'  and est_desp_sorteo='admitida' and id_centro=$c order by a.tipoestudios asc,a.transporte desc, b.puntos_validados desc";
 					elseif($subtipo_listado=='noadmitidos_prov')
-						if($c==1)
+						if($c<=1)
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado,b.puntos_validados FROM $tabla_alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta'  and est_desp_sorteo='noadmitida' order by c.id_centro, a.tipoestudios asc,a.transporte desc, b.puntos_validados desc";
 						else
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado, b.puntos_validados FROM $tabla_alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta'  and est_desp_sorteo='noadmitida' and id_centro=$c order by a.tipoestudios asc,a.transporte desc, b.puntos_validados desc";
 					elseif($subtipo_listado=='excluidos_prov')
-						if($c==1)
+						if($c<=1)
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado, b.puntos_validados FROM $tabla_alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and( estado_solicitud='duplicada' or estado_solicitud='irregular') order by c.id_centro desc, a.tipoestudios asc,a.transporte desc, b.puntos_validados desc";
 						else
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado, b.puntos_validados FROM $tabla_alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador'  and( estado_solicitud='duplicada' or estado_solicitud='irregular') and id_centro=$c order by a.tipoestudios asc,a.transporte desc, b.puntos_validados desc";
@@ -1020,17 +1020,17 @@ We can now print a cell with Cell(). A cell is a rectangular area, possibly fram
 				elseif($tipo==2) //definitivos
 				{
 					if($subtipo_listado=='admitidos_def')
-						if($c==1)
+						if($c<=1)
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta'  and est_desp_sorteo='admitida' order by c.id_centro desc, a.tipoestudios desc,a.transporte desc, b.puntos_validados desc";
 						else
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta'  and est_desp_sorteo='admitida' and id_centro=$c order by  a.tipoestudios desc,a.transporte desc,b.puntos_validados desc";
 					elseif($subtipo_listado=='noadmitidos_def')
-						if($c==1)
+						if($c<=1)
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta'  and est_desp_sorteo='noadmitida' order by c.id_centro desc, a.tipoestudios desc,a.transporte desc, b.puntos_validados desc";
 						else
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and estado_solicitud='apta'  and est_desp_sorteo='noadmitida' and id_centro=$c order by a.tipoestudios desc,a.transporte desc, b.puntos_validados desc";
 					elseif($subtipo_listado=='excluidos_def')
-						if($c==1)
+						if($c<=1)
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador' and( estado_solicitud='duplicada' or estado_solicitud='irregular') order by c.id_centro desc, a.tipoestudios desc,a.transporte desc, b.puntos_validados desc";
 						else
 							$sql="SELECT a.id_alumno,a.nombre,a.apellido1,a.apellido2,a.tipoestudios,a.fase_solicitud,a.estado_solicitud,a.transporte,a.nordensorteo,a.nasignado as nasignado FROM alumnos a left join baremo b on b.id_alumno=a.id_alumno left join centros c on a.id_centro_destino=c.id_centro where fase_solicitud!='borrador'  and( estado_solicitud='duplicada' or estado_solicitud='irregular') and id_centro=$c order by a.tipoestudios desc,a.transporte desc, b.puntos_validados desc";

@@ -61,9 +61,14 @@ if($_POST['pdf']==1)
 	$pdf = new PDF();
 	$cab=$$cabecera;
 	$pdf->SetFont('Helvetica','',8);
-	$pdf->AddPage('L');
+	//$pdf->AddPage('L','',0,$subtipo_listado);
+	$pdf->AddPage('L','',0,$subtipo_listado);
 	$pdf->BasicTable($cab,$datos);
-	$pdf->AddPage('L');
+	$pdf->Ln(20);
+	 // Arial italic 8
+	$pdf->SetFont('Arial','I',8);
+	  // Page number
+	$pdf->Cell(0,10,'En Zaragoza______________________a____de____2020_',0,0,'C');
 	$pdf->Output(DIR_SOR.$subtipo_listado.'.pdf','F');
 }
 

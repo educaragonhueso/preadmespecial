@@ -61,10 +61,22 @@ $i=0;
 $pdf = new PDF();
 $cab=$$cabecera;
 $pdf->SetFont('Helvetica','',8);
+$pdf->Ln(20);
+$pdf->Ln(20);
 $pdf->setTitle('PROCESO DE ESCOLARIZACION DE ALUMNOS EN CENTROS SOSTENIDOS CON FONDOS PUBLICOS');
 //pagina en Landscape
 $pdf->AddPage('L','',0,'LISTADO COMPLETO VACANTES');
-$pdf->BasicTable($cab,(array)$lvacantes);
+$pdf->BasicTable($cab,(array)$lvacantes,1,$tam=29);
+$pdf->Ln(20);
+ // Arial italic 8
+$pdf->SetFont('Arial','I',8);
+  // Page number
+$pdf->Cell(0,10,'                         SELLO DEL CENTRO',0,1);
+$pdf->Cell(0,10,'EL/LA DIRECTORA                        ',0,1,'R');
+$pdf->Cell(0,10,'En Zaragoza______________________a____de____2020',0,0,'C');
+$pdf->Ln(20);
+$pdf->Cell(0,10,'Fdo                        ',0,1,'R');
+
 $pdf->Output($dir_pdf.$subtipo_listado.'/'.$id_centro.'.pdf','F');
 
 $pdffile=$dir_pdf_web.$subtipo_listado.'/'.$id_centro.'.pdf';

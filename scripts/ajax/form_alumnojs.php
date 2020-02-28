@@ -37,7 +37,7 @@ var cen_options =
 	getValue: 'nombre_centro',
 		list: 
 		{
-			maxNumberOfElements: 10,
+			maxNumberOfElements: 30,
 			match: 
 			{
 			enabled: true

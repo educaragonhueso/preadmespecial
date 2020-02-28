@@ -7,7 +7,6 @@ require_once DIR_BASE.'/models/Centro.php';
 
 $conectar=new Conectar();
 $conexion=$conectar->conexion();
-#print_r($_POST);
 $centro=new Centro($conexion,$_POST['id_centro'],'ajax');
 
 $vacantes=$centro->getVacantes('centro','');

@@ -49,7 +49,7 @@ if($tipo=='csv_mat_admin' && $rol=='admin')
 if($tipo=='csv_sol')
 {
 	$solicitudes=$list->getSolicitudes($id_centro,$tiposol,$fase_sorteo,$modo,'',$provincia); 
-	$log_gencsvs->warning("SOLICITUDES  CSV ");
+	$log_gencsvs->warning("SOLICITUDES  CSV, ROL:  ".$rol);
 }
 //solicitudes duplicadas
 if($tipo=='csv_dup')

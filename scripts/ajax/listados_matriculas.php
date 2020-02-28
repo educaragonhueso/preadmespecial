@@ -10,7 +10,6 @@ require_once DIR_BASE.'models/Centro.php';
 
 if($_POST['rol']=='admin' || $_POST['provincia']!='aragon') 
 {
-	print_r($_POST);
 	$cencont=new CentrosController();
 	print($cencont->showTablas($_POST['rol'],$_POST['id_centro'],'matricula',$_POST['provincia']));
 }
@@ -22,6 +21,6 @@ else
 	$tcentro->setNombre();
 	$matriculas=$list->getAlumnosCentro($_POST['id_centro']);
 	$tablaresumen=$tcentro->getResumen('centro','matricula');
-	print($list->showMatriculados($matriculas));
+	print($list->showMatriculados($matriculas,'centro',$_POST['id_centro']));
 }
 ?>

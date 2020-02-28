@@ -705,7 +705,7 @@ $('body').on('click', '.send', function(e){
   var fsolicitud=$('#fsolicitud'+vid).serialize();
 	//Validacion formulario, de momento se omite
 	var valid='1';
-	var valid=validarFormulario(fsolicitud);
+	var valid=validarFormulario(fsolicitud,vid);
 	var mensaje="Debes incluir un ";
 	if(valid!='1')
 	{
@@ -818,7 +818,7 @@ function campo_dnisol(str) {
 	else return 1;
 }
 
-function validarFormulario(fd)
+function validarFormulario(fd,id)
 {
 var valido='1';
 var res = fd.split("&");
@@ -832,7 +832,7 @@ for (let i = 0; i < res.length; i++)
 	if(d[1]=='') {return 'Fecha nacimiento-fnac';};
 	//comprobar edad alumno
 	if(calcEdad(d[1])>=14) return 'fnac';
-	if(calcEdad(d[1])<=10) return 'Edad mayor';
+	if(calcEdad(d[1])<=2) return 'Edad mayor';
 	}
 //comp datos identificadores
 if(d[0].indexOf('apellido1')==0)
@@ -853,6 +853,25 @@ if(d[0].indexOf('datos_tutor1')==0)
 	{
 	if(d[1]=='') {return 'Datos de tutor/a-datos_tutor1';};
 	}
+if(d[0].indexOf('baremo_proximidad_domicilio')==0)
+	{
+	console.log("validando dlaboral: "+id);
+	var valor1=$("input[id='baremo_calle_dlaboral"+id+"']").val();
+	var valor2=$("input[id='baremo_calle_dllimitrofe"+id+"']").val();
+	if($("input[value='dlaboral']").is(':checked'))
+	{
+		console.log("CHECKED: "+valor1.length+" valor");
+		if(valor1.length<=2) return "Valor para el domicilio laboral";
+	}
+	if($("input[value='dllimitrofe']").is(':checked'))
+	{
+		console.log("CHECKED: "+valor2.length+" valor");
+		if(valor2.length<=2) return "Valor para el domicilio laboral en zona limitrofe";
+	}
+	}
+//		if(d[1]=='') return "Valor para el domicilio laboral";
+//	if($("input[value='dllimitrofe']").is(':checked')) 
+//		if(d[1]=='') return "Valor para el domicilio laboral en zona limítrofe";
 /*
 if(d[0].indexOf('calle_dfamiliar')==0)
 	{
@@ -930,13 +949,13 @@ $.ajax({
   url:'../scripts/ajax/editar_solicitud.php',
    	success: function(data) 
 	{
-				if(vrol.indexOf("alumno")!=-1)
-					{
-					$("#l_matricula").after(data);
-					}
+		if(vrol.indexOf("alumno")!=-1)
+		{
+			$("#l_matricula").after(data);
+		}
 	console.log(data);
       	$("#"+idappend).after(data);
-	if(vestado=='1') {disableForm($('#fsolicitud'+vid)) ;}
+	if(vestado=='3') {disableForm($('#fsolicitud'+vid)) ;}
       	},
       	error: function() {
         alert('PROBLEMAS EDITANDO SOLICITUD!');
@@ -1116,7 +1135,7 @@ $.ajax({
 				}
 				else
 				{
-						$(".tresumenmat").hide();
+					//	$(".tresumenmat").hide();
 						$("#tresumen"+vid_centro).show();
 						$("#l_matricula").html(data);
 				}
@@ -1132,16 +1151,18 @@ $('body').on('click', '.cabcenmat', function(e){
   var vid_centro=$(this).attr('id');
   vid_centro=vid_centro.replace('cabcen','');
   var vrol=$('#rol').attr("value");
+  if(vrol.indexOf('sp')!=-1) vrol='sp';
 $.ajax({
   method: "POST",
   url: "../scripts/ajax/mostrar_matriculados.php",
-  data: {codigo_centro:vid_centro,rol:vrol},
+  data: {id_centro:vid_centro,rol:vrol},
       success: function(data) 
 			{
-				if(vrol.indexOf('admin')!=-1)
+				if(vrol.indexOf('admin')!=-1 || vrol.indexOf('sp')!=-1)
 				{
-				if($('#mat_table').length) $('#mat_table').hide();
-				$('#table'+vid_centro).after(data);
+				console.log("en matricula");
+				if($('#mat_table'+vid_centro).length) $('#mat_table'+vid_centro).toggle();
+				else $('#table'+vid_centro).after(data).show('slow');
 	
 				}
 				else
@@ -1210,11 +1231,16 @@ $.ajax({
 //CAMBIO ESTADO BOTONES
 $('body').on('click', '.cambiar', function(e){
 e.stopPropagation();
-	var vidcentro=$('#id_centro').text();
+  //var vidcentro=$('#id_centro').text();
+  //var vidcentro=$('.cabcenmat').attr("id");
+  //vidcentro=vidcentro.replace('cabcen','');
+
+  vidcentro=$(this).parent('td').parent('tr').parent('tbody').parent('table').attr('id');
+  vidcentro=vidcentro.replace('mat_table','');
   var ots = $(this);
   var vid=$(this).attr("id");
-	vid=vid.replace('cambiar','');
-	var vcontinua=$("#estado"+vid).text();
+  vid=vid.replace('cambiar','');
+  var vcontinua=$("#estado"+vid).text();
   var vtipoalumno=$('#tipoalumno'+vid).text();
   var vestado_pulsado=$(this).text();
   var vestado_actual=$(this).parent('div').parent('div').attr("id");
@@ -1224,25 +1250,29 @@ $.ajax({
   url:'../scripts/ajax/cambio_estado_solicitud.php',
       success: function(data) 
       {
-			if(vcontinua.indexOf('NO')!=-1){ alert("El alumno no continua, no afecta plazas vacantes");return;}
-	 		cambiar_tipo(ots,vestado_pulsado,vid);
-			var vacantes_ebo =data.split(":")[0];
-			var vacantes_tva =data.split(":")[1];
-   	 	$('#vacantesmat_ebo_desk').html(vacantes_ebo);
-   	  $('#vacantesmat_tva_desk').html(vacantes_tva);
-   	  var  npo_ebo=$('#vacantesmat_ebo_desk').prev().text();
-   	  var  npo_tva=$('#vacantesmat_tva_desk').prev().text();
-			if(vestado_pulsado.indexOf('EBO')!=-1)
-			{
-	   	  $('#vacantesmat_ebo_desk').prev().html(+npo_ebo+1);
-	   	  $('#vacantesmat_tva_desk').prev().html(+npo_tva-1);
-			}
-			if(vestado_pulsado.indexOf('TVA')!=-1)
-			{
-	   	  $('#vacantesmat_ebo_desk').prev().html(+npo_ebo-1);
-	   	  $('#vacantesmat_tva_desk').prev().html(+npo_tva+1);
-			}
-      	},
+	if(vcontinua.indexOf('NO')!=-1){ alert("El alumno no continua, no afecta plazas vacantes");return;}
+	cambiar_tipo(ots,vestado_pulsado,vid);
+	var vacantes_ebo =data.split(":")[0];
+	var vacantes_tva =data.split(":")[1];
+       	$('#vacantesmat_ebo_desk'+vidcentro).html(vacantes_ebo);
+   	$('#vacantesmat_tva_desk'+vidcentro).html(vacantes_tva);
+   	var  npo_ebo=$('#vacantesmat_ebo_desk'+vidcentro).prev().text();
+   	var  npo_tva=$('#vacantesmat_tva_desk'+vidcentro).prev().text();
+	if(vestado_pulsado.indexOf('EBO')!=-1)
+	{
+		console.log("pulsado ebo");
+		console.log(ots.parent('td').parent('tr').parent('tbody').parent('table').attr('id'));
+		//$(this).closest('#vacantesmat_ebo_desk').prev().html(+npo_ebo+1);
+		$('#vacantesmat_ebo_desk'+vidcentro).prev().html(+npo_ebo+1);
+		$('#vacantesmat_tva_desk'+vidcentro).prev().html(+npo_tva-1);
+		//$('#vacantesmat_tva_desk').prev().html(+npo_tva-1);
+	}
+	if(vestado_pulsado.indexOf('TVA')!=-1)
+	{
+		$('#vacantesmat_ebo_desk'+vidcentro).prev().html(+npo_ebo-1);
+	   	$('#vacantesmat_tva_desk'+vidcentro).prev().html(+npo_tva+1);
+	}
+      },
       error: function() {
         alert('Problemas cambiando de estado!');
       }
@@ -1264,7 +1294,8 @@ $('body').on('click', '.continua', function(e){
 	id=id.replace('estado','');
 	id=id.replace('continua','');
 	id=id.replace('cambiar','');
-	var vidcentro=$('#id_centro').text();
+  var vidcentro=$(this).parent('td').parent('tr').parent('tbody').parent('table').attr('id');
+  vidcentro=vidcentro.replace('mat_table','');
   var vtipoalumno=$('#tipoalumno'+id).text();
 $.ajax({
   method: "POST",
@@ -1272,22 +1303,25 @@ $.ajax({
   url:'../scripts/ajax/cambio_estado_continua.php',
       success: function(data) 
 			{
-			if(data.indexOf('error')!=-1){ alert("No hay plazas vacantes");return;}
-			var vacantes_ebo =data.split(":")[0];
-			var vacantes_tva =data.split(":")[1];
-	  	//cambiarboton(ots);
-	  	cambiarestado(id,est);
-			vtipoalumno=vtipoalumno.toLowerCase();
-   	 	$('#vacantesmat_ebo_desk').html(vacantes_ebo);
-   	  $('#vacantesmat_tva_desk').html(vacantes_tva);
-   	  var  numpzasocupadas=$('#vacantesmat_'+vtipoalumno+'_desk').prev().text();
-   	  var  numpuestos=$('#vacantesmat_'+vtipoalumno+'_desk').prev().prev().text();
+	 if(data.indexOf('error')!=-1){ alert("No hay plazas vacantes");return;}
+	 var vacantes_ebo =data.split(":")[0];
+	 var vacantes_tva =data.split(":")[1];
+	  //cambiarboton(ots);
+	  cambiarestado(id,est);
+		console.log(vidcentro);
+   	  console.log($('#vacantesmat_ebo_desk'+vidcentro).html());
+	  vtipoalumno=vtipoalumno.toLowerCase();
+   	  $('#vacantesmat_ebo_desk'+vidcentro).html(vacantes_ebo);
+   	  $('#vacantesmat_tva_desk'+vidcentro).html(vacantes_tva);
+   	  var  numpzasocupadas=$('#vacantesmat_'+vtipoalumno+'_desk'+vidcentro).prev().text();
+   	  var  numpuestos=$('#vacantesmat_'+vtipoalumno+'_desk'+vidcentro).prev().prev().text();
 			//modificamos tabla vacantes
-   	  if(est=='NO CONTINUA'){
-   	  	if(+numpzasocupadas-1>=0) $('#vacantesmat_'+vtipoalumno+'_desk').prev().html(+numpzasocupadas-1);
+   	  if(est=='NO CONTINUA')
+	  {
+   	  	if(+numpzasocupadas-1>=0) $('#vacantesmat_'+vtipoalumno+'_desk'+vidcentro).prev().html(+numpzasocupadas-1);
    	  }
 			//else if(+numpzasocupadas+1<=numpuestos) $('#vacantesmat_'+vtipoalumno+'_desk').prev().html(+numpzasocupadas+1);
-			else  $('#vacantesmat_'+vtipoalumno+'_desk').prev().html(+numpzasocupadas+1);
+			else  $('#vacantesmat_'+vtipoalumno+'_desk'+vidcentro).prev().html(+numpzasocupadas+1);
       },
       error: function() 
 			{
@@ -1386,7 +1420,7 @@ $('input[id*=loc_dfamiliar]').easyAutocomplete(loc_options);
 
 var cen_options = 
 	{
-	url: "../datosweb/centros_especial1.json",
+	url: "../datosweb/centros_especial.json",
 	getValue:"nombre_centro",
 		list: 
 		{
@@ -1477,20 +1511,20 @@ $('body').on('change', 'input[type=checkbox][id*=oponenautorizar]', function(e){
 
 $('body').on('click', '.exportcsv', function(e)
 {
-	var vrol=$('#rol').text();
-	var vid=$(this).attr("id");
-	var vidcentro=$('#id_centro').text();
-  var vsubtipo=$(this).attr("data-subtipo");
+var vrol=$('#rol').text();
+var vid=$(this).attr("id");
+var vidcentro=$('#id_centro').text();
+var vsubtipo=$(this).attr("data-subtipo");
 	$.ajax({
-	  method: "POST",
-	  data: {id_centro:vidcentro,tipolistado:vsubtipo,rol:vrol},
-	  url:'../scripts/ajax/gen_csvs.php',
-	      success: function(data) {
-				window.open(data,'_blank');
-		},
-	      error: function() {
-		alert('Problemas imprimiendo solicitud!');
-	      }
+	method: "POST",
+	data: {id_centro:vidcentro,tipolistado:vsubtipo,rol:vrol},
+	url:'../scripts/ajax/gen_csvs.php',
+	success: function(data) {
+			window.open(data,'_blank');
+	},
+	error: function() {
+	alert('Problemas imprimiendo solicitud!');
+	}
 	});
 
 });

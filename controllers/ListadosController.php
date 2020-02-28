@@ -80,14 +80,14 @@ class ListadosController extends ControladorBase{
 		$this->log_gencsvs->warning('ENTRANDO EN GET Matricula, MODO: '.$modo);
 		$matricula=new Matricula($this->adapter);
 		if($modo=='normal')
-    {	
+    		{	
 		  //Conseguimos todas las matriculas. funcion por definir
     	//$allmatricula=$matricula->getAllMat($id_centro,$tiposol,$fase_sorteo);
  		}
 		elseif($modo=='csv')
 		{
 			$this->log_gencsvs->warning('OBTENIENDO MATRICULA PARA CSV');
-    	$allmatriculas=$matricula->getAllMatListados($id_centro,$tiposol);
+    			$allmatriculas=$matricula->getAllMatListados($id_centro,$tiposol);
 		}
 	return $allmatriculas;
 	}
@@ -97,23 +97,23 @@ class ListadosController extends ControladorBase{
 		$solicitud=new Solicitud($this->adapter);
 		if($modo=='normal')// listados previos al sorteo
     		{	
-		  //Conseguimos todas las solcitudes del centro
-	    	$allsolicitudes=$solicitud->getAllSolSorteo($id_centro,$tiposol,$fase_sorteo,$subtipo_listado,$provincia);
+			  //Conseguimos todas las solcitudes del centro
+	    		$allsolicitudes=$solicitud->getAllSolSorteo($id_centro,$tiposol,$fase_sorteo,$subtipo_listado,$provincia);
  		}
 		elseif($modo=='csv')
 		{
 			$this->log_gencsvs->warning('OBTENIENDO SOL PARA CSV');
-    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,$tiposol,$subtipo_listado,$estado_convocatoria);
+		    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,$tiposol,$subtipo_listado,$estado_convocatoria);
 		}
 		elseif($modo=='provisionales')
 		{
 			$this->log_listados_provisionales->warning('OBTENIENDO PROVISIONALES GETALLSOLLISTADOS');
-    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,1,$subtipo_listado,$fase_sorteo,$estado_convocatoria);
+    			$allsolicitudes=$solicitud->getAllSolListados($id_centro,1,$subtipo_listado,$fase_sorteo,$estado_convocatoria);
 		}
 		elseif($modo=='definitivos')
 		{
 			$this->log_listados_definitivos->warning('OBTENIENDO DEFINITIVOS');
-    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,2,$subtipo_listado,$estado_convocatoria);
+		    	$allsolicitudes=$solicitud->getAllSolListados($id_centro,2,$subtipo_listado,$estado_convocatoria);
 		}
 	return $allsolicitudes;
 	}
@@ -341,7 +341,7 @@ class ListadosController extends ControladorBase{
 
 	return $html;
 	}
-  public function showMatriculado($mat)
+  public function showMatriculado($mat,$rol='centro')
 	{
 		$this->log_listados_matricula->warning("MOSTRANDO MATRICULA");
 		$this->log_listados_matricula->warning(print_r($mat,true));
@@ -358,38 +358,38 @@ class ListadosController extends ControladorBase{
      
 			if($mat->tipo_alumno_actual=='tva')
 			{ 
-      			$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A EBO</button></td>';
+			if($rol=='admin' || $rol=='sp')
+	      			$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A EBO</button></td>';
       			$li.= '<td><button type="button" class="btn btn-info continua" id="continua'.$i.'">'.$estado.'</button></td>';
 			}
 			if($mat->tipo_alumno_actual=='ebo')
 			{ 
-      			$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A TVA</button></td>';
+			if($rol=='admin' || $rol=='sp')
+      				$li.= '<td><button type="button" class="btn btn-info cambiar" id="cambiar'.$i.'">CAMBIA A TVA</button></td>';
 	      		$li.= '<td><button type="button" class="btn btn-info continua" id="continua'.$i.'">'.$estado.'</button></td>';
 			}
 			$li.='</tr>';
 		return $li;
 	}
-  public function showMatriculados($a)
+  public function showMatriculados($a,$rol='centro',$id_centro=9999)
 	{
-		$this->log_listados_matricula->warning("MOSTRANDO MATRICULADOS");
+		$this->log_listados_matricula->warning("MOSTRANDO MATRICULADOS rol: ".$rol);
 		$this->log_listados_matricula->warning(print_r($a,true));
 	//codigo para mostrar alumnos según tipo de inscripcion
-		$tmat='<table class="table usuario table-striped">
-    <thead class="theadmat">
-      <tr>
-        <th>APELLIDOS</th>
-        <th>NOMBRE</th>
-        <th>TIPO</th>
-        <th>ESTADO</th>
-        <th>CAMBIO TIPO</th>
-        <th>CAMBIO CONTINUA</th>
-      </tr>
-    </thead>
-    <tbody>';
+		$tmat='<table id="mat_table'.$id_centro.'" class="table usuario table-striped">
+			    <thead class="theadmat">
+			      <tr>
+				<th>APELLIDOS</th>
+				<th>NOMBRE</th>
+				<th>TIPO</th>
+				<th>ESTADO</th>';
+		if($rol=='admin' || $rol=='sp')
+			$tmat.='<th>CAMBIO TIPO</th>';
+		$tmat.='<th>CAMBIO CONTINUA</th></tr></thead><tbody>';
 
 		foreach($a as $matricula) 
 		{
-		$tmat.=$this->showMatriculado($matricula);    
+		$tmat.=$this->showMatriculado($matricula,$rol);    
     }
     $tmat.='</tbody></table>';
 
@@ -483,30 +483,30 @@ class ListadosController extends ControladorBase{
 	$display='';
 	//if($cabecera=='no') $display='none';
 	$this->log_listado_general->warning('DISPLAY/CABECERA: '.$display.'--'.$cabecera);
-	$tres='<div id="tresumen'.$id_centro.'" class="container tresumenmat"><h2>'.strtoupper($datos).'-- <span  class="cabcenmat" id="cabcen'.$id_centro.'">'.strtoupper($nombre_centro).'</span></h2>';
+	$tres='<div id="table'.$id_centro.'" class="container tresumenmat"><h2>'.strtoupper($datos).'-- <span  class="cabcenmat" id="cabcen'.$id_centro.'">'.strtoupper($nombre_centro).'</span></h2>';
  	$tres.='<table class="table table-dark table-striped desk" id="table'.$id_centro.'">';
-  if($cabecera=='si')
-	 $tres.='<thead>
-      <tr>
-        <th>Tipo</th>
-        <th>Grupos</th>
-        <th>Puestos</th>
-        <th>Plazas Ocupadas</th>
-        <th>Vacantes</th>
-      </tr>
-    </thead>
-    <tbody>';
-	else
-	 $tres.='<thead>
-      <tr>
-        <th>Tipo</th>
-        <th>Grupos</th>
-        <th>Puestos</th>
-        <th>Plazas Ocupadas</th>
-        <th>Vacantes</th>
-      </tr>
-    </thead>
-    <tbody>';
+  	if($cabecera=='si')
+		 $tres.='<thead>
+		      <tr>
+			<th>Tipo</th>
+			<th>Grupos</th>
+			<th>Puestos</th>
+			<th>Plazas Ocupadas</th>
+			<th>Vacantes</th>
+		      </tr>
+		    </thead>
+		    <tbody>';
+			else
+			 $tres.='<thead>
+		      <tr>
+			<th>Tipo</th>
+			<th>Grupos</th>
+			<th>Puestos</th>
+			<th>Plazas Ocupadas</th>
+			<th>Vacantes</th>
+		      </tr>
+		    </thead>
+		    <tbody>';
  
 	foreach($a as $obj)
 	{
@@ -516,7 +516,7 @@ class ListadosController extends ControladorBase{
         <td>".$obj->grupo."</td>
         <td>".$obj->puestos."</td>
         <td>".$obj->plazasactuales."</td>
-        <td id='vacantesmat_".$obj->ta."_desk'>".$obj->vacantes."</td>
+        <td id='vacantesmat_".$obj->ta."_desk".$id_centro."'>".$obj->vacantes."</td>
       	</tr>";
 	}
     	$tres.="</tbody> </table></div>";
@@ -559,6 +559,7 @@ class ListadosController extends ControladorBase{
 			$linea=array();
 			$nfichero=$dir.'/'.$tipo.'.csv';
 			$fp = fopen($nfichero, 'w'); 
+			$this->log_gencsvs->warning("GENERANDO CSV FICHERO: ".$nfichero);
 			$this->log_gencsvs->warning("GENERANDO CSV, CABECERA:");
 			$this->log_gencsvs->warning(print_r($datos,true));
 			$this->log_gencsvs->warning("GENERANDO CSV, CONTENIDO:");

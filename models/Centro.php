@@ -39,9 +39,7 @@ class Centro extends EntidadBase{
 	}
     public function getVacantes($rol='centro',$tipo='')
 		{
-
-			$sql="
-select ifnull(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),t3.plazas) as vacantes from          (select tipo_alumno ta,num_grupos as ng,plazas from centros_grupos ce where ce.id_centro=".$this->id_centro." ) as t3          left join          (select  tipo_alumno_actual as tf, ifnull(count(*),0) as np from matricula where id_centro=".$this->id_centro." and estado='continua' group by tipo_alumno_actual ) as t2  on t3.ta=t2.tf;
+			$sql="select ifnull(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),t3.plazas) as vacantes from          (select tipo_alumno ta,num_grupos as ng,plazas from centros_grupos ce where ce.id_centro=".$this->id_centro." ) as t3          left join          (select  tipo_alumno_actual as tf, ifnull(count(*),0) as np from matricula where id_centro=".$this->id_centro." and estado='continua' group by tipo_alumno_actual ) as t2  on t3.ta=t2.tf;
 ";
 			$query=$this->conexion->query($sql);
 			$this->log_matricula->warning('sql vacantes: '.$sql);
@@ -67,14 +65,14 @@ select ifnull(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),t3.plazas) as vacantes fro
 				if($t=='matricula')
 					{
 					$sql="
-						select t1.ta,t3.ng as grupo,t3.plazas as puestos,IFNULL(t2.np,0) as plazasactuales,IFNULL(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),0) as vacantes 
-						from
-					  (select tipo_alumno ta,sum(num_grupos) as ng,sum(plazas) as plazas from centros_grupos ce group by ta) as t3
-					  join                   
-					  (select  tipo_alumno_actual as tf, count(*) as np from matricula where estado='continua' group by tipo_alumno_actual ) as t2  
-					  on t3.ta=t2.tf    
+					select t1.ta,t3.ng as grupo,t3.plazas as puestos,IFNULL(t2.np,0) as plazasactuales,IFNULL(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),0) as vacantes 
+					from
+					(select tipo_alumno ta,sum(num_grupos) as ng,sum(plazas) as plazas from centros_grupos ce group by ta) as t3
+					join                   
+					(select  tipo_alumno_actual as tf, count(*) as np from matricula where estado='continua' group by tipo_alumno_actual ) as t2  
+					on t3.ta=t2.tf    
   					join                   
-					  (select  tipo_alumno_actual as ta, count(*) as np from matricula m group by tipo_alumno_actual  ) as t1 on t1.ta=t3.ta;
+					(select  tipo_alumno_actual as ta, count(*) as np from matricula m group by tipo_alumno_actual  ) as t1 on t1.ta=t3.ta;
 						";
 					}
 					elseif($t=='alumnos')
@@ -92,14 +90,17 @@ select ifnull(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),t3.plazas) as vacantes fro
 				if($t=='matricula')
 					{
 						$sql="
-						select t1.ta,t3.ng as grupo,t3.plazas as puestos,IFNULL(t2.np,0) as plazasactuales,IFNULL(IF(t3.plazas-t2.np<0,0,t3.plazas-t2.np),0) as vacantes from 
-									(select tipo_alumno ta,num_grupos as ng,plazas from centros_grupos ce where ce.id_centro=".$this->id_centro.") as t3 
-									left join 
-									(select  tipo_alumno_actual as tf, count(*) as np from matricula where id_centro=".$this->id_centro." and estado='continua' group by tipo_alumno_actual ) as t2  
-									on t3.ta=t2.tf 
-									left join 
-									(select  tipo_alumno_actual as ta, count(*) as np from matricula m,centros ce where m.id_centro=ce.id_centro and ce.id_centro=".$this->id_centro." group by tipo_alumno_actual  ) as t1 
-									on t1.ta=t3.ta
+						select t1.ta,t3.ng as grupo,t3.plazas as puestos,IFNULL(t2.np,0) as plazasactuales,
+						IFNULL(IF(ifnull(t3.plazas,0)-ifnull(t2.np,0)<0,0,ifnull(t3.plazas,0)-ifnull(t2.np,0)),0
+						) 
+						as vacantes from 
+						(select tipo_alumno ta,num_grupos as ng,plazas from centros_grupos ce where ce.id_centro=".$this->id_centro.") as t3 
+						left join 
+						(select  tipo_alumno_actual as tf, count(*) as np from matricula where id_centro=".$this->id_centro." and estado='continua' group by tipo_alumno_actual ) as t2  
+						on t3.ta=t2.tf 
+						left join 
+						(select  tipo_alumno_actual as ta, count(*) as np from matricula m,centros ce where m.id_centro=ce.id_centro and ce.id_centro=".$this->id_centro." group by tipo_alumno_actual  ) as t1 
+						on t1.ta=t3.ta
 						";
 					}
 					elseif($t=='alumnos')	

@@ -1,29 +1,26 @@
 <?php 
+require_once $_SERVER['CONTEXT_DOCUMENT_ROOT']."/config/config_global.php";
 require_once 'core/Conectar.php';
 session_start();
 $conectar=new Conectar();
 $conexion=$conectar->conexion();
 header('Content-Type: text/html; charset=UTF-8');  
 
-
-    // Define variables and initialize with empty values
-    $nombre_usuario = $clave = "";
-    $nombre_usuario_err = $clave1_err =$clave2_err= "";
+// Define variables and initialize with empty values
+$nombre_usuario = $clave = "";
+$err=$nombre_usuario_err = $clave1_err =$clave2_err= "";
     // Processing form data when form is submitted
   if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-  // tamaño clave mayor de 4
-  if(strlen(trim($_POST["clave1"])!=$_POST["clave2"]))
-       $err = 'Las contraseñas son distintas';
-  if(strlen(trim($_POST["clave1"])<=4))
-	{
+  if(strlen($_POST['clave1'])<=4)
+  {
             $clave1_err = 'La contraseña debe ser de al menos 5 caracteres';
   } 
-	else
-	{
+  else
+  {
    	$clave1 = trim($_POST["clave1"]);
   }
-  if(strlen(trim($_POST["clave2"])<=4))
+  if(strlen($_POST['clave2']<=4))
 	{
             $clave2_err = 'Clave debe tener al menso 5 caracteres';
   } 
@@ -31,22 +28,25 @@ header('Content-Type: text/html; charset=UTF-8');
 	{
    	$clave2 = trim($_POST["clave2"]);
   }
+  // tamaño clave mayor de 4
+  if(strlen(trim($_POST["clave1"])!=trim($_POST["clave2"])))
+       $err = 'Las contraseñas son distintas';
         // Si no hay errores, actualizar la abse de datos
-        if(empty($clave1_err) && empty($clave2_err))
-				{
+        if(empty($clave1_err) && empty($clave2_err) && empty($err) )
+	{
 				//si es un alumno la clave es de 4 digitos
 				$centro=$_SESSION['id_centro'];
-				$usuario=$_SESSION['id_usuario'];
-        $sql1 = "UPDATE centros set primera_conexion='no' where id_centro=?";
-        $sql2 = "UPDATE usuarios set clave=md5('".$_POST['clave1']."') where id_usuario=?";
+				$usuario=$centro;
+        			$sql1 = "UPDATE centros set primera_conexion='no' where id_centro=?";
+        			$sql2 = "UPDATE usuarios set clave=md5('".$_POST['clave1']."') where id_usuario=?";
 
 	    	#if($stmt1 = $conexion->prepare($sql1) && $stmt2 = $conexion->prepare($sql2))
-	    	if($stmt1 = $conexion->prepare($sql1))
+	    			if($stmt1 = $conexion->prepare($sql1))
 				{
-          // Bind variables to the prepared statement as parameters
-          $stmt1->bind_param("i", $centro);
-          //$stmt2->bind_param("i", $usuario);
-					// Attempt to execute the prepared statement
+	        		  // Bind variables to the prepared statement as parameters
+     			   	  $stmt1->bind_param("i", $centro);
+			        //$stmt2->bind_param("i", $usuario);
+				// Attempt to execute the prepared statement
 				if($stmt1->execute())
 				{
 				$res1=1;
@@ -55,21 +55,21 @@ header('Content-Type: text/html; charset=UTF-8');
 				else {echo "No ha podido actualizarse la contraseña, prueba más tarde o consulta al administrador lhueso@aragon.es";}
 				//header("location: login_activa.php");
 				}
-	    	if($stmt2 = $conexion->prepare($sql2))
+			    	if($stmt2 = $conexion->prepare($sql2))
 				{
-          // Bind variables to the prepared statement as parameters
-          $stmt2->bind_param("i", $usuario);
-					// Attempt to execute the prepared statement
+			         // Bind variables to the prepared statement as parameters
+			        $stmt2->bind_param("i", $usuario);
+				// Attempt to execute the prepared statement
 				if($stmt2->execute())
 				{
 				$res2=1;
 				$stmt2->close();
 				}
 				else {echo "No ha podido actualizarse la contraseña, prueba más tarde o consulta al administrador lhueso@aragon.es";}
+				}
 				if($res1==1 && $res2==1)
 					header("Refresh:5;url=login_activa.php");
 					echo "CONTRASEÑA ACTUALIZADA CORRECTAMENTE En unos segundos podrás iniciar sesion";
-				}
 				
         }
         // Close connection
@@ -119,10 +119,8 @@ input[type=text], input[type=password] {
     <body>
         <div class="wrapper">
             <h2>Acceso inscripciones estudios de Educación Especial</h2>
-	<button type="button" class="btn btn-primary" id="csolicitud">Crear solicitud</button>
 
-
-            <p>Introduce la nueva contraseña</p>
+            <h3>DEBES CREAR UNA NUEVA CONTRASEÑA:</h3>
             <form action="" method="post">
                 <div class="form-group <?php echo (!empty($nombre_usuario_err)) ? 'has-error' : ''; ?>">
                     <label>Contraseña</label>
